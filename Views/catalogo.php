@@ -74,9 +74,6 @@
             </div>
         </div>
 
-
-        
-
         <div class="grid grid-cols-1 md:grid-cols-3 gap-5 bg-white">
             <div class="bg-whites rounded-lg shadow-md hover:shadow-lg">
                 <img src="../static/img/camiseta2.png" alt="Camisa Nike" class="rounded-t-lg">
@@ -88,10 +85,6 @@
                     </div>
                 </div>
             </div>
-
-
-
-
 
             <div class="bg-white rounded-lg shadow-md hover:shadow-lg">
                 <img src="../static/img/camiseta3.png" alt="Camisa Adidas" class="rounded-t-lg">
