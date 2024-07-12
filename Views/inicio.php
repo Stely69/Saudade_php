@@ -211,7 +211,7 @@
                             <div
                                 class="flex gap-4 items-center justify-self-center mt-auto pt-4 border-t border-slate-300 ">
 
-                                <a href="{{ url_for('compra') }}"> <button class="text-white">Ver mas</button></a>
+                                <a href="../Views/compra.php"> <button class="text-white">Ver mas</button></a>
 
                             </div>
                         </div>
@@ -230,7 +230,7 @@
                             </h3>
                             <h2 class="text-xs text-slate-400 mb-3"></h2>
                             <div class="flex gap-4 items-center mt-auto pt-4 border-t border-slate-300">
-                                <a href="{{ url_for('compra') }}"> <button class="text-white">Ver mas</button></a>
+                                <a href="../Views/compra.php"> <button class="text-white">Ver mas</button></a>
                             </div>
                         </div>
                     </div>
@@ -247,7 +247,7 @@
                             </h3>
                             <h2 class="text-xs text-slate-400 mb-3"></h2>
                             <div class="flex gap-4 items-center mt-auto pt-4 border-t border-slate-300">
-                                <a href="{{ url_for('compra') }}"> <button class="text-white">Ver mas</button></a>
+                                <a href="../Views/compra.php"> <button class="text-white">Ver mas</button></a>
                             </div>
                         </div>
                     </div>
@@ -264,7 +264,7 @@
                             </h3>
                             <h2 class="text-xs text-slate-400 mb-3"></h2>
                             <div class="flex gap-4 items-center mt-auto pt-4 border-t border-slate-300">
-                                <a href="{{ url_for('compra') }}"> <button class="text-white">Ver mas</button></a>
+                                <a href="../Views/compra.php"> <button class="text-white">Ver mas</button></a>
                             </div>
                         </div>
                     </div>

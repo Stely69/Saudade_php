@@ -84,7 +84,7 @@
                     <h3 class="text-black text-center font-medium">Camisa</h3>
                     <p class="text-black">$45.000</p>
                     <div class="flex items-center justify-between mt-4">
-                        <a href="{{ url_for('compra') }}" class="text-blue-500 hover:underline">Ver detalles</a>
+                        <a href="../views/compra.php" class="text-blue-500 hover:underline">Ver detalles</a>
                     </div>
                 </div>
             </div>
@@ -99,7 +99,7 @@
                     <h3 class="text-black text-center font-medium">Camisa </h3>
                     <p class="text-black">$60.000</p>
                     <div class="flex items-center justify-between mt-4">
-                        <a href="{{ url_for('compra') }}" class="text-blue-500 hover:underline">Ver detalles</a>
+                        <a href="../Views/compra.php" class="text-blue-500 hover:underline">Ver detalles</a>
                    </div>
                 </div>
             </div>
@@ -109,7 +109,7 @@
                   <h3 class="text-black text-center font-medium">Camisa </h3>
                   <p class="text-black">$60.000</p>
                   <div class="flex items-center justify-between mt-4">
-                      <a href="{{ url_for('compra') }}" class="text-blue-500 hover:underline">Ver detalles</a>
+                      <a href="../Views/compra.php" class="text-blue-500 hover:underline">Ver detalles</a>
                  </div>
               </div>
           </div>
@@ -119,7 +119,7 @@
                 <h3 class="text-black text-center font-medium">Camisa </h3>
                 <p class="text-black">$60.000</p>
                 <div class="flex items-center justify-between mt-4">
-                    <a href="{{ url_for('compra') }}" class="text-blue-500 hover:underline">Ver detalles</a>
+                    <a href="../Views/compra.php" class="text-blue-500 hover:underline">Ver detalles</a>
                </div>
             </div>
         </div>
@@ -129,7 +129,7 @@
               <h3 class="text-black text-center font-medium">Camisa</h3>
               <p class="text-black">$60.000</p>
               <div class="flex items-center justify-between mt-4">
-                  <a href="{{ url_for('compra') }}" class="text-blue-500 hover:underline">Ver detalles</a>
+                  <a href="../Views/compra.php" class="text-blue-500 hover:underline">Ver detalles</a>
              </div>
           </div>
       </div>
@@ -139,7 +139,7 @@
             <h3 class="text-black text-center font-medium">Camisa</h3>
             <p class="text-black">$60.000</p>
             <div class="flex items-center justify-between mt-4">
-                <a href="{{ url_for('compra') }}" class="text-blue-500 hover:underline">Ver detalles</a>
+                <a href="../Views/compra.php" class="text-blue-500 hover:underline">Ver detalles</a>
            </div>
         </div>
     </div>
