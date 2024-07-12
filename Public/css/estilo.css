@@ -1,0 +1,48 @@
+.gradient-custom {
+/* fallback for old browsers */
+background: #ffffff;
+
+/* Chrome 10-25, Safari 5.1-6 */
+background: -webkit-linear-gradient(to right, rgb(255, 255, 255), rgb(243, 247, 255));
+
+/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+background:  rgb(175, 105, 205, 0.2)
+}
+
+
+.card.bg-dark.text-white {
+    background-color: #050016 !important;
+    color: white !important;
+}
+
+.btn.btn-outline-light.btn-lg.px-5 {
+    background-color:#0E0047 !important;
+    color: white !important;
+}
+
+#angel{
+    position: absolute;
+    transform: scaleX(-1);
+    width: 250px;
+    margin-top: 300px;
+    margin-left: -50px;
+}
+
+#angel2{
+    position: absolute;
+    width: 250px;
+    margin-top: 300px;
+    margin-left: 1380px;
+}   
+
+#typeEmailX{
+    border-radius: 20px;
+}
+
+#typePasswordX{
+    border-radius: 20px;
+}
+
+#linea{
+    color: #7b58e3;
+}

@@ -1,0 +1,70 @@
+body{
+    background-color: rgba(255, 255, 255, 0.2);
+}
+#camisa{
+    margin-left: 200px;
+    margin-top: 100px;
+    width: 400px;
+    background-color: white;
+    border-radius: 40px;
+    border: 5px solid #9032bb;
+    padding: 50px;
+    display: flex-;
+}
+.tallas{
+    margin: 20px;
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    padding: 5px;
+    border-radius: 60%;
+    border: 2px solid;
+    border-color: #9032bb;
+    color: #9032bb;
+    font-size:larger;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    flex: 1;
+    min-width: 50px;
+}
+.tallas:hover{
+    background-color: #9032bb;
+    color: #ffffff;
+    border-color: #ffffff;
+}
+.seleccionado{
+    background-color: #9032bb;
+    color: #ffffff;
+    border-color: #ffffff;
+}
+.info{
+    text-align: center;
+    margin-left: 800px;
+    margin-top: -350px;
+    flex-wrap: wrap;
+}
+.cc {
+    padding: 15px;
+    margin: 10px;
+    width: 300px;
+    height: 60px;
+    border-radius: 30px;
+    border: 5px solid;
+    border-color: #9032bb;
+    color: #9032bb;
+    text-align: center;
+    font-size:large;
+    font-family: "Arial Black", Arial, sans-serif;
+    cursor: pointer;
+    flex: 2;
+    min-width: 250px;
+}
+.cc:hover{
+    border-color: #ffffff;
+    color: #ffffffff;
+    background-color: #9032bb;
+}
+.acercade {
+    margin: 100px;
+    font-size: xx-large;
+
+}
