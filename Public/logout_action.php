@@ -1,5 +1,5 @@
 <?php
-include_once '../controller/AuthController.php';
+include_once '../Controller/AuthController.php';
 
 $authController = new AuthController();
 $authController->logout();

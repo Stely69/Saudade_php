@@ -17,7 +17,7 @@ class UserController {
         $hashed_password = password_hash($password, PASSWORD_BCRYPT);
         $role = "user"; // Establece el rol como "user"
         $this->userModel->createUser($username, $email, $hashed_password, $role);
-        header("Location: ../public/index.php");
+        include_once("../Views/registroexitoso.php");
     }
 }
 ?>

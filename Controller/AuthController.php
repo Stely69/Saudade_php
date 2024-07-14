@@ -16,7 +16,7 @@ class AuthController {
             $_SESSION['user_id'] = $user['id'];
             $_SESSION['username'] = $user['username'];
             $_SESSION['role'] = $user['role'];
-            header("../Public/index.php");
+            include_once ("../Views/inicio_sesion/inicio2.php");
         } else {
             echo "Email o contraseña incorrectos.";
         }
@@ -25,7 +25,7 @@ class AuthController {
     public function logout() {
         session_start();
         session_destroy();
-        header("../Views/login.php");
+        include_once ("../Views/inicio.php");
     }
 }
 ?>
