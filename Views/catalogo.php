@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Catálogo de Camisas</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../public/css/catalogo.css">
 </head>
 <body>
   <nav id="header" class="barra">
@@ -35,6 +36,8 @@
                 </nav>
         </div>
 
+     
+
         <div class="order-2 md:order-3 flex flex-wrap items-center justify-end mr-0 md:mr-4" id="nav-content">
             <div class="auth flex items-center w-full md:w-full">
                 
@@ -45,6 +48,10 @@
         </div>
     </div>
   </nav>
+
+
+  <img class="angel" src="../static/img/ANGEL SIN FONDO.png" alt="">
+  <img class="angel2" src="../static/img/ANGEL SIN FONDO.png" alt="">
     
   <div class="container mx-auto max-w-7xl p-10">
         <div class="flex flex-col items-center mb-5">

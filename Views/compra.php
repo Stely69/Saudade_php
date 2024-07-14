@@ -7,6 +7,7 @@
 <link rel="stylesheet" href="../Public/css/style.css">
 <script src="https://cdn.tailwindcss.com"></script>
 <link rel="stylesheet" href="https://demos.creative-tim.com/notus-js/assets/styles/tailwind.css">
+<link rel="stylesheet" href="../public/css/catalogo.css">
  <link rel="stylesheet" href="https://demos.creative-tim.com/notus-js/assets/vendor/@fortawesome/fontawesome-free/css/all.min.css">
 
 <body>
@@ -119,6 +120,8 @@
                 height: auto;
             }
         </style>
+         <img class="angel" src="../static/img/ANGEL SIN FONDO.png" alt="">
+         <img class="angel2" src="../static/img/ANGEL SIN FONDO.png" alt="">
 
         <div class="container">
             <div class="images">
@@ -401,18 +404,7 @@
                 </a>
               </div>
           
-              <div class="product">
-                <a href="#">
-                  <img src="../static/img/camiseta1.png" alt="Camiseta Unchained Negra">
-                  <div class="product-info">
-                    <h3>CAMISETA UNCHAINED NEGRA</h3>
-                    <span class="price">$180.000</span>
-                  </div>
-                </a>
-              </div>
-            </div>
-          </section>
-
+             
           
          <style>
         .related-products {
