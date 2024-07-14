@@ -68,7 +68,7 @@
             </div>
         
             <div class="flex items-center justify-between mb-5">
-                <a href="#" class="text-sm text-blue-500 hover:underline">¿Olvidaste tu contraseña?</a>
+                <a href="../Views/forgot_password.php" class="text-sm text-blue-500 hover:underline">¿Olvidaste tu contraseña?</a>
             </div>
         
             <button type="submit" class="bg-blue-500 text-white font-bold py-2 px-4 rounded-md hover:bg-blue-600">Inicio de sesión</button>

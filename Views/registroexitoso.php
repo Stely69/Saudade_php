@@ -47,7 +47,7 @@
     
     <div class="container mx-auto max-w-lg p-10 rounded-lg drop-shadow-2xl  my-40 bg-[#050016]">
         <div class="text-center py-5 mb-5">
-            <h1 class="text-2xl text-white font-bold">Se Registro Perfectamente</h1>
+            <h1 class="text-2xl text-white font-bold">¡Registro exitoso! Bienvenido a Saudade.</h1>
         </div>
     </div>
 </body>

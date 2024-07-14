@@ -16,7 +16,7 @@ class AuthController {
             $_SESSION['user_id'] = $user['id'];
             $_SESSION['username'] = $user['username'];
             $_SESSION['role'] = $user['role'];
-            include_once ("../Views/inicio_sesion/inicio2.php");
+            include_once ("../Views/inicio.php");
         } else {
             echo "Email o contraseña incorrectos.";
         }
