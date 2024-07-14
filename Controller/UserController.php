@@ -1,5 +1,5 @@
 <?php
-include_once '../models/UserModel.php';
+include_once '../Models/UserModel.php';
 
 class UserController {
     private $userModel;
@@ -10,11 +10,12 @@ class UserController {
 
     public function index() {
         $users = $this->userModel->getUsers();
-        include_once '../views/user_list.php';
+        include_once '../Views/user_list.php';
     }
 
-    public function register($username, $email, $password, $role) {
+    public function register($username, $email, $password) {
         $hashed_password = password_hash($password, PASSWORD_BCRYPT);
+        $role = "user"; // Establece el rol como "user"
         $this->userModel->createUser($username, $email, $hashed_password, $role);
         header("Location: ../public/index.php");
     }

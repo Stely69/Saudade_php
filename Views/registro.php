@@ -57,10 +57,10 @@
         <h1 class="text-2xl font-bold">Bienvenido a Saudade</h1>
     </div>
 
-    <form action="" method="post" class="flex flex-col" onsubmit="return validarFormulario()">
+    <form action="../Public/register_action.php" method="post" class="flex flex-col" onsubmit="return validarFormulario()">
         <div class="mb-3">
             <label for="nombre" class="block font-bold text-mg py-1 text-white">Nombre Completo</label>
-            <input type="text" id="nombre" name="nombre" class="form-input w-full rounded-md border py-1 border-gray-300 focus:border-blue-500" required>
+            <input type="text" id="nombre" name="username" class="form-input w-full rounded-md border py-1 border-gray-300 focus:border-blue-500" required>
         </div>
     
         <div class="mb-3">
@@ -77,9 +77,9 @@
             <label for="repetirPassword" class="block font-bold text-mg py-1 text-white">Repetir Contraseña</label>
             <input type="password" id="repetirPassword" name="repetirPassword" class="form-input w-full py-1 rounded-md border border-gray-300 focus:border-blue-500" required minlength="8">
         </div>
-    
+
         <div class="flex items-center py-1 justify-between mb-5">
-            <a href="{{ url_for('inciar_sesion') }}" class="text-sm text-blue-500 hover:underline">¿Ya tienes una cuenta? Inicia sesión</a>
+            <a href="../Views/inicio_sesion.php" class="text-sm text-blue-500 hover:underline">¿Ya tienes una cuenta? Inicia sesión</a>
         </div>
     
         <button type="submit" class="bg-blue-500 text-white font-bold py-2 px-4 rounded-md hover:bg-blue-600">Registrarse</button>

@@ -1,5 +1,5 @@
 <?php
-include_once '../models/UserModel.php';
+include_once '../Models/UserModel.php';
 
 class AuthController {
     private $userModel;
@@ -16,7 +16,7 @@ class AuthController {
             $_SESSION['user_id'] = $user['id'];
             $_SESSION['username'] = $user['username'];
             $_SESSION['role'] = $user['role'];
-            header("../public/index.php");
+            header("../Public/index.php");
         } else {
             echo "Email o contraseña incorrectos.";
         }
@@ -25,7 +25,7 @@ class AuthController {
     public function logout() {
         session_start();
         session_destroy();
-        header("../views/login.php");
+        header("../Views/login.php");
     }
 }
 ?>
