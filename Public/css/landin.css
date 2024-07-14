@@ -129,7 +129,7 @@ body {
     transition: opacity 1s ease-in-out;
     opacity: 0;
 }
-
+/*
 #grande1{
     width: 900px;
     height: 500px;
@@ -157,7 +157,7 @@ body {
     z-index: 11;
     margin-top: 9px;
 }
-
+*/
 #video{
     width: 100%;       /* Ocupa todo el ancho de la pantalla */
         height: 100vh;      /* Ocupa menos de la mitad de la altura de la pantalla (45% de la altura de la ventana) */

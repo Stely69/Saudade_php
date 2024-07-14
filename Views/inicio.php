@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
@@ -78,26 +78,17 @@
        </div>
     </div>
 
-
-    <script>
-        function closePopup() {
-            document.getElementById('popup').style.display = 'none';
-        }
-
-        setTimeout(function () {
-            document.getElementById('popup').style.display = 'block';
-        }, 60000);
-    </script>
-
-
+    <!--Spotify-->
 
     <iframe class="luna" style="border-radius:12px"
         src="https://open.spotify.com/embed/track/7bywjHOc0wSjGGbj04XbVi?utm_source=generator&theme=0" width="100%"
         height="352" frameBorder="0" allowfullscreen=""allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy">
     </iframe>
+    
+    <!--Acerca de Saudade-->
 
     <div class="relative flex min-h-screen flex-col justify-center overflow-hidden bg-slate-100   sm:py-0">
-        <div class="min-h-28 ">
+        <div class=" ">
             <div class="max-w-screen-lg my-40 mx-auto py-4">
                 <h2
                     class="flex font-bold text-center text-3xl text-black font-display border-b-4 border-[#130048] w-28">
@@ -112,7 +103,6 @@
                     <img id="modelo" src="../static/img/modelo1.jpeg" class="rounded-lg object-cover h-50 w-42" alt="">
                     <div class="p-6 flex flex-col flex-1">
                         <span class="block text-slate-400 font-semibold text-sm"></span>
-
                         <h2 class="text-xs text-slate-400 mb-3"></h2>
                         <div class="flex gap-4 items-center mt-auto pt-4 border-t border-slate-300">
 
@@ -120,49 +110,10 @@
                     </div>
                 </div>
 
-                <script>
-                    var images = [
-                        '../static/img/modelo2.jpeg',
-                        '../static/img/modelo1.jpeg',
-                        '../static/img/modelo3.jpeg',
-                      // Agrega más rutas de imágenes según sea necesario
-                    ];
-
-                    var currentImageIndex = 0;
-
-                    setInterval(function () {
-                        // Obtiene la imagen del carrusel
-                        var carouselImage = document.getElementById('modelo');
-
-                        // Cambia la opacidad de la imagen a 0
-                        carouselImage.style.opacity = 0;
-
-                        // Espera 1 segundo (el tiempo de la transición) antes de cambiar la imagen
-                        setTimeout(function () {
-                            // Incrementa el índice de la imagen actual
-                            currentImageIndex++;
-
-                            // Si el índice de la imagen actual es mayor que el número de imágenes, vuelve a la primera imagen
-                            if (currentImageIndex >= images.length) {
-                                currentImageIndex = 0;
-                            }
-
-                            // Cambia la imagen mostrada en el carrusel
-                            carouselImage.src = images[currentImageIndex];
-
-                            // Cambia la opacidad de la imagen a 1
-                            carouselImage.style.opacity = 1;
-                        }, 1000);
-                    }, 3000);  // Cambia la imagen cada 4 segundos
-                </script>
-
                 <img id="estrella1" src="../static/img/estrella.png" alt="">
                 <img id="estrella1" src="../static/img/estrella.png" alt="">
-
                 <img id="estrella2" src="../static/img/estrella.png" alt="">
                 <img id="estrella2" src="../static/img/estrella.png" alt="">
-
-
                 <img id="estrella3" src="../static/img/estrella.png" alt="">
                 <img id="estrella3" src="../static/img/estrella.png" alt="">
 
@@ -179,12 +130,10 @@
                         </p>
                         <div class="flex gap-4 items-center pt-4 border-t border-[#130048] text-slate-300 mt-6">
                             <span class="flex gap-1 items-center text-sm text-black">
-                                <img id="insta" src="../img/instagram.png" alt="">
+                                <a href="">Instagram</a>
                             </span>
                             <span class="flex gap-1 items-center text-sm text-black">
-                                <img id="face" src="../img/facebook.png" alt="">
-                            </span>
-
+                                <a href="">Facebook</a>
                             </span>
                         </div>
                     </div>
@@ -197,10 +146,10 @@
                     </h2>
                     <div class="border-b-4 border-[#130048] drop-shadow-sm  blur-sm w-48 ">
                 </div>
-                <img id="logo" src="{{ url_for('static', filename='img/LOGO_SAUDADE.png') }}" alt="">
 
+                <!--Catalogo de las camisas -->
 
-                <div class="flex sgap-6 mt-8 ">
+                <div class="flex sgap-2  mt-10 ">
                     <div id="grande4" class="bg-[#050016] w-1/3 shadow rounded-lg overflow-hidden flex flex-col  items-center justify-center p-4">
                         <img id="camiseta2" src="../static/img/camiseta2.png" class="rounded-lg object-cover h-50 w-42"
                             alt="">
@@ -212,14 +161,10 @@
                             <h2 class="text-xs text-slate-400 mb-3"></h2>
                             <div
                                 class="flex gap-4 items-center justify-self-center mt-auto pt-4 border-t border-slate-300 ">
-
                                 <a href="../Views/compra.php"> <button class="text-white">Ver mas</button></a>
-
                             </div>
                         </div>
                     </div>
-
-
 
                     <div id="grande2"
                         class="bg-[#050016] w-1/3 shadow rounded-lg overflow-hidden flex flex-col  items-center justify-center p-4">
@@ -236,7 +181,6 @@
                             </div>
                         </div>
                     </div>
-                    <br>
 
                     <div id="grande1"
                         class="bg-[#050016] w-1/3 shadow rounded-lg overflow-hidden flex flex-col items-center justify-center p-4">
@@ -308,40 +252,6 @@
                 </div>
             </div>
 
-            <script>
-                popupWhatsApp = () => {
-
-                    let btnClosePopup = document.querySelector('.closePopup');
-                    let btnOpenPopup = document.querySelector('.whatsapp-button');
-                    let popup = document.querySelector('.popup-whatsapp');
-                    let sendBtn = document.getElementById('send-btn');
-
-                    btnClosePopup.addEventListener("click", () => {
-                        popup.classList.toggle('is-active-whatsapp-popup')
-                    })
-
-                    btnOpenPopup.addEventListener("click", () => {
-                        popup.classList.toggle('is-active-whatsapp-popup')
-                        popup.style.animation = "fadeIn .6s 0.0s both";
-                    })
-
-                    sendBtn.addEventListener("click", () => {
-                        let msg = document.getElementById('whats-in').value;
-                        let relmsg = msg.replace(/ /g, "%20");
-
-                        window.open('https://wa.me/+5731444626818?text=' + relmsg, '_blank');
-
-                    });
-
-                    setTimeout(() => {
-                        popup.classList.toggle('is-active-whatsapp-popup');
-                    }, 3000);
-                }
-
-                popupWhatsApp();
-            </script>
-            <script src="../js/script2.js"></script>
-            <script src="../js/carrusel.js"></script>
 </body>
 
 <footer class="relative bg-[#0E0047] pt-8 pb-6">
@@ -431,5 +341,7 @@
         </div>
     </div>
 </footer>
-
+<script src="../Public/js/alerta.js"></script>
+<script src="../Public/js/carrucel.js"></script>
+<script src="../Public/js/whastsapp.js"></script>
 </html>

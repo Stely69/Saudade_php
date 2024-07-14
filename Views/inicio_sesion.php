@@ -56,15 +56,15 @@
             <h1 class="text-2xl text-white font-bold">Bienvenido a Saudade</h1>
         </div>
 
-        <form action="" method="post" class="flex flex-col" onsubmit="return validarFormulario()">
+        <form action="../Public/login_action.php" method="post" class="flex flex-col" onsubmit="return validarFormulario()">
             <div class="mb-3">
                 <label for="email" class="block font-bold text-mg text-white">Correo Electrónico</label>
-                <input type="email" id="email" name="email" class="form-input w-full rounded-md border border-gray-300 focus:border-blue-500 py-1" required>
+                <input type="email" id="email" name="email" placeholder="Email" class="form-input w-full rounded-md border border-gray-300 focus:border-blue-500 py-1" required>
             </div>
         
             <div class="mb-3">
                 <label for="password" class="block font-bold text-mg text-white">Contraseña</label>
-                <input type="password" id="password" name="password" class="form-input w-full rounded-md border border-gray-300 py-1 focus:border-blue-500" required>
+                <input type="password" id="password" name="password" placeholder="Contraseña" class="form-input w-full rounded-md border border-gray-300 py-1 focus:border-blue-500" required>
             </div>
         
             <div class="flex items-center justify-between mb-5">
