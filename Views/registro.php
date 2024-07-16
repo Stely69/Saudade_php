@@ -7,13 +7,17 @@
     <title>Saudage Registro</title>
     <link rel="stylesheet" href="../Public/css/style.css">
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
 </head>
 <body>
+    <?php
+    session_start();
+    ?>
+    
     <nav id="header" class="barra">
-        <div class="w-full z-20 flex items-center justify-between  px-6 py-4  backdrop-blur-lg">
+        <div class="w-full flex items-center justify-between px-6 py-4 backdrop-blur-lg">
             <label for="menu-toggle" class="cursor-pointer md:hidden block">
-                <svg class="fill-current text-blue-600" xmlns="http://www.w3.org/2000/svg" width="20" height="20"
-                    viewBox="0 0 20 20">
+                <svg class="fill-current text-blue-600" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
                     <title>menu</title>
                     <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
                 </svg>
@@ -23,26 +27,26 @@
             <div class="hidden md:flex md:items-center md:w-auto w-full order-3 md:order-1" id="menu">
                 <nav>
                     <ul class="md:flex items-center justify-between text-base text-black pt-4 md:pt-0">
-                        <a class="inline-block no-underline hover:text-purple  font-medium text-lg py-2 px-4 lg:-ml-2"
-                            href="#"></a>
-                        <li><a class="inline-block no-underline hover:text-[#6F00FF] font-medium text-lg py-2 px-4 lg:-ml-2"
-                                href="../Views/inicio.php">Inicio</a></li>
-                        <li><a class="inline-block no-underline hover:text-[#6F00FF] font-medium text-lg py-2 px-4 lg:-ml-2"
-                                href="../Views/quienessomos.php">Quiénes Somos</a></li>
-
-                        <li><a class="inline-block no-underline hover:text-[#9333ea] font-medium text-lg py-2 px-4 lg:-ml-2"
-                                href="../Views/catalogo.php">Catalogo</a></li>
-
+                        <a class="inline-block no-underline hover:text-purple font-medium text-lg py-2 px-4 lg:-ml-2" href="#"></a>
+                        <li><a class="inline-block no-underline hover:text-[#6F00FF] font-medium text-lg py-2 px-4 lg:-ml-2" href="../Views/inicio.php">Inicio</a></li>
+                        <li><a class="inline-block no-underline hover:text-[#6F00FF] font-medium text-lg py-2 px-4 lg:-ml-2" href="../Views/quienessomos.php">Quiénes Somos</a></li>
+                        <li><a class="inline-block no-underline hover:text-[#9333ea] font-medium text-lg py-2 px-4 lg:-ml-2" href="../Views/catalogo.php">Catalogo</a></li>
                     </ul>
                 </nav>
             </div>
 
             <div class="order-2 md:order-3 flex flex-wrap items-center justify-end mr-0 md:mr-4" id="nav-content">
                 <div class="auth flex items-center w-full md:w-full">
+                    <button class=""><a style='font-size:24px;color:black' class='fas '>&#xf07a;</a></button>
+
+                    <?php if (isset($_SESSION['username'])): ?>
+                        <span class="inline-block no-underline font-medium text-black text-lg px-4">Hola, <?php echo $_SESSION['username']; ?>!</span>
+                        <a class="inline-block no-underline font-medium text-black text-lg hover:text-[#6F00FF] px-4" href="../public/logout_action.php">Cerrar sesión</a>
+                    <?php else: ?>
+                        <a class="inline-block font-medium no-underline text-black text-lg hover:text-[#6F00FF] px-4" href="../Views/inicio_sesion.php">Iniciar sesión</a>
+                        <a class="inline-block font-medium no-underline text-black text-lg hover:text-[#6F00FF]" href="../Views/registro.php">Registrarse</a>
+                    <?php endif; ?>
                     
-                    <a class="  inline-block  font-medium no-underline text-black text-lg  hover:text-[#6F00FF] px-4"href="../Views/inicio_sesion.php"> Iniciar sesion </a>
-                    <!--<a class="  inline-block  font-medium no-underline text-black text-lg hover:text-[#6F00FF]"href="{{ url_for('registro') }}" > Registrarse</a>-->
-                                          
                 </div>
             </div>
         </div>
@@ -85,31 +89,7 @@
         <button type="submit" class="bg-blue-500 text-white font-bold py-2 px-4 rounded-md hover:bg-blue-600">Registrarse</button>
     </form>
 </div>
-
-<script>
-    function validarFormulario() {
-        var nombre = document.getElementById("nombre").value;
-        var email = document.getElementById("email").value;
-        var password = document.getElementById("password").value;
-        var repetirPassword = document.getElementById("repetirPassword").value;
-
-        // Validación adicional
-        if (nombre === "" || email === "" || password === "" || repetirPassword === "") {
-            alert("Por favor completa todos los campos.");
-            return false;
-        }
-
-        // Validación de contraseñas iguales
-        if (password !== repetirPassword) {
-            alert("Las contraseñas no coinciden.");
-            return false;
-        }
-
-        return true;
-    }
-</script>
-
-
+    <script  src="../Public/js/validacionregistro.js"></script>
 </body>
 <footer class="relative bg-[#0E0047] pt-8 pb-6">
     <div class="container mx-auto px-4">
