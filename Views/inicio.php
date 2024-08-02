@@ -21,12 +21,13 @@
 </head>
 
 <body>
-
+    <?php
+    session_start();
+    ?>
     <nav id="header" class="barra">
-        <div class="w-full flex items-center justify-between  px-6 py-4 backdrop-blur-lg">
+        <div class="w-full flex items-center justify-between px-6 py-4 backdrop-blur-lg">
             <label for="menu-toggle" class="cursor-pointer md:hidden block">
-                <svg class="fill-current text-blue-600" xmlns="http://www.w3.org/2000/svg" width="20" height="20"
-                    viewBox="0 0 20 20">
+                <svg class="fill-current text-blue-600" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
                     <title>menu</title>
                     <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
                 </svg>
@@ -36,27 +37,26 @@
             <div class="hidden md:flex md:items-center md:w-auto w-full order-3 md:order-1" id="menu">
                 <nav>
                     <ul class="md:flex items-center justify-between text-base text-black pt-4 md:pt-0">
-                        <a class="inline-block no-underline hover:text-purple  font-medium text-lg py-2 px-4 lg:-ml-2"
-                            href="#"></a>
-                        <li><a class="inline-block no-underline hover:text-[#6F00FF] font-medium text-lg py-2 px-4 lg:-ml-2"
-                                href="../Views/inicio.php">Inicio</a></li>
-                        <li><a class="inline-block no-underline hover:text-[#6F00FF] font-medium text-lg py-2 px-4 lg:-ml-2"
-                                href="../Views/quienessomos.php">Quiénes Somos</a></li>
-
-                        <li><a class="inline-block no-underline hover:text-[#9333ea] font-medium text-lg py-2 px-4 lg:-ml-2"
-                                href="../Views/catalogo.php">Catalogo</a></li>
-
+                        <a class="inline-block no-underline hover:text-purple font-medium text-lg py-2 px-4 lg:-ml-2" href="#"></a>
+                        <li><a class="inline-block no-underline hover:text-[#6F00FF] font-medium text-lg py-2 px-4 lg:-ml-2" href="../Views/inicio.php">Inicio</a></li>
+                        <li><a class="inline-block no-underline hover:text-[#6F00FF] font-medium text-lg py-2 px-4 lg:-ml-2" href="../Views/quienessomos.php">Quiénes Somos</a></li>
+                        <li><a class="inline-block no-underline hover:text-[#9333ea] font-medium text-lg py-2 px-4 lg:-ml-2" href="../Views/catalogo.php">Catalogo</a></li>
                     </ul>
                 </nav>
             </div>
 
             <div class="order-2 md:order-3 flex flex-wrap items-center justify-end mr-0 md:mr-4" id="nav-content">
                 <div class="auth flex items-center w-full md:w-full">
+                    <button class=""><a style='font-size:24px;color:black' class='fas '>&#xf07a;</a></button>
+
+                    <?php if (isset($_SESSION['username'])): ?>
+                        <span class="inline-block no-underline font-medium text-black text-lg px-4">Hola, <?php echo $_SESSION['username']; ?>!</span>
+                        <a class="inline-block no-underline font-medium text-black text-lg hover:text-[#6F00FF] px-4" href="../public/logout_action.php">Cerrar sesión</a>
+                    <?php else: ?>
+                        <a class="inline-block font-medium no-underline text-black text-lg hover:text-[#6F00FF] px-4" href="../Views/inicio_sesion.php">Iniciar sesión</a>
+                        <a class="inline-block font-medium no-underline text-black text-lg hover:text-[#6F00FF]" href="../Views/registro.php">Registrarse</a>
+                    <?php endif; ?>
                     
-                    <button class=""><a style='font-size:24px;color:black' class='fas '>&#xf07a;</a></button> 
-                    <a class="  inline-block  font-medium no-underline text-black text-lg  hover:text-[#6F00FF] px-4"href="../Views/inicio_sesion.php"> Iniciar sesion </a>
-                    <a class="  inline-block  font-medium no-underline text-black text-lg hover:text-[#6F00FF]"href="../Views/registro.php" > Registrarse</a>
-                                          
                 </div>
             </div>
         </div>
@@ -75,7 +75,7 @@
         <h2 class="text-xl font-bold py-2">¡Te Damos la Bienvenida a Saudade!</h2>
         <p class="py-2 text-lg font-normal">Obtén un descuento del 10% en tu primera compra iniciando sesión.</p>
        <div class="flex justify-center align-center space-x-4 py-4">
-            <a href="{{ url_for('inciar_sesion') }}" class=" bg-black text-white hover:text-[#6F00FF] hover:bg-gray-300 px-4 py-2 rounded-lg text-center px-4 font-medium text-lg">Iniciar sesión</a>
+            <a href="../Views/inicio_sesion.php" class=" bg-black text-white hover:text-[#6F00FF] hover:bg-gray-300 px-4 py-2 rounded-lg text-center px-4 font-medium text-lg">Iniciar sesión</a>
             <button onclick="closePopup()" class="bg-gray-300 hover:bg-gray-400 text-black px-4 py-2 rounded-lg  font-medium text-lg">Cerrar</button>
        </div>
     </div>

@@ -1,15 +1,24 @@
 <!DOCTYPE html>
 <html lang="es">
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Producto</title>
-<link rel="stylesheet" href="../Public/css/style.css">
-<script src="https://cdn.tailwindcss.com"></script>
-<link rel="stylesheet" href="https://demos.creative-tim.com/notus-js/assets/styles/tailwind.css">
-<link rel="stylesheet" href="../public/css/catalogo.css">
- <link rel="stylesheet" href="https://demos.creative-tim.com/notus-js/assets/vendor/@fortawesome/fontawesome-free/css/all.min.css">
-
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Producto</title>
+    <link rel="stylesheet" href="../Public/css/style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://demos.creative-tim.com/notus-js/assets/styles/tailwind.css">
+    <link rel="stylesheet" href="../public/css/catalogo.css">
+    <link rel="stylesheet" href="https://demos.creative-tim.com/notus-js/assets/vendor/@fortawesome/fontawesome-free/css/all.min.css">
+    <style>
+        #cart {
+            transition: transform 0.3s ease-in-out;
+            transform: translateX(100%);
+        }
+        #cart.open {
+            transform: translateX(0);
+        }
+    </style>
+</head>
 <body>
     <nav id="header" class="barra">
         <div class="w-full z-20 flex items-center justify-between  px-6 py-4  backdrop-blur-lg">
@@ -31,432 +40,210 @@
                                 href="../Views/inicio.php">Inicio</a></li>
                         <li><a class="inline-block no-underline hover:text-[#6F00FF] font-medium text-lg py-2 px-4 lg:-ml-2"
                                 href="../Views/quienessomos.php">Quiénes Somos</a></li>
-
                         <li><a class="inline-block no-underline hover:text-[#9333ea] font-medium text-lg py-2 px-4 lg:-ml-2"
                                 href="../Views/catalogo.php">Catalogo</a></li>
-
                     </ul>
                 </nav>
             </div>
     
             <div class="order-2 md:order-3 flex flex-wrap items-center justify-end mr-0 md:mr-4" id="nav-content">
                 <div class="auth flex items-center w-full md:w-full">
-                    
                     <button id="cart-icon" class="cart-icon">
                         🛒
                     </button>
-                                          
                 </div>
             </div>
         </div>
     </nav>
-    <br>
-        <style>
-            body {
-                font-family: Arial, sans-serif;
-                margin: 0;
-                padding: 0;
-                background-color: #ffffff;
-            }
-            .container {
-                display: grid;
-                grid-template-columns: 1fr 1fr;
-                max-width: 1200px;
-                margin: auto;
-                padding: 20px;
-                background-color: white;
-            }
-            .images {
-                display: flex;
-                flex-direction: column;
-                gap: 10px;
-            }
-            .images img {
-                width: 100%;
-                height: auto;
-            }
-            .main-image img {
-                width: 100%;
-                height: auto;
-            }
-            .details {
-                padding-left: 20px;
-            }
-            .details h1 {
-                font-size: 24px;
-                margin-bottom: 20px;
-            }
-            .price {
-                font-size: 24px;
-                color: #333;
-                margin-bottom: 20px;
-            }
-            .sizes {
-                margin-bottom: 20px;
-            }
-            .sizes label {
-                margin-right: 10px;
-            }
-            .quantity {
-                margin-bottom: 20px;
-            }
-            .add-to-cart {
-                background-color: black;
-                color: white;
-                padding: 10px 20px;
-                border: none;
-                cursor: pointer;
-            }
-            .description {
-                margin-top: 20px;
-            }
-            .thumbnails {
-                display: flex;
-                gap: 10px;
-            }
-            .thumbnails img {
-                cursor: pointer;
-                width: 100px;
-                height: auto;
-            }
-        </style>
-         <img class="angel" src="../static/img/ANGEL SIN FONDO.png" alt="">
-         <img class="angel2" src="../static/img/ANGEL SIN FONDO.png" alt="">
 
-        <div class="container">
-            <div class="images">
-                <div class="main-image">
-                    <img src="../static/img/CAMISETA.png" alt="Camiseta grande">
-                </div>
-                <div class="thumbnails">
-                    <img src="../static/img/modelo1.jpeg" alt="Camiseta miniatura 1">
-                    <img src="../static/img/modelo2.jpeg" alt="Camiseta miniatura 2">
-                    <img src="../static/img/modelo3.jpeg" alt="Camiseta miniatura 2">
+    <!-- Contenedor del carrito -->
+    <div id="cart" class="fixed top-0 right-0 w-80 bg-white h-full shadow-lg p-4 overflow-y-auto">
+        <div class="flex justify-between items-center mb-4">
+            <h2 class="text-xl font-bold">Carrito de Compras</h2>
+            <button id="close-cart" class="text-red-500">&times;</button>
+        </div>
+        <div id="cart-content"></div>
+        <button id="pagar-button" class="w-full mt-4 py-2 bg-green-600 text-white rounded hover:bg-green-700">Pagar</button>
+    </div>
+
+    <div class="max-w-7xl mx-auto p-4">
+        <div class="flex flex-col md:flex-row">
+            <!-- Imágenes del Producto -->
+            <div class="flex-1">
+                <img src="../Static/img/ber1.jpg" alt="Imagen del producto" class="w-full h-auto">
+                <div class="flex mt-4 space-x-2">
+                    <img src="../Static/img/ber2.jpg" alt="Miniatura 1" class="w-30 h-40 object-cover">
+                    <img src="../Static/img/ber2.jpg" alt="Miniatura 2" class="w-30 h-40 object-cover">
+                    <img src="../Static/img/ber4.jpg" alt="Miniatura 3" class="w-30 h-40 object-cover">
                 </div>
             </div>
-            
-      <div class="product-page">
-        <div class="product-info">
-            <h1>CAMISETA OVERSIZE NEGRA</h1>
-            <p class="price">$220.000</p>
-            <label for="talle">TALLA:</label>
-            <select id="talle" class="input-field">
-                <option value="S">S</option>
-                <option value="M">M</option>
-                <option value="L">L</option>
-            </select>
-            <label for="cantidad">CANTIDAD:</label>
-            <input type="number" id="cantidad" class="input-field" value="1" min="1">
-            <button id="compra-button">PROCEDER A LA COMPRA</button>
-            <p class="details">
-                Camiseta 100% algodón 200 GSM.<br>
-                Boxy fit.<br>
-                Estampado frontal y posterior en puff.<br>
-                Todas las prendas son unisex.<br>
-                Hecho en Villeta.
-            </p>
-        </div>
-        <div class="product-image">
-            
-        </div>
-        <div class="cart" id="cart">
-            <h2>Carrito de Compras <button id="close-cart">&times;</button></h2>
-            <div id="cart-content"></div>
-            <button id="pagar-button">PAGAR AHORA</button>
+
+            <!-- Detalles del Producto -->
+            <div class="flex-1 mt-4 md:mt-0 md:ml-8">
+                <h1 class="text-2xl font-semibold">Camisa manga corta bolsillos bordado</h1>
+                <p class="text-xl font-bold mt-2">179,900 COP</p>
+                <p class="text-gray-500 mt-1">Gris - Ref: 6380/665/802</p>
+                
+                <!-- Tallas -->
+                <div class="mt-4">
+                    <span class="text-gray-600">Tallas:</span>
+                    <select id="talle" class="border rounded px-4 py-2">
+                        <option value="XS">XS</option>
+                        <option value="S">S</option>
+                        <option value="M">M</option>
+                        <option value="L">L</option>
+                        <option value="XL">XL</option>
+                    </select>
+                </div>
+
+                <!-- Cantidad -->
+                <div class="mt-4">
+                    <span class="text-gray-600">Cantidad:</span>
+                    <input id="cantidad" type="number" class="border rounded px-4 py-2 w-16" min="1" value="1">
+                </div>
+
+                <!-- Botón Añadir a la Cesta -->
+                <button id="compra-button" class="mt-6 px-6 py-3 bg-green-600 text-white rounded hover:bg-green-700">
+                    AÑADIR A LA CESTA
+                </button>
+
+                <!-- Opciones Desplegables -->
+                <div class="mt-6">
+                    <details class="border-t py-2">
+                        <summary class="cursor-pointer">Composición, cuidados y origen</summary>
+                        <p class="mt-2 text-gray-600">Detalles sobre la composición y cuidados del producto.</p>
+                    </details>
+                    <details class="border-t py-2">
+                        <summary class="cursor-pointer">Disponibilidad en tienda</summary>
+                        <p class="mt-2 text-gray-600">Información sobre disponibilidad en tiendas físicas.</p>
+                    </details>
+                    <details class="border-t py-2">
+                        <summary class="cursor-pointer">Envíos y devoluciones</summary>
+                        <p class="mt-2 text-gray-600">Política de envíos y devoluciones.</p>
+                    </details>
+                </div>
+
+                <!-- Información de Envío -->
+                <div class="mt-6">
+                    <p class="text-gray-600">Recogida en tienda: <span class="font-bold">GRATIS</span></p>
+                    <p class="text-gray-600">Envío a domicilio estándar: <span class="font-bold">GRATIS</span> en pedidos superiores a 199,900 COP</p>
+                </div>
+            </div>
         </div>
     </div>
-    <style>
 
+    <div class="flex items-center justify-center my-8">
+        <hr class="flex-grow border-t border-gray-300">
+        <span class="mx-4 text-gray-700 text-xl font-semibold">Te puede interesar</span>
+        <hr class="flex-grow border-t border-gray-300">
+    </div>
 
-      body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-        background-color: #ffffff;
-    }
-    
-    header {
-        background-color: black;
-        color: white;
-        padding: 10px 20px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-    
-    .header-content h1 {
-        margin: 0;
-    }
-    
-    .cart-icon {
-        background: none;
-        border: none;
-        color: white;
-        font-size: 24px;
-        cursor: pointer;
-    }
-    
-    .product-page {
-        display: flex;
-        justify-content: space-between;
-        padding: 20px;
-    }
-    
-    .product-info {
-        max-width: 600px;
-        background-color: #ffffff;
-        padding: 20px;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-        width: 550px;
-    }
-    
-    .product-info h1 {
-        margin-top: 0;
-    }
-    
-    .price {
-        font-size: 24px;
-        color: #000;
-    }
-    
-    .input-field {
-        display: block;
-        width: 100%;
-        margin-bottom: 10px;
-        padding: 8px;
-        font-size: 16px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-    }
-    
-    button {
-        display: block;
-        width: 100%;
-        padding: 10px;
-        background-color: black;
-        color: white;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-        font-size: 16px;
-        margin-bottom: 20px;
-    }
-    
-    button:hover {
-        background-color: #333;
-    }
-    
-    .details {
-        font-size: 14px;
-        color: #555;
-    }
-    
-    .product-image {
-        max-width: 400px;
-        text-align: center;
-    }
-    
-    .product-image img {
-        width: 100%;
-        height: auto;
-        border: 1px solid #ccc;
-    }
-    
-    .thumbnails {
-        display: flex;
-        justify-content: center;
-        margin-top: 10px;
-    }
-    
-    .thumbnails img {
-        width: 80px;
-        height: auto;
-        margin: 0 5px;
-        border: 1px solid #ccc;
-        cursor: pointer;
-    }
-    
-    .cart {
-        position: fixed;
-        top: 0;
-        right: -320px;
-        width: 300px;
-        height: 100%;
-        background-color: #fff;
-        border: 1px solid #ccc;
-        padding: 20px;
-        box-shadow: -2px 0 8px rgba(0, 0, 0, 0.1);
-        transition: right 0.3s;
-        border-radius: 8px 0 0 8px;
-        z-index: 1000;
-    }
-    
-    .cart.open {
-        right: 0;
-    }
-    
-    .cart h2 {
-        margin-top: 0;
-        font-size: 20px;
-        border-bottom: 1px solid #ccc;
-        padding-bottom: 10px;
-        margin-bottom: 20px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-    
-    .cart h2 button {
-        background: none;
-        border: none;
-        font-size: 24px;
-        color: red;
-        cursor: pointer;
-    }
-    
-    #cart-content p {
-        font-size: 16px;
-        margin: 10px 0;
-    }
-    
-    #pagar-button {
-        background-color: #007bff;
-        color: white;
-        font-size: 16px;
-        padding: 10px;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-    }
-    
-    #pagar-button:hover {
-        background-color: #0056b3;
-    }
-    
-    </style>
+    <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
+        <!-- Producto Relacionado 1 -->
+        <div class="bg-white p-4 rounded shadow">
+            <img src="../Static/img/prod1.jpg" alt="Producto 1" class="w-full h-auto">
+            <p class="mt-2 text-gray-600">Cazadora algodón print</p>
+            <p class="font-bold">249,000 COP</p>
+        </div>
+        <!-- Producto Relacionado 2 -->
+        <div class="bg-white p-4 rounded shadow">
+            <img src="../Static/img/prod2.jpg" alt="Producto 2" class="w-full h-auto">
+            <p class="mt-2 text-gray-600">Camiseta manga corta efecto lavado</p>
+            <p class="font-bold">99,900 COP</p>
+        </div>
+        <!-- Producto Relacionado 3 -->
+        <div class="bg-white p-4 rounded shadow">
+            <img src="../Static/img/prod3.jpg" alt="Producto 3" class="w-full h-auto">
+            <p class="mt-2 text-gray-600">Gorra efecto lavado</p>
+            <p class="font-bold">99,900 COP</p>
+        </div>
+        <!-- Producto Relacionado 4 -->
+        <div class="bg-white p-4 rounded shadow">
+            <img src="../Static/img/prod4.jpg" alt="Producto 4" class="w-full h-auto">
+            <p class="mt-2 text-gray-600">Gorra efecto lavado parche</p>
+            <p class="font-bold">89,900 COP</p>
+        </div>
+        <!-- Producto Relacionado 5 -->
+        <div class="bg-white p-4 rounded shadow">
+            <img src="../Static/img/prod5.jpg" alt="Producto 5" class="w-full h-auto">
+            <p class="mt-2 text-gray-600">Gafas sol sport</p>
+            <p class="font-bold">99,900 COP</p>
+        </div>
+        <!-- Producto Relacionado 6 -->
+        <div class="bg-white p-4 rounded shadow">
+            <img src="../Static/img/prod6.jpg" alt="Producto 6" class="w-full h-auto">
+            <p class="mt-2 text-gray-600">Camiseta bordada</p>
+            <p class="font-bold">79,900 COP</p>
+        </div>
+    </div>
 
     <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const cartIcon = document.getElementById('cart-icon');
+            const cart = document.getElementById('cart');
+            const closeCart = document.getElementById('close-cart');
+            const compraButton = document.getElementById('compra-button');
+            const cartContent = document.getElementById('cart-content');
+            const pagarButton = document.getElementById('pagar-button');
 
-      document.getElementById('compra-button').addEventListener('click', function() {
-        const talle = document.getElementById('talle').value;
-        const cantidad = document.getElementById('cantidad').value;
-        const cartContent = document.getElementById('cart-content');
-    
-        const productInfo = `
-            <p><strong>Producto:</strong> CAMISETA OVERSIZE NEGRA</p>
-            <p><strong>Precio:</strong> $220.000</p>
-            <p><strong>Talle:</strong> ${talle}</p>
-            <p><strong>Cantidad:</strong> ${cantidad}</p>
-        `;
-    
-        cartContent.innerHTML = productInfo;
-        document.getElementById('cart').classList.add('open');
-    });
-    
-    document.getElementById('close-cart').addEventListener('click', function() {
-        document.getElementById('cart').classList.remove('open');
-    });
-    
-    document.getElementById('cart-icon').addEventListener('click', function() {
-        const cart = document.getElementById('cart');
-        cart.classList.toggle('open');
-    });
-    
-    document.getElementById('pagar-button').addEventListener('click', function() {
-        alert('Redirigiendo a la página de pago...');
-    });
-    
+            const cartItems = [];
+
+            cartIcon.addEventListener('click', () => {
+                cart.classList.add('open');
+            });
+
+            closeCart.addEventListener('click', () => {
+                cart.classList.remove('open');
+            });
+
+            compraButton.addEventListener('click', () => {
+                const talla = document.getElementById('talle').value;
+                const cantidad = parseInt(document.getElementById('cantidad').value);
+                const item = {
+                    nombre: 'Camisa manga corta bolsillos bordado',
+                    precio: 179900,
+                    talla: talla,
+                    cantidad: cantidad
+                };
+
+                cartItems.push(item);
+                actualizarCarrito();
+                cart.classList.add('open'); // Abrir el carrito automáticamente
+            });
+
+            function actualizarCarrito() {
+                cartContent.innerHTML = '';
+                cartItems.forEach((item, index) => {
+                    const itemElement = document.createElement('div');
+                    itemElement.classList.add('border-b', 'py-2', 'flex', 'justify-between', 'items-center');
+                    itemElement.innerHTML = `
+                        <div>
+                            <h4 class="font-semibold">${item.nombre}</h4>
+                            <p class="text-gray-600">Talla: ${item.talla}</p>
+                            <p class="text-gray-600">Cantidad: ${item.cantidad}</p>
+                        </div>
+                        <div class="text-right">
+                            <p class="text-gray-600">${item.precio * item.cantidad} COP</p>
+                            <button class="text-red-500 hover:text-red-700 remove-item" data-index="${index}">Eliminar</button>
+                        </div>
+                    `;
+                    cartContent.appendChild(itemElement);
+                });
+
+                // Añadir event listener a los botones de eliminar
+                document.querySelectorAll('.remove-item').forEach(button => {
+                    button.addEventListener('click', function () {
+                        const index = this.getAttribute('data-index');
+                        cartItems.splice(index, 1);
+                        actualizarCarrito();
+                    });
+                });
+            }
+
+            pagarButton.addEventListener('click', () => {
+                alert('Ir a pagar');
+            });
+        });
     </script>
-
-        </div>
-
-        <section class="related-products">
-            <h2 id="rlt">PRODUCTOS RELACIONADOS</h2><br><br>
-          
-            <div class="product-grid">
-              <div class="product">
-                <a href="#">
-                  <img src="../static/img/camiseta1.png" alt="Camiseta Oldfashioned Crudo">
-                  <div class="product-info">
-                    <h3>CAMISETA OLDFASHIONED CRUDO</h3>
-                    <span class="price">$220.000</span>
-                  </div>
-                </a>
-              </div>
-          
-              <div class="product">
-                <a href="#">
-                  <img src="../static/img/camiseta2.png" alt="Camiseta Memento Blanca">
-                  <div class="product-info">
-                    <h3>CAMISETA MEMENTO BLANCA</h3>
-                    <span class="price">$220.000</span>
-                  </div>
-                </a>
-              </div>
-          
-              <div class="product">
-                <a href="#">
-                  <img src="../static/img/camiseta3.png" alt="Camiseta Libertad">
-                  <div class="product-info">
-                    <h3>CAMISETA LIBERTAD</h3>
-                    <span class="price">$180.000</span>
-                  </div>
-                </a>
-              </div>
-          
-             
-          
-         <style>
-        .related-products {
-  margin-top: 50px;
-  text-align: center; /* Added this line to center the text */
-}
-
-.product-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-}
-
-.product {
-  text-align: center;
-}
-
-.product a {
-  display: block;
-}
-
-.product img {
-  width: 100%;
-  height: 250px;
-  object-fit: cover;
-}
-
-.product-info {
-  margin-top: 20px;
-}
-
-.product-info h3 {
-  font-size: 18px;
-  margin-bottom: 10px;
-}
-
-.product-info .price {
-  font-size: 16px;
-  color: #333;
-}
-
-.related-products h2 {
-  font-family: 'Times New Roman', Times, serif; /* Change the font family to Arial or any other desired font */
-}
-
-.size{
-    margin-right: 300px;
-   
-}
-
-
- </style>
-
 </body>
 </html>

@@ -34,5 +34,37 @@ class UserModel {
         $stmt->bindParam(4, $role);
         return $stmt->execute();
     }
+
+    public function savePasswordResetToken($userId, $token) {
+        $query = "INSERT INTO password_resets (user_id, token) VALUES (?, ?)";
+        $stmt = $this->conn->prepare($query);
+        $stmt->bindParam(1, $userId);
+        $stmt->bindParam(2, $token);
+        return $stmt->execute();
+    }
+
+    public function getUserIdByToken($token) {
+        $query = "SELECT user_id FROM password_resets WHERE token = ?";
+        $stmt = $this->conn->prepare($query);
+        $stmt->bindParam(1, $token);
+        $stmt->execute();
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        return $result ? $result['user_id'] : null;
+    }
+
+    public function updatePassword($userId, $hashedPassword) {
+        $query = "UPDATE " . $this->table_name . " SET password = ? WHERE id = ?";
+        $stmt = $this->conn->prepare($query);
+        $stmt->bindParam(1, $hashedPassword);
+        $stmt->bindParam(2, $userId);
+        return $stmt->execute();
+    }
+
+    public function deletePasswordResetToken($userId) {
+        $query = "DELETE FROM password_resets WHERE user_id = ?";
+        $stmt = $this->conn->prepare($query);
+        $stmt->bindParam(1, $userId);
+        return $stmt->execute();
+    }
 }
 ?>

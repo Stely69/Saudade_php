@@ -16,7 +16,7 @@
     <div id="bottom" class="mask">
       <div class="plane"></div>
     </div>
-    <font size=""><p>SAUDAGE</p></font>
+    <font size=""><p>SAUDADE</p></font>
   </section>
   <script>
     function redirectPage(url) {
