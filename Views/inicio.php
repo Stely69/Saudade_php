@@ -13,6 +13,8 @@
     <link rel="stylesheet" href="../public/css/whats.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="../public/css/whats2.css">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
     <!--Titulo de la empresa-->
     <title>Saudade</title>
 
@@ -251,6 +253,75 @@
 
                 </div>
             </div>
+
+
+            <img id="nort" src="../Static/img/nort.jpg" alt="" class="w-full h-auto max-h-[70vh] object-cover"><br><br><br>
+
+            <div class="flex items-center justify-center my-8">
+            <hr class="flex-grow border-t border-gray-300">
+            <span class="mx-4 text-gray-700 text-xl font-semibold">lo mejor lo encuentras en saudade</span>
+            <hr class="flex-grow border-t border-gray-300">
+        </div>
+
+
+
+
+            <div class="container mx-auto p-4">
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+            <!-- Item 1 -->
+            <a href="https://example.com/item1" class="relative zoom block overflow-hidden">
+                <img src="../Static/img/camiseta.jpg" alt="Camisetas" class="w-full h-auto max-h-[70vh] object-cover">
+                <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+                    <span class="text-white text-xl font-bold">CAMISETAS</span>
+                </div>
+            </a>
+            <!-- Item 2 -->
+            <a href="../Static/img/basica.jpg" class="relative zoom block overflow-hidden">
+                <img src="../Static/img/basica.jpg" alt="Básicas" class="w-full h-auto max-h-[70vh] object-cover">
+                <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+                    <span class="text-white text-xl font-bold">BÁSICAS</span>
+                </div>
+            </a>
+            <!-- Item 3 -->
+            <a href="https://example.com/item3" class="relative zoom block overflow-hidden">
+                <img src="../Static/img/hoddie.jpg" alt="Hoodies" class="w-full h-auto max-h-[70vh] object-cover">
+                <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+                    <span class="text-white text-xl font-bold">HOODIES</span>
+                </div>
+            </a>
+            <!-- Item 4 -->
+            <a href="https://example.com/item4" class="relative zoom block overflow-hidden">
+                <img src="../Static/img/pant.jpg" alt="Item 4" class="w-full h-auto max-h-[70vh] object-cover">
+                <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+                    <span class="text-white text-xl font-bold">BERMUDAS</span>
+                </div>
+            </a>
+            <!-- Item 5 -->
+            <a href="https://example.com/item5" class="relative zoom block overflow-hidden">
+                <img src="../Static/img/sombrero.jpg" alt="Item 5" class="w-full h-auto max-h-[70vh] object-cover">
+                <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+                    <span class="text-white text-xl font-bold">GORROS</span>
+                </div>
+            </a>
+            <!-- Item 6 -->
+            <a href="https://example.com/item6" class="relative zoom block overflow-hidden">
+                <img src="../Static/img/pantalon.jpg" alt="Item 6" class="w-full h-auto max-h-[70vh] object-cover">
+                <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+                    <span class="text-white text-xl font-bold">PANTALON</span>
+                </div>
+            </a>
+        </div>
+    </div>
+    <br><br>
+
+    <style>
+        .zoom:hover img {
+            transform: scale(1.1);
+            transition: transform 0.5s ease;
+        }
+    </style>
+
+
 
 </body>
 
