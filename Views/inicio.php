@@ -244,6 +244,12 @@
 
                     </div>
                 </div>
+
+
+               
+
+
+
                 <button type="button" id="whats-openPopup" class="whatsapp-button">
                     <div class="float">
                         <i class="fa fa-whatsapp my-float"></i>
@@ -252,12 +258,25 @@
                 <div class="circle-anime">
 
                 </div>
-            </div>
+        </div>
+
+        <img class="nort" src="../Static/img/nort.jpg" alt="">
+        <style>
+        .nort {
+            width: 100%;
+            height: auto;
+            max-height: 64vh;
+            object-fit: cover;
+        }
+    </style>
 
 
-            <img id="nort" src="../Static/img/nort.jpg" alt="" class="w-full h-auto max-h-[70vh] object-cover"><br><br><br>
+            
+            
 
-            <div class="flex items-center justify-center my-8">
+
+            
+        <div class="flex items-center justify-center my-8">
             <hr class="flex-grow border-t border-gray-300">
             <span class="mx-4 text-gray-700 text-xl font-semibold">lo mejor lo encuentras en saudade</span>
             <hr class="flex-grow border-t border-gray-300">

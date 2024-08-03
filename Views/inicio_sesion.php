@@ -80,7 +80,7 @@
                 <p>¿Aún no estás en Saudade? <a href="{{ url_for('registro') }}" class="text-blue-500 hover:underline">Regístrate</a></p>
             </div>
         </form>
-<<<<<<< HEAD
+
         
         <script>
             function validarFormulario() {
@@ -99,8 +99,8 @@
 
         
         
-=======
->>>>>>> ccfcbb0bdf9022bbe45c9958be7cafc223fc8d99
+
+
 
         <div class="flex items-center bg-white justify-center rounded-lg py-2 mt-5">  
             <a <?php require('../Controller/callback.php')?>

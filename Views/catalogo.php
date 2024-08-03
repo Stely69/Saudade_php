@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,10 +9,19 @@
     <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="../public/css/catalogo.css">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .sticky-sidebar {
+            position: sticky;
+            top: 0;
+            height: 100vh;
+        }
+    </style>
 </head>
+
 <body>
     <?php
-        session_start();
+    session_start();
     ?>
     <nav id="header" class="barra">
         <div class="w-full flex items-center justify-between px-6 py-4 backdrop-blur-lg">
@@ -45,194 +55,138 @@
                         <a class="inline-block font-medium no-underline text-black text-lg hover:text-[#6F00FF] px-4" href="../Views/inicio_sesion.php">Iniciar sesión</a>
                         <a class="inline-block font-medium no-underline text-black text-lg hover:text-[#6F00FF]" href="../Views/registro.php">Registrarse</a>
                     <?php endif; ?>
-                    
                 </div>
             </div>
         </div>
     </nav>
-                        
-  <img class="angel" src="../static/img/ANGEL SIN FONDO.png" alt="">
-  <img class="angel2" src="../static/img/ANGEL SIN FONDO.png" alt="">
-    
-  <div class="container mx-auto max-w-7xl p-10">
-        <div class="flex flex-col items-center mb-5">
-            <h1 class="text-3xl font-bold">Catálogo de Camisas</h1>
-            <p class="text-gray-500">Encuentra la camisa perfecta para ti.</p>
+
+    <div class="flex">
+        <div class="w-0/4 p-4 bg-white shadow-lg sticky-sidebar">
+            <div class="mb-6">
+                <h2 class="font-bold text-lg mb-2">Categorías</h2>
+                <ul>
+                    <li class="mb-1"><a href="#" class="hover:underline">🌴 Summer Club</a></li>
+                    <li class="mb-1"><a href="#" class="hover:underline">🔥 New Merch</a></li>
+                    <li class="mb-1"><a href="#" class="hover:underline">Camisetas</a></li>
+                    <li class="mb-1"><a href="#" class="hover:underline">Camisas y Polos</a></li>
+                    <li class="mb-1"><a href="#" class="hover:underline">Inferiores 🩳</a></li>
+                    <li class="mb-1"><a href="#" class="hover:underline">Básicos</a></li>
+                    <li class="mb-1"><a href="#" class="hover:underline">Gorras</a></li>
+                    <li class="mb-1"><a href="#" class="hover:underline">Sacos y Chaquetas</a></li>
+                    <li class="mb-1"><a href="#" class="hover:underline">🎁 Gift Card</a></li>
+                </ul>
+            </div>
+            <div class="mb-6">
+                <h2 class="font-bold text-lg mb-2">Precio</h2>
+                <div class="flex items-center mb-2">
+                    <input type="range" min="0" max="180000" class="w-full">
+                </div>
+                <div class="flex justify-between">
+                    <input type="number" min="0" max="180000" class="w-1/2 p-2 border border-gray-300 rounded" placeholder="$ 0">
+                    <input type="number" min="0" max="180000" class="w-1/2 p-2 border border-gray-300 rounded" placeholder="$ 180000">
+                </div>
+                <button class="mt-4 w-full bg-black text-white py-2 rounded">Aplicar</button>
+            </div>
+            <div class="mb-6">
+                <h2 class="font-bold text-lg mb-2">Talla</h2>
+                <ul>
+                    <li><label><input type="checkbox" class="mr-2">S (29)</label></li>
+                    <li><label><input type="checkbox" class="mr-2">M (26)</label></li>
+                    <li><label><input type="checkbox" class="mr-2">L (23)</label></li>
+                    <li><label><input type="checkbox" class="mr-2">XL (27)</label></li>
+                    <li><label><input type="checkbox" class="mr-2">L / 34 (10)</label></li>
+                    <li><label><input type="checkbox" class="mr-2">M / 32 (10)</label></li>
+                </ul>
+            </div>
+            <div>
+                <h2 class="font-bold text-lg mb-2">Color</h2>
+                <div class="flex flex-wrap">
+                    <div class="w-6 h-6 bg-white border border-gray-300 rounded-full mr-2 mb-2"></div>
+                    <div class="w-6 h-6 bg-gray-200 border border-gray-300 rounded-full mr-2 mb-2"></div>
+                    <div class="w-6 h-6 bg-gray-400 border border-gray-300 rounded-full mr-2 mb-2"></div>
+                    <div class="w-6 h-6 bg-black border border-gray-300 rounded-full mr-2 mb-2"></div>
+                    <div class="w-6 h-6 bg-red-400 border border-gray-300 rounded-full mr-2 mb-2"></div>
+                    <div class="w-6 h-6 bg-yellow-200 border border-gray-300 rounded-full mr-2 mb-2"></div>
+                </div>
+            </div>
         </div>
 
-        <div class="flex flex-col md:flex-row justify-between mb-5">
-            <div class="w-full md:w-1/3 mb-3">
-                <label for="filtro-precio" class="block text-gray-700">Precio</label>
-                <select id="filtro-precio" class="form-select w-full rounded-md border border-gray-300 focus:border-blue-500">
-                    <option value="">Cualquier precio</option>
-                    <option value="menos-50000">Menos de $50.000</option>
-                    <option value="50000-100000">$50.000 - $100.000</option>
-                    <option value="100000-150000">$100.000 - $150.000</option>
-                    </select>
-            </div>
+        <div class="w-3/4 p-4">
+            <div class="container mx-auto max-w-7xl p-10">
+                <div class="flex flex-col items-center mb-5">
+                    <h1 class="text-3xl font-bold">Catálogo de Camisas</h1>
+                    <p class="text-gray-500">Encuentra la camisa perfecta para ti.</p>
+                </div>
 
-            <div class="w-full md:w-1/3 mb-3">
-                <label for="filtro-color" class="block text-gray-700">Color</label>
-                <select id="filtro-color" class="form-select w-full rounded-md border border-gray-300 focus:border-blue-500">
-                    <option value="">Cualquier color</option>
-                    <option value="blanco">Blanco</option>
-                    <option value="negro">Negro</option>
-                    <option value="gris">Gris</option>
-                    </select>
-            </div>
-        </div>
+                
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-5 bg-white">
-            <div class="bg-whites rounded-lg shadow-md hover:shadow-lg">
-                <img src="../static/img/camiseta2.png" alt="Camisa Nike" class="rounded-t-lg">
-                <div class="p-4 ">
-                    <h3 class="text-black text-center font-medium">Camisa</h3>
-                    <p class="text-black">$45.000</p>
-                    <div class="flex items-center justify-between mt-4">
-                        <a href="../views/compra.php" class="text-blue-500 hover:underline">Ver detalles</a>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-5 bg-white">
+                    <div class="bg-whites rounded-lg shadow-md hover:shadow-lg">
+                        <img src="../static/img/camiseta2.png" alt="Camisa Nike" class="rounded-t-lg">
+                        <div class="p-4 ">
+                            <h3 class="text-black text-center font-medium">Camisa</h3>
+                            <p class="text-black">$45.000</p>
+                            <div class="flex items-center justify-between mt-4">
+                                <a href="../views/compra.php" class="text-blue-500 hover:underline">Ver detalles</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-lg shadow-md hover:shadow-lg">
+                        <img src="../static/img/camiseta3.png" alt="Camisa Adidas" class="rounded-t-lg">
+                        <div class="p-4">
+                            <h3 class="text-black text-center font-medium">Camisa</h3>
+                            <p class="text-black">$60.000</p>
+                            <div class="flex items-center justify-between mt-4">
+                                <a href="../Views/compra.php" class="text-blue-500 hover:underline">Ver detalles</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-md hover:shadow-lg">
+                        <img src="../static/img/camiseta3.png" alt="Camisa Adidas" class="rounded-t-lg">
+                        <div class="p-4">
+                            <h3 class="text-black text-center font-medium">Camisa</h3>
+                            <p class="text-black">$60.000</p>
+                            <div class="flex items-center justify-between mt-4">
+                                <a href="../Views/compra.php" class="text-blue-500 hover:underline">Ver detalles</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-md hover:shadow-lg">
+                        <img src="../static/img/camiseta2.png" alt="Camisa Adidas" class="rounded-t-lg">
+                        <div class="p-4">
+                            <h3 class="text-black text-center font-medium">Camisa</h3>
+                            <p class="text-black">$60.000</p>
+                            <div class="flex items-center justify-between mt-4">
+                                <a href="../Views/compra.php" class="text-blue-500 hover:underline">Ver detalles</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-md hover:shadow-lg">
+                        <img src="../static/img/camiseta1.png" alt="Camisa Adidas" class="rounded-t-lg">
+                        <div class="p-4">
+                            <h3 class="text-black text-center font-medium">Camisa</h3>
+                            <p class="text-black">$60.000</p>
+                            <div class="flex items-center justify-between mt-4">
+                                <a href="../Views/compra.php" class="text-blue-500 hover:underline">Ver detalles</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-md hover:shadow-lg">
+                        <img src="../static/img/camiseta1.png" alt="Camisa Adidas" class="rounded-t-lg">
+                        <div class="p-4">
+                            <h3 class="text-black text-center font-medium">Camisa</h3>
+                            <p class="text-black">$60.000</p>
+                            <div class="flex items-center justify-between mt-4">
+                                <a href="../Views/compra.php" class="text-blue-500 hover:underline">Ver detalles</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-
-            <div class="bg-white rounded-lg shadow-md hover:shadow-lg">
-                <img src="../static/img/camiseta3.png" alt="Camisa Adidas" class="rounded-t-lg">
-                <div class="p-4">
-                    <h3 class="text-black text-center font-medium">Camisa </h3>
-                    <p class="text-black">$60.000</p>
-                    <div class="flex items-center justify-between mt-4">
-                        <a href="../Views/compra.php" class="text-blue-500 hover:underline">Ver detalles</a>
-                   </div>
-                </div>
-            </div>
-            <div class="bg-white  rounded-lg shadow-md hover:shadow-lg">
-              <img src="../static/img/camiseta3.png" alt="Camisa Adidas" class="rounded-t-lg">
-              <div class="p-4">
-                  <h3 class="text-black text-center font-medium">Camisa </h3>
-                  <p class="text-black">$60.000</p>
-                  <div class="flex items-center justify-between mt-4">
-                      <a href="../Views/compra.php" class="text-blue-500 hover:underline">Ver detalles</a>
-                 </div>
-              </div>
-          </div>
-          <div class="bg-white rounded-lg shadow-md hover:shadow-lg">
-            <img src="../static/img/camiseta2.png" alt="Camisa Adidas" class="rounded-t-lg">
-            <div class="p-4">
-                <h3 class="text-black text-center font-medium">Camisa </h3>
-                <p class="text-black">$60.000</p>
-                <div class="flex items-center justify-between mt-4">
-                    <a href="../Views/compra.php" class="text-blue-500 hover:underline">Ver detalles</a>
-               </div>
-            </div>
-        </div>
-        <div class="bg-white rounded-lg shadow-md hover:shadow-lg">
-          <img src="../static/img/camiseta1.png" alt="Camisa Adidas" class="rounded-t-lg">
-          <div class="p-4">
-              <h3 class="text-black text-center font-medium">Camisa</h3>
-              <p class="text-black">$60.000</p>
-              <div class="flex items-center justify-between mt-4">
-                  <a href="../Views/compra.php" class="text-blue-500 hover:underline">Ver detalles</a>
-             </div>
-          </div>
-      </div>
-      <div class="bg-white rounded-lg shadow-md hover:shadow-lg">
-        <img src="../static/img/camiseta1.png" alt="Camisa Adidas" class="rounded-t-lg">
-        <div class="p-4">
-            <h3 class="text-black text-center font-medium">Camisa</h3>
-            <p class="text-black">$60.000</p>
-            <div class="flex items-center justify-between mt-4">
-                <a href="../Views/compra.php" class="text-blue-500 hover:underline">Ver detalles</a>
-           </div>
         </div>
     </div>
 
-    <script src="../Public/js/carrito.js"></script>
 </body>
-<!--<footer class="relative bg-[#0E0047] pt-8 pb-6">
-  <div class="container mx-auto px-4">
-      <div class="flex flex-wrap text-left lg:text-left">
-          <div class="w-full lg:w-6/12 px-4">
-              <h4 class="text-3xl fonat-semibold text-white">Saudade</h4>
-              <h5 class="text-lg mt-0 mb-2 text-white">
-                  Tienda Virtual
-              </h5>
-              <div class="mt-6 lg:mb-0 mb-6">
-                  <button
-                      class="bg-white text-lightBlue-400 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
-                      type="button">
-                      <i class="fab fa-twitter"></i></button><button
-                      class="bg-white text-lightBlue-600 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
-                      type="button">
-                      <i class="fab fa-facebook-square"></i></button><button
-                      class="bg-white text-pink-400 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
-                      type="button">
-                      <i class="fab fa-dribbble"></i></button><button
-                      class="bg-white text-blueGray-800 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
-                      type="button">
-                      <i class="fab fa-github"></i>
-                  </button>
-              </div>
-          </div>
-          <div class="w-full lg:w-6/12 px-4">
-              <div class="flex flex-wrap items-top mb-6">
-                  <div class="w-full lg:w-4/12 px-4 ml-auto">
-                      <span class="block uppercase text-white text-sm font-semibold mb-2">Acerca de Nosotros</span>
-                      <ul class="list-unstyled">
-                          <li>
-                              <a class="text-white hover:text-blueGray-500 font-semibold block pb-2 text-sm"
-                                  href="#">Contacto</a>
-                          </li>
-                          <li>
-                              <a class="text-white hover:text-blueGray-500 font-semibold block pb-2 text-sm"
-                                  href="#">Blog</a>
-                          </li>
-                          <li>
-                              <a class="text-white hover:text-blueGray-500 font-semibold block pb-2 text-sm"
-                                  href="#">Villeta Cundinamarca </a>
-                          </li>
-                          <li>
-                              <a class="text-white hover:text-blueGray-500 font-semibold block pb-2 text-sm"
-                                  href="#">Free
-                                  Products</a>
-                          </li>
-                      </ul>
-                  </div>
-                  <div class="w-full lg:w-4/12 px-4">
-                      <span class="block uppercase text-white text-sm font-semibold mb-2">Enlaces Rapidos</span>
-                      <ul class="list-unstyled">
-                          <li>
-                              <a class="text-white hover:text-blueGray-500 font-semibold block pb-2 text-sm"
-                                  href="#">Mi cuenta License</a>
-                          </li>
-                          <li>
-                              <a class="text-white hover:text-blueGray-500 font-semibold block pb-2 text-sm"
-                                  href="#">Home</a>
-                          </li>
-                          <li>
-                              <a class="text-white hover:text-blueGray-500 font-semibold block pb-2 text-sm"
-                                  href="#">Terminos y condiciones</a>
-                          </li>
-                          <li>
-                              <a class="text-white hover:text-blueGray-500 font-semibold block pb-2 text-sm"
-                                  href="#">Politicas de privacidad </a>
-                          </li>
-                      </ul>
-                  </div>
-              </div>
-          </div>
-      </div>
-
-      <hr class="my-6 border-blueGray-300">
-      <div class="flex flex-wrap items-center md:justify-between justify-center">
-          <div class="w-full md:w-4/12 px-4 mx-auto text-center">
-              <div class="text-sm text-white font-semibold py-1">
-                  Copyright © <span id="get-current-year">2021</span><a href="#"
-                      class="text-white hover:text-gray-500" target="_blank"> Saudade
-                      <a href="https://www.creative-tim.com?ref=njs-profile"
-                          class="text-blueGray-500 hover:text-blueGray-800"></a>.
-              </div>
-          </div>
-      </div>
-  </div>
-</footer>-->
 
 </html>
