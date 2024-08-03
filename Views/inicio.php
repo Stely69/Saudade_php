@@ -153,7 +153,7 @@
 
                 <div class="flex sgap-2  mt-10 ">
                     <div id="grande4" class="bg-[#050016] w-1/3 shadow rounded-lg overflow-hidden flex flex-col  items-center justify-center p-4">
-                        <img id="camiseta2" src="../static/img/camiseta2.png" class="rounded-lg object-cover h-50 w-42"
+                        <img id="camiseta2" src="../Static/img/hoddie.jpg" class="rounded-lg object-cover h-50 w-42"
                             alt="">
                         <div class="p-6 flex flex-col flex-1">
                             <h3 class="mt-3 mb-2 font-bold text-lg text-white ">
@@ -170,7 +170,7 @@
 
                     <div id="grande2"
                         class="bg-[#050016] w-1/3 shadow rounded-lg overflow-hidden flex flex-col  items-center justify-center p-4">
-                        <img id="camiseta1" src="../static/img/camiseta1.png" class="rounded-lg object-cover h-50 w-42"
+                        <img id="camiseta1" src="../Static/img/basica.jpg" class="rounded-lg object-cover h-50 w-42"
                             alt="">
                         <div class="p-6 flex flex-col flex-1">
                             <span class="block text-slate-400 font-semibold text-sm"></span>
@@ -186,7 +186,7 @@
 
                     <div id="grande1"
                         class="bg-[#050016] w-1/3 shadow rounded-lg overflow-hidden flex flex-col items-center justify-center p-4">
-                        <img id="camiseta3" src="../static/img/camiseta3.png" class="rounded-lg object-cover h-50 w-42"
+                        <img id="camiseta3" src="../Static/img/sombrero.jpg" class="rounded-lg object-cover h-50 w-42"
                             alt="">
                         <div class="p-6 flex flex-col flex-1">
                             <span class="block text-white font-semibold text-sm"></span>
@@ -203,7 +203,7 @@
 
                     <div id="grande1"
                         class="bg-[#050016] w-1/3 shadow rounded-lg overflow-hidden flex flex-col items-center justify-center p-4">
-                        <img id="camiseta3" src="../static/img/camiseta3.png" class="rounded-lg object-cover h-50 w-42"
+                        <img id="camiseta3" src="../Static/img/camiseta.jpg" class="rounded-lg object-cover h-50 w-42"
                             alt="">
                         <div class="p-6 flex flex-col flex-1">
                             <span class="block text-white font-semibold text-sm"></span>
