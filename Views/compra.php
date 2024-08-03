@@ -5,7 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Producto</title>
     <link rel="stylesheet" href="../Public/css/style.css">
+    <link rel="stylesheet" href="../public/css/landin.css">
+
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../public/css/whats.css">
+    <link rel="stylesheet" href="../public/css/whats2.css">
+    <link rel="stylesheet" href="../Public/css/style.css">
+
     <link rel="stylesheet" href="https://demos.creative-tim.com/notus-js/assets/styles/tailwind.css">
     <link rel="stylesheet" href="../public/css/catalogo.css">
     <link rel="stylesheet" href="https://demos.creative-tim.com/notus-js/assets/vendor/@fortawesome/fontawesome-free/css/all.min.css">
@@ -50,7 +56,7 @@
 
 
    
-       
+
     <div class="container mx-auto mt-5">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
@@ -90,7 +96,7 @@
                 <div class="mt-5">
                     <p><i class="fas fa-shipping-fast"></i> Envíos a toda Colombia</p>
                     <p><i class="fas fa-undo-alt"></i> Devoluciones hasta 30 días</p>
-                    <p><i class="fas fa-credit-card"></i> 0% de interés pagando en 3 cuotas</p>
+                    <p><i class="fas fa-credit-card"></i> Pago contra-entrega</p>
                 </div>
             </div>
         </div>
@@ -177,7 +183,8 @@
     </script>
 
             
-
+   <!-- Imagen angel 2 --> 
+   <img src="../Static/img/ANGEL SIN FONDO.png" class="angel2">
 
 
 
@@ -293,15 +300,29 @@
 
 
 
+        <div class="nav-bottom">
+        <div class="popup-whatsapp fadeIn">
+            <div class="content-whatsapp -top">
+                <button type="button" class="closePopup">
+                    <i class="material-icons icon-font-color">X</i>
+                </button>
+                <p><img src="../static/img/LOGO_SAUDADE.png" width="50"> 
+                    ¿Necesitas ayuda en tu compra ? 
+                </p>
+            </div>
+            <div class="content-whatsapp -bottom">
+                <input class="whats-input" id="whats-in" type="text" placeholder="Enviar mensaje..." />
+                <button class="send-msPopup" id="send-btn" type="button">
+                    <i class="material-icons icon-font-color--black">></i>
+                </button>
+            </div>
+        </div>
+        <button type="button" id="whats-openPopup" class="whatsapp-button">
+            <img src="../Static/img/wasa.png" width="90" alt="">
+        </button>
+        <div class="circle-anime"></div>
     </div>
-
-    
-
-    
-
-
-    
-
+    <script src="../Public/js/whastsapp.js"></script>
    
 </body>
 </html>

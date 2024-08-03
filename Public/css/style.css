@@ -51,15 +51,12 @@ font-size: x-large;
 .btn-block{
     background-color: blue;
 }
-.angel1{
-
-position: absolute;
-width: 234px;
-height: 282px;
-left: -17px;
-top: 200px;
-transform: matrix(-1, 0, 0, 1, 0, 0);
-
+.angel1 {
+    position: fixed;
+    height: 282px;
+    left: -17px;
+    top: 200px;
+    z-index: -2;
 }
 .angel2{
     position: absolute;
@@ -67,7 +64,8 @@ transform: matrix(-1, 0, 0, 1, 0, 0);
     height: 282px;
     right: -17px;
     top: 100px;
-    transform: matrix(1, 0, 0, 1, 0, 0)
+    transform: matrix(-1, 0, 0, 1, 0, 0);
+    z-index: -2;
 }
 .logo{
     position: absolute;
@@ -75,6 +73,7 @@ transform: matrix(-1, 0, 0, 1, 0, 0);
     top: 10px;
     height: 70px;
     width: auto;
+    
    
 }
 

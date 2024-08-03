@@ -9,6 +9,8 @@
     <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="../public/css/catalogo.css">
+    <link rel="stylesheet" href="../Public/css/style.css">
+
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <style>
         .sticky-sidebar {
@@ -189,6 +191,7 @@
             </div>
         </div>
     </div>
+    <img src="../Static/img/ANGEL SIN FONDO.png" class="angel2">
 
 </body>
 

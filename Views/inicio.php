@@ -258,7 +258,7 @@
                 <div class="circle-anime">
 
                 </div>
-        </div>
+           </div>
 
         <img class="nort" src="../Static/img/nort.jpg" alt="">
         <style>
