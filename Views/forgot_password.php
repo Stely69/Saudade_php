@@ -8,6 +8,7 @@
     <form action="../Public/forgot_password_action.php" method="post">
         <input type="email" name="email" placeholder="Email" required>
         <button type="submit">Enviar enlace de recuperación</button>
+        <h1>hola</h1>
     </form>
 </body>
 </html>
