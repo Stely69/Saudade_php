@@ -52,11 +52,11 @@ font-size: x-large;
     background-color: blue;
 }
 .angel1 {
-    position: fixed;
+    position: absolute;
     height: 282px;
     left: -17px;
     top: 200px;
-    z-index: -2;
+    transform: matrix(-1, 0,0,1,0,0);
 }
 .angel2{
     position: absolute;
@@ -64,8 +64,8 @@ font-size: x-large;
     height: 282px;
     right: -17px;
     top: 100px;
-    transform: matrix(-1, 0, 0, 1, 0, 0);
-    z-index: -2;
+    transform: matrix(1, 0,0,1,0,0);
+   
 }
 .logo{
     position: absolute;
