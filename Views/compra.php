@@ -57,7 +57,7 @@
 
    
 
-    <div class="container mx-auto mt-5">
+    <div class="shadow-2xl container mx-auto mt-5">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
                 <img class="w-full" src="../Static/img/sombrero.jpg" alt="Producto">
@@ -67,7 +67,7 @@
                 <p class="text-gray-500 mt-2">Camiseta para hombre oversize con estampado en frente y espalda, tela algodón, cuello en tela Rib, silueta amplia, textura lisa, una prenda versátil infaltable en tu closet, úsala con jeans de diferentes estilos, pantalonetas o bermudas.</p>
                 <p class="text-3xl font-bold mt-5">$75.000,00</p>
                 <div class="mt-5">
-                    <label for="size" class="block mb-2">TALLA:</label>
+                    <label for="radius" class="block mb-2">TALLA:</label>
                     <select id="size" class="block w-full border border-gray-300 rounded-md p-2">
                         <option>S</option>
                         <option>M</option>
@@ -80,13 +80,15 @@
                     <select id="material" class="block w-full border border-gray-300 rounded-md p-2">
                         <option>100% Algodón</option>
                     </select>
+                </div><br>
+                <div>
+                <h2 class="font-bold text-lg mb-2">Color</h2><br>
+                <div class="flex flex-wrap">
+                    <div class="w-6 h-6 bg-white border border-gray-300 rounded-full mr-2 mb-2"></div>
+
+                    <div class="w-6 h-6 bg-black border border-gray-300 rounded-full mr-2 mb-2"></div>
                 </div>
-                <div class="mt-5">
-                    <label for="color" class="block mb-2">Color:</label>
-                    <select id="color" class="block w-full border border-gray-300 rounded-md p-2">
-                        <option>Natural</option>
-                    </select>
-                </div>
+              </div>
                 <div class="mt-5">
                     <label for="quantity" class="block mb-2">Cantidad:</label>
                     <input type="number" id="quantity" class="block w-full border border-gray-300 rounded-md p-2" value="1">

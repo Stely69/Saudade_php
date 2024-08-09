@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="../public/css/catalogo.css">
     <link rel="stylesheet" href="../Public/css/style.css">
+    <link rel="stylesheet" href="../Public/css/noti.css">
 
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <style>
@@ -104,8 +105,6 @@
                 <h2 class="font-bold text-lg mb-2">Color</h2>
                 <div class="flex flex-wrap">
                     <div class="w-6 h-6 bg-white border border-gray-300 rounded-full mr-2 mb-2"></div>
-                    <div class="w-6 h-6 bg-gray-200 border border-gray-300 rounded-full mr-2 mb-2"></div>
-                    <div class="w-6 h-6 bg-gray-400 border border-gray-300 rounded-full mr-2 mb-2"></div>
                     <div class="w-6 h-6 bg-black border border-gray-300 rounded-full mr-2 mb-2"></div>
                     <div class="w-6 h-6 bg-red-400 border border-gray-300 rounded-full mr-2 mb-2"></div>
                     <div class="w-6 h-6 bg-yellow-200 border border-gray-300 rounded-full mr-2 mb-2"></div>
@@ -128,7 +127,7 @@
                         <div class="p-4 ">
                             <h3 class="text-black text-center font-medium">Polo</h3>
                             <p class="text-black">$45.000</p>
-                            <div class="flex items-center justify-between mt-4">
+                            <div class="flex items-center  mt-4">
                                 <a href="../views/compra.php" class="text-blue-500 hover:underline">Ver detalles</a>
                             </div>
                         </div>
@@ -192,6 +191,20 @@
         </div>
     </div>
     <img src="../Static/img/ANGEL SIN FONDO.png" class="angel2">
+
+
+<div id="notification" class="notification hidden">
+    <img src="../static/img/camiseta.jpg" alt="Product" class="product-image">
+    <div class="notification-content">
+        <p>Alguien compró hace poco <strong>Una chimba de camiseta </strong></p>
+        <p>Bogotá</p>
+        <small>hace 20 minutos</small>
+    </div>
+    <span class="close" onclick="closeNotification()">&times;</span>
+ </div>
+
+ <script src="../public/js/noti.js"></script>
+
 
 </body>
 

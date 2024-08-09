@@ -102,7 +102,7 @@
 
                 <div id="contenedor1"
                     class="bg-[#050016] w-1/3 shadow rounded-lg overflow-hidden flex flex-col  items-center justify-center p-4">
-                    <img id="modelo" src="../static/img/modelo1.jpeg" class="rounded-lg object-cover h-50 w-42" alt="">
+                    <img id="modelo" src="../static/img/hoddie.jpg" class="rounded-lg object-cover h-50 w-42" alt="">
                     <div class="p-6 flex flex-col flex-1">
                         <span class="block text-slate-400 font-semibold text-sm"></span>
                         <h2 class="text-xs text-slate-400 mb-3"></h2>
@@ -151,7 +151,7 @@
 
                 <!--Catalogo de las camisas -->
 
-                <div class="flex sgap-2  mt-10 ">
+                <div class="flex gap-6 mt-10 ">
                     <div id="grande4" class="bg-[#050016] w-1/3 shadow rounded-lg overflow-hidden flex flex-col  items-center justify-center p-4">
                         <img id="camiseta2" src="../Static/img/hoddie.jpg" class="rounded-lg object-cover h-50 w-42"
                             alt="">
@@ -290,42 +290,42 @@
             <!-- Item 1 -->
             <a href="https://example.com/item1" class="relative zoom block overflow-hidden">
                 <img src="../Static/img/camiseta.jpg" alt="Camisetas" class="w-full h-auto max-h-[70vh] object-cover">
-                <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+                <div class="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center">
                     <span class="text-white text-xl font-bold">CAMISETAS</span>
                 </div>
             </a>
             <!-- Item 2 -->
             <a href="../Static/img/basica.jpg" class="relative zoom block overflow-hidden">
                 <img src="../Static/img/basica.jpg" alt="Básicas" class="w-full h-auto max-h-[70vh] object-cover">
-                <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+                <div class="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center">
                     <span class="text-white text-xl font-bold">BÁSICAS</span>
                 </div>
             </a>
             <!-- Item 3 -->
             <a href="https://example.com/item3" class="relative zoom block overflow-hidden">
                 <img src="../Static/img/hoddie.jpg" alt="Hoodies" class="w-full h-auto max-h-[70vh] object-cover">
-                <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+                <div class="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center">
                     <span class="text-white text-xl font-bold">HOODIES</span>
                 </div>
             </a>
             <!-- Item 4 -->
             <a href="https://example.com/item4" class="relative zoom block overflow-hidden">
                 <img src="../Static/img/pant.jpg" alt="Item 4" class="w-full h-auto max-h-[70vh] object-cover">
-                <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+                <div class="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center">
                     <span class="text-white text-xl font-bold">BERMUDAS</span>
                 </div>
             </a>
             <!-- Item 5 -->
             <a href="https://example.com/item5" class="relative zoom block overflow-hidden">
                 <img src="../Static/img/sombrero.jpg" alt="Item 5" class="w-full h-auto max-h-[70vh] object-cover">
-                <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+                <div class="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center">
                     <span class="text-white text-xl font-bold">GORROS</span>
                 </div>
             </a>
             <!-- Item 6 -->
             <a href="https://example.com/item6" class="relative zoom block overflow-hidden">
                 <img src="../Static/img/pantalon.jpg" alt="Item 6" class="w-full h-auto max-h-[70vh] object-cover">
-                <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+                <div class="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center">
                     <span class="text-white text-xl font-bold">PANTALON</span>
                 </div>
             </a>

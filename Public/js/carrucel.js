@@ -1,7 +1,7 @@
 var images = [
-    '../static/img/modelo2.jpeg',
-    '../static/img/modelo1.jpeg',
-    '../static/img/modelo3.jpeg',
+    '../static/img/basica.jpg',
+    '../static/img/ber1.jpg',
+    '../static/img/hoddie.jpg',
   // Agrega más rutas de imágenes según sea necesario
 ];
 
