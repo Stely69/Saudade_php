@@ -41,6 +41,8 @@
                         <li><a class="inline-block no-underline hover:text-[#6F00FF] font-medium text-lg py-2 px-4 lg:-ml-2" href="../Views/inicio.php">Inicio</a></li>
                         <li><a class="inline-block no-underline hover:text-[#6F00FF] font-medium text-lg py-2 px-4 lg:-ml-2" href="../Views/quienessomos.php">Quiénes Somos</a></li>
                         <li><a class="inline-block no-underline hover:text-[#9333ea] font-medium text-lg py-2 px-4 lg:-ml-2" href="../Views/catalogo.php">Catalogo</a></li>
+                        <a class="inline-block font-medium no-underline text-black text-lg hover:text-[#6F00FF]" href="../Views/editor.php">Agregar productos</a>
+
                     </ul>
                 </nav>
             </div>
@@ -53,8 +55,10 @@
                         <span class="inline-block no-underline font-medium text-black text-lg px-4">Hola, <?php echo $_SESSION['username']; ?>!</span>
                         <a class="inline-block no-underline font-medium text-black text-lg hover:text-[#6F00FF] px-4" href="../public/logout_action.php">Cerrar sesión</a>
                     <?php else: ?>
-                        <a class="inline-block font-medium no-underline text-black text-lg hover:text-[#6F00FF] px-4" href="../Views/inicio_sesion.php">Iniciar sesión</a>
-                        <a class="inline-block font-medium no-underline text-black text-lg hover:text-[#6F00FF]" href="../Views/registro.php">Registrarse</a>
+                        <a class="inline-block no-underline font-medium text-black text-lg hover:text-[#6F00FF] px-4" href="../public/logout_action.php">Cerrar sesión</a>
+
+                        <a class="inline-block font-medium no-underline text-black text-lg hover:text-[#6F00FF] px-4" href="">Hola, vendedor</a>
+                        <a class="inline-block font-medium no-underline text-black text-lg hover:text-[#6F00FF]" href="../Views/registro.php"></a>
                     <?php endif; ?>
                     
                 </div>
@@ -87,6 +91,7 @@
         height="352" frameBorder="0" allowfullscreen=""allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy">
     </iframe>
 
+
     <div class="bg-white py-16">
   <div class="container mx-auto">
     <!-- Sección Dynamo Ropa Urbana -->
@@ -112,7 +117,7 @@
     </div>
 
     <!-- Carousel Container -->
-    <div class="grid grid-cols-1 md:grid-cols-4 gap-8 shadow-lg ">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
       <div class="relative">
         <img src="../Static/img/pantalon.jpg" alt="Product 1" class="w-full">
         <p class="text-center mt-4">Jeans Baggy Para Hombre Azul</p>
@@ -182,7 +187,7 @@
   <!-- Cierre del div con clase relative flex min-h-screen -->
 
 
-  <div class="carousel-container ">
+  <div class="carousel-container">
     <div class="carousel">
         <div class="video-container small">
             <video src="../Static/video/video1.mp4" muted></video>

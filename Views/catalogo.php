@@ -193,6 +193,109 @@
     </div>
     <img src="../Static/img/ANGEL SIN FONDO.png" class="angel2">
 
+
+
+
+
+
+    <div class="notification" id="notification">
+        <img src="../Static/img/hoddie.jpg" alt="Tee Sweetie" class="notification-image">
+        <div class="notification-content">
+            <p>Alguien compró hace poco <strong>una chimba de hoddie</strong></p>
+            <p>Bogotá</p>
+            <p class="time-ago">hace 19 minutos</p>
+        </div>
+        <div class="timer-bar" id="timer-bar"></div>
+        <button class="close-btn" onclick="closeNotification()">×</button>
+    </div>
+
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+}
+
+.notification {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    max-width: 300px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+}
+
+.notification-image {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.notification-content {
+    flex-grow: 1;
+}
+
+.time-ago {
+    font-size: 0.8em;
+    color: gray;
+}
+
+.timer-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background-color: black;
+    animation: timer 30s linear forwards;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    font-size: 1.2em;
+    color: black;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+@keyframes timer {
+    from { width: 100%; }
+    to { width: 0%; }
+}
+
+    </style>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+    // Mostrar la notificación después de 3 segundos
+    setTimeout(function() {
+        var notification = document.getElementById("notification");
+        notification.style.opacity = "1";
+        notification.style.visibility = "visible";
+    }, 3000);
+
+    // Ocultar la notificación después de 30 segundos
+    setTimeout(function() {
+        closeNotification();
+    }, 33000); // 3 segundos de espera + 30 segundos de visualización
+});
+
+function closeNotification() {
+    var notification = document.getElementById("notification");
+    notification.style.opacity = "0";
+    notification.style.visibility = "hidden";
+}
+
+    </script>
+
 </body>
 
 </html>
