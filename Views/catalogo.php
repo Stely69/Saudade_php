@@ -115,83 +115,114 @@
 
         <div class="w-3/4 p-4">
             <div class="container mx-auto max-w-7xl p-10">
-                <div class="flex flex-col items-center mb-5">
-                    <h1 class="text-3xl font-bold">Catálogo de Camisas</h1>
-                    <p class="text-gray-500">Encuentra la camisa perfecta para ti.</p>
-                </div><br><br><br>
+            <div class="text-center mb-8">
+      <h2 class="text-4xl font-bold">NEW MERCH</h2>
+      <div class="border-b-2 mb-8"></div>
+    </div>
+                
+                <br><br><br>
 
                 
 
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-5 bg-white">
-                    <div class="bg-whites rounded-lg shadow-md hover:shadow-lg">
-                        <img src="../Static/img/camiseta.jpg" alt="Camisa Nike" class="rounded-t-lg">
-                        <div class="p-4 ">
-                            <h3 class="text-black text-center font-medium">Polo</h3>
-                            <p class="text-black">$45.000</p>
-                            <div class="flex items-center justify-between mt-4">
-                                <a href="../views/compra.php" class="text-blue-500 hover:underline">Ver detalles</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="bg-white rounded-lg shadow-md hover:shadow-lg">
-                        <img src="../Static/img/basica.jpg" alt="Camisa Adidas" class="rounded-t-lg">
-                        <div class="p-4">
-                            <h3 class="text-black text-center font-medium">Camiseta</h3>
-                            <p class="text-black">$60.000</p>
-                            <div class="flex items-center justify-between mt-4">
-                                <a href="../Views/compra.php" class="text-blue-500 hover:underline">Ver detalles</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="bg-white rounded-lg shadow-md hover:shadow-lg">
-                        <img src="../Static/img/pantalon.jpg" alt="Camisa Adidas" class="rounded-t-lg">
-                        <div class="p-4">
-                            <h3 class="text-black text-center font-medium">Pantalon</h3>
-                            <p class="text-black">$60.000</p>
-                            <div class="flex items-center justify-between mt-4">
-                                <a href="../Views/compra.php" class="text-blue-500 hover:underline">Ver detalles</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="bg-white rounded-lg shadow-md hover:shadow-lg">
-                        <img src="../Static/img/pant.jpg" alt="Camisa Adidas" class="rounded-t-lg">
-                        <div class="p-4">
-                            <h3 class="text-black text-center font-medium">Bermuda</h3>
-                            <p class="text-black">$60.000</p>
-                            <div class="flex items-center justify-between mt-4">
-                                <a href="../Views/compra.php" class="text-blue-500 hover:underline">Ver detalles</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="bg-white rounded-lg shadow-md hover:shadow-lg">
-                        <img src="../Static/img/hoddie.jpg" alt="Camisa Adidas" class="rounded-t-lg">
-                        <div class="p-4">
-                            <h3 class="text-black text-center font-medium">Hooddies</h3>
-                            <p class="text-black">$60.000</p>
-                            <div class="flex items-center justify-between mt-4">
-                                <a href="../Views/compra.php" class="text-blue-500 hover:underline">Ver detalles</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="bg-white rounded-lg shadow-md hover:shadow-lg">
-                        <img src="../Static/img/ber1.jpg" alt="Camisa Adidas" class="rounded-t-lg">
-                        <div class="p-4">
-                            <h3 class="text-black text-center font-medium">Camisa</h3>
-                            <p class="text-black">$60.000</p>
-                            <div class="flex items-center justify-between mt-4">
-                                <a href="../Views/compra.php" class="text-blue-500 hover:underline">Ver detalles</a>
-                            </div>
-                        </div>
-                    </div>
-
-
-                    
-                </div>
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-5 bg-white">
+    <div class="bg-white rounded-lg shadow-md hover:shadow-lg">
+        <img src="../Static/img/camiseta.jpg" alt="Camisa Nike" class="rounded-t-lg">
+        <div class="p-4">
+            <h3 class="text-black text-center font-medium">Polo</h3>
+            <p class="text-black">$45.000</p>
+            <div class="flex items-center justify-between mt-4">
+                <a href="../views/compra.php" class="text-blue-500 hover:underline">Ver detalles</a>
             </div>
         </div>
     </div>
-    <img src="../Static/img/ANGEL SIN FONDO.png" class="angel2">
+
+    <div class="bg-white rounded-lg shadow-md hover:shadow-lg">
+        <img src="../Static/img/basica.jpg" alt="Camisa Adidas" class="rounded-t-lg">
+        <div class="p-4">
+            <h3 class="text-black text-center font-medium">Camiseta</h3>
+            <p class="text-black">$60.000</p>
+            <div class="flex items-center justify-between mt-4">
+                <a href="../Views/compra.php" class="text-blue-500 hover:underline">Ver detalles</a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="bg-white rounded-lg shadow-md hover:shadow-lg">
+        <img src="../Static/img/pantalon.jpg" alt="Camisa Adidas" class="rounded-t-lg">
+        <div class="p-4">
+            <h3 class="text-black text-center font-medium">Pantalon</h3>
+            <p class="text-black">$60.000</p>
+            <div class="flex items-center justify-between mt-4">
+                <a href="../Views/compra.php" class="text-blue-500 hover:underline">Ver detalles</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-white rounded-lg shadow-md hover:shadow-lg">
+        <img src="../Static/img/pant.jpg" alt="Camisa Adidas" class="rounded-t-lg">
+        <div class="p-4">
+            <h3 class="text-black text-center font-medium">Bermuda</h3>
+            <p class="text-black">$60.000</p>
+            <div class="flex items-center justify-between mt-4">
+                <a href="../Views/compra.php" class="text-blue-500 hover:underline">Ver detalles</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-white rounded-lg shadow-md hover:shadow-lg">
+        <img src="../Static/img/hoddie.jpg" alt="Camisa Adidas" class="rounded-t-lg">
+        <div class="p-4">
+            <h3 class="text-black text-center font-medium">Hooddies</h3>
+            <p class="text-black">$60.000</p>
+            <div class="flex items-center justify-between mt-4">
+                <a href="../Views/compra.php" class="text-blue-500 hover:underline">Ver detalles</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-white rounded-lg shadow-md hover:shadow-lg">
+        <img src="../Static/img/ber1.jpg" alt="Camisa Adidas" class="rounded-t-lg">
+        <div class="p-4">
+            <h3 class="text-black text-center font-medium">Camisa</h3>
+            <p class="text-black">$60.000</p>
+            <div class="flex items-center justify-between mt-4">
+                <a href="../Views/compra.php" class="text-blue-500 hover:underline">Ver detalles</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-white rounded-lg shadow-md hover:shadow-lg">
+        <img src="../Static/img/sombrero.jpg" alt="Camisa Adidas" class="rounded-t-lg">
+        <div class="p-4">
+            <h3 class="text-black text-center font-medium">Camisa</h3>
+            <p class="text-black">$60.000</p>
+            <div class="flex items-center justify-between mt-4">
+                <a href="../Views/compra.php" class="text-blue-500 hover:underline">Ver detalles</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-white rounded-lg shadow-md hover:shadow-lg">
+        <img src="../Static/img/pant.jpg" alt="Camisa Adidas" class="rounded-t-lg">
+        <div class="p-4">
+            <h3 class="text-black text-center font-medium">Camisa</h3>
+            <p class="text-black">$60.000</p>
+            <div class="flex items-center justify-between mt-4">
+                <a href="../Views/compra.php" class="text-blue-500 hover:underline">Ver detalles</a>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+
+
+
+                
+            </div>
+        </div>
+    </div>
 
 
 
