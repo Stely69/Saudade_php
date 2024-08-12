@@ -24,34 +24,37 @@
     <?php
     session_start();
     ?>
+    
     <nav id="header" class="barra">
-        <div class="w-full flex items-center justify-between px-6 py-4 backdrop-blur-lg">
-            <label for="menu-toggle" class="cursor-pointer md:hidden block">
-                <svg class="fill-current text-blue-600" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
-                    <title>menu</title>
-                    <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
-                </svg>
-            </label>
-            <input class="hidden" type="checkbox" id="menu-toggle">
+    <div class="w-full flex items-center justify-between px-6 py-4 backdrop-blur-lg">
+        <!-- Icono de menú para dispositivos móviles -->
+        <label for="menu-toggle" class="cursor-pointer md:hidden block">
+            <svg class="fill-current text-blue-600" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+                <title>menu</title>
+                <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
+            </svg>
+        </label>
+        <input class="hidden" type="checkbox" id="menu-toggle">
 
-            <div class="hidden md:flex md:items-center md:w-auto w-full order-3 md:order-1" id="menu">
-                <nav>
-                    <ul class="md:flex items-center justify-between text-base text-black pt-4 md:pt-0">
-                        <a class="inline-block no-underline hover:text-purple font-medium text-lg py-2 px-4 lg:-ml-2" href="#"></a>
-                        <li><a class="inline-block no-underline hover:text-[#6F00FF] font-medium text-lg py-2 px-4 lg:-ml-2" href="../Views/inicio.php">Inicio</a></li>
-                        <li><a class="inline-block no-underline hover:text-[#6F00FF] font-medium text-lg py-2 px-4 lg:-ml-2" href="../Views/quienessomos.php">Quiénes Somos</a></li>
-                        <li><a class="inline-block no-underline hover:text-[#9333ea] font-medium text-lg py-2 px-4 lg:-ml-2" href="../Views/catalogo.php">Catalogo</a></li>
-                    </ul>
-                </nav>
-            </div>
+        <!-- Menú de navegación -->
+        <div id="menu" class="hidden fixed top-0 left-0 h-full w-3/4 bg-purple-600 shadow-lg z-50 md:relative md:flex md:bg-transparent md:shadow-none md:w-auto md:h-auto md:order-1">
+            <nav>
+                <ul class="flex flex-col md:flex-row md:items-center text-base text-white md:text-black pt-4 md:pt-0">
+                    <li><a class="inline-block no-underline hover:text-[#6F00FF] font-medium text-lg py-2 px-4 lg:-ml-2" href="../Views/inicio.php">Inicio</a></li>
+                    <li><a class="inline-block no-underline hover:text-[#6F00FF] font-medium text-lg py-2 px-4 lg:-ml-2" href="../Views/quienessomos.php">Quiénes Somos</a></li>
+                    <li><a class="inline-block no-underline hover:text-[#6F00FF] font-medium text-lg py-2 px-4 lg:-ml-2" href="../Views/catalogo.php">Catalogo</a></li>
+                </ul>
+            </nav>
+        </div>
 
-            <div class="order-2 md:order-3 flex flex-wrap items-center justify-end mr-0 md:mr-4" id="nav-content">
-                <div class="auth flex items-center w-full md:w-full">
-                    <button class=""><a style='font-size:24px;color:black' class='fas '>&#xf07a;</a></button>
+        <!-- Contenido adicional del menú -->
+        <div class="order-2 md:order-3 flex flex-wrap items-center justify-end mr-0 md:mr-4" id="nav-content">
+            <div class="auth flex items-center w-full md:w-full">
+                <button><a style='font-size:24px;color:black' class='fas'>&#xf07a;</a></button>
 
-                    <?php if (isset($_SESSION['username'])): ?>
-                        <span class="inline-block no-underline font-medium text-black text-lg px-4">Hola, <?php echo $_SESSION['username']; ?>!</span>
-                        <a class="inline-block no-underline font-medium text-black text-lg hover:text-[#6F00FF] px-4" href="../public/logout_action.php">Cerrar sesión</a>
+                <?php if (isset($_SESSION['username'])): ?>
+                    <span class="inline-block no-underline font-medium text-black text-lg px-4">Hola, <?php echo $_SESSION['username']; ?>!</span>
+                    <a class="inline-block no-underline font-medium text-black text-lg hover:text-[#6F00FF] px-4" href="../public/logout_action.php">Cerrar sesión</a>
                     <?php else: ?>
                         <a class="inline-block font-medium no-underline text-black text-lg hover:text-[#6F00FF] px-4" href="../Views/inicio_sesion.php">Iniciar sesión</a>
                         <a class="inline-block font-medium no-underline text-black text-lg hover:text-[#6F00FF]" href="../Views/registro.php">Registrarse</a>
@@ -61,6 +64,30 @@
             </div>
         </div>
     </nav>
+
+<script>
+    const menuToggle = document.getElementById('menu-toggle');
+    const menu = document.getElementById('menu');
+
+    menuToggle.addEventListener('change', function() {
+        if (this.checked) {
+            menu.classList.remove('hidden');
+        } else {
+            menu.classList.add('hidden');
+        }
+    });
+</script>
+
+
+
+
+
+
+
+
+
+
+
 
     <video id="video" class="" autoplay muted loop>
         <source src="../Static/video/street.mp4" type="video/mp4">
@@ -191,13 +218,13 @@
             <video src="../Static/video/video5.mp4" muted></video>
         </div>
         <div class="video-container main">
-            <video src="../Static/video/video4.mp4" autoplay muted loop></video>
+            <video src="../Static/video/video2.mp4" autoplay muted loop></video>
         </div>
         <div class="video-container small">
             <video src="../Static/video/video3.mp4" muted></video>
         </div>
         <div class="video-container small">
-            <video src="../Static/video/video2.mp4" muted></video>
+            <video src="../Static/video/video4.mp4" muted></video>
         </div>
     </div>
     <div class="navigation">
@@ -365,6 +392,8 @@ function rotateCarousel(direction) {
             height: auto;
             max-height: 64vh;
             object-fit: cover;
+            opacity: 0.8; /* Cambia el valor para ajustar la transparencia */
+            
         }
     </style>
 
@@ -388,42 +417,42 @@ function rotateCarousel(direction) {
             <!-- Item 1 -->
             <a href="https://example.com/item1" class="relative zoom block overflow-hidden">
                 <img src="../Static/img/camiseta.jpg" alt="Camisetas" class="w-full h-auto max-h-[70vh] object-cover">
-                <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+                <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
                     <span class="text-white text-xl font-bold">CAMISETAS</span>
                 </div>
             </a>
             <!-- Item 2 -->
             <a href="../Static/img/basica.jpg" class="relative zoom block overflow-hidden">
                 <img src="../Static/img/basica.jpg" alt="Básicas" class="w-full h-auto max-h-[70vh] object-cover">
-                <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+                <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
                     <span class="text-white text-xl font-bold">BÁSICAS</span>
                 </div>
             </a>
             <!-- Item 3 -->
             <a href="https://example.com/item3" class="relative zoom block overflow-hidden">
                 <img src="../Static/img/hoddie.jpg" alt="Hoodies" class="w-full h-auto max-h-[70vh] object-cover">
-                <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+                <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
                     <span class="text-white text-xl font-bold">HOODIES</span>
                 </div>
             </a>
             <!-- Item 4 -->
             <a href="https://example.com/item4" class="relative zoom block overflow-hidden">
                 <img src="../Static/img/pant.jpg" alt="Item 4" class="w-full h-auto max-h-[70vh] object-cover">
-                <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+                <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
                     <span class="text-white text-xl font-bold">BERMUDAS</span>
                 </div>
             </a>
             <!-- Item 5 -->
             <a href="https://example.com/item5" class="relative zoom block overflow-hidden">
                 <img src="../Static/img/sombrero.jpg" alt="Item 5" class="w-full h-auto max-h-[70vh] object-cover">
-                <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+                <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
                     <span class="text-white text-xl font-bold">GORROS</span>
                 </div>
             </a>
             <!-- Item 6 -->
             <a href="https://example.com/item6" class="relative zoom block overflow-hidden">
                 <img src="../Static/img/pantalon.jpg" alt="Item 6" class="w-full h-auto max-h-[70vh] object-cover">
-                <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+                <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
                     <span class="text-white text-xl font-bold">PANTALON</span>
                 </div>
             </a>
