@@ -1,0 +1,29 @@
+.angel{
+    width: 220px;
+    position: absolute;
+    transform: scaleX(-1);
+    margin-top: 170px;
+    max-width: 300px;
+    z-index: -1;
+    
+
+}
+
+@media (max-width: 768px) {
+    body {
+        background-size: contain;
+    }
+}
+
+
+.angel2{
+    width: 220px;
+    position: absolute;
+    
+    margin-top: 170px;
+    max-width: 300px;
+    z-index: -1;
+    margin-left: 1620px;
+    
+
+}

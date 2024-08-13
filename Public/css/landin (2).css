@@ -1,0 +1,207 @@
+body {
+    
+  background-image: url(../img/fondo.jpg);
+}
+
+#angel{
+   
+    margin-left: 1150px; 
+        position: absolute;
+        width: 100%; /* La imagen ocupará el 100% del ancho de su contenedor */
+        max-width: 250px; /* Pero no se hará más grande que 230px */
+        height: auto;
+        margin-top: 300px; /* La altura se ajustará automáticamente para mantener las proporciones de la imagen */
+    
+}
+
+#angel2{
+    position: absolute;
+   
+    width: 230px;
+    margin-top: -1000px;
+    margin-right: 10px;
+    
+     transform: scaleX(-1);
+    
+}
+
+#logo{
+    width: 500px;
+    position: absolute;
+    z-index: -1;
+}
+#insta{
+    width: 60px;
+    
+}
+
+#face{
+    width: 45px;
+    
+}
+
+#wasa{
+    width: 58px;
+    
+}
+
+@keyframes popup {
+    0% { transform: scale(0); }
+    100% { transform: scale(1); }
+}
+
+
+#rayo{
+    position: absolute;
+    margin-top: -250px;
+    height: 200px;
+    margin-left: -20px;
+
+}
+
+#estrella{
+    position: absolute;
+    margin-left: 600px;
+    height: 220px;
+    margin-top: -40px;
+}
+
+#estrella1{
+    position: absolute;
+    margin-top: 260px;
+    height: 220px;
+    margin-left: 150px;
+}
+
+#estrella2{
+    position: absolute;
+    margin-top: 460px;
+    height: 220px;
+    margin-left: -00px;
+}
+
+#rayo1{
+    position: absolute;
+    margin-top: -1200px;
+    height:450px;
+    margin-left: 1290px;
+    transform: scaleX(-1);
+}   
+
+#estrella3{
+    position: absolute;
+    margin-top: 610px;
+    height: 200px;
+    margin-left: 980px;
+}
+
+#carro{
+    width: 40px;
+    margin-right: 50px;
+   
+}
+
+#camiseta1{
+    background-color: aliceblue;
+    ;
+}
+
+#camiseta2{
+    background-color: aliceblue;
+    ;
+}
+
+#camiseta3{
+    background-color: aliceblue;
+    ;
+}
+
+#contenedor1{
+    position: absolute;
+    width: 400px;
+    height: 500px;
+    margin-left: 800px ;
+    margin-top: -60px   ;
+    
+}
+
+#modelo {
+    transition: opacity 1s ease-in-out;
+    opacity: 0;
+}
+/*
+#grande1{
+    width: 900px;
+    height: 500px;
+}
+
+#grande2{
+    width: 900px;
+    height: 500px;
+}
+
+#grande3{
+    width: 900px;
+    height: 500px;
+}
+
+#grande4{
+    width: 900px;
+    height: 500px;
+}
+
+#wasa{
+    margin-left: 0px;
+    margin-right: 10px;
+    position: absolute;
+    z-index: 11;
+    margin-top: 9px;
+}
+*/
+#video{
+    width: 100%;       /* Ocupa todo el ancho de la pantalla */
+        height: 100vh;      /* Ocupa menos de la mitad de la altura de la pantalla (45% de la altura de la ventana) */
+        display: block;
+        object-fit: cover; 
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), transparent);
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.5), transparent);
+
+
+}
+
+#video2{
+    width: 100%;       /* Ocupa todo el ancho de la pantalla */
+        height: 100vh;      /* Ocupa menos de la mitad de la altura de la pantalla (45% de la altura de la ventana) */
+        display: block;
+        object-fit: cover; 
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), transparent);
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.5), transparent);
+
+
+}
+
+.barra{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: transparent; /* Hace que el fondo sea completamente transparente */
+    color: white; /* Color de texto en el encabezado */
+    padding: 0 0; /* Espaciado interno del encabezado */
+    z-index: 1; 
+}
+
+.luna {
+    position: fixed;
+    bottom: 20px; /* Ajusta según tu preferencia */
+    right: 1550px; /* Ajusta según tu preferencia */
+    width: 300px; /* Ajusta según tu preferencia */
+    height: 80px; /* Ajusta según tu preferencia */
+    border-radius: 12px;
+    
+    z-index: 1000; /* Asegura*/
+}
+
+#nort{
+    height: 10px;
+}
