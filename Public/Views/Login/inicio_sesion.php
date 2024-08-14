@@ -39,7 +39,7 @@
 
                     <?php if (isset($_SESSION['username'])): ?>
                         <span class="inline-block no-underline font-medium text-black text-lg px-4">Hola, <?php echo $_SESSION['username']; ?>!</span>
-                        <a class="inline-block no-underline font-medium text-black text-lg hover:text-[#6F00FF] px-4" href="../public/logout_action.php">Cerrar sesión</a>
+                        <a class="inline-block no-underline font-medium text-black text-lg hover:text-[#6F00FF] px-4" href="LogoutAction">Cerrar sesión</a>
                     <?php else: ?>
                         <a class="inline-block font-medium no-underline text-black text-lg hover:text-[#6F00FF] px-4" href="inicio_sesion">Iniciar sesión</a>
                         <a class="inline-block font-medium no-underline text-black text-lg hover:text-[#6F00FF]" href="registro">Registrarse</a>
@@ -58,7 +58,7 @@
         <div class="text-center py-5 mb-5">
             <h1 class="text-2xl text-white font-bold">Bienvenido a Saudade</h1>
         </div>
-
+        
         <form action="LoginAction" method="post" class="flex flex-col" onsubmit="return validarFormulario()">
             <div class="mb-3">
                 <label for="email" class="block font-bold text-mg text-white">Correo Electrónico</label>

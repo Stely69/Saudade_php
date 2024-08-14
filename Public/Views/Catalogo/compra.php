@@ -51,6 +51,21 @@
                 🛒
             </button>
         </div>
+        <div class="order-2 md:order-3 flex flex-wrap items-center justify-end mr-0 md:mr-4" id="nav-content">
+            <div class="auth flex items-center w-full md:w-full">
+                <button><a style='font-size:24px;color:black' class='fas'>&#xf07a;</a></button>
+
+                <?php if (isset($_SESSION['username'])): ?>
+                    <span class="inline-block no-underline font-medium text-black text-lg px-4">Hola, <?php echo $_SESSION['username']; ?>!</span>
+                    <a class="inline-block no-underline font-medium text-black text-lg hover:text-[#6F00FF] px-4" href="../Login/LogoutAction">Cerrar sesión</a>
+                    <?php else: ?>
+                        <a class="inline-block font-medium no-underline text-black text-lg hover:text-[#6F00FF] px-4" href="../Login/inicio_sesion">Iniciar sesión</a>
+                        <a class="inline-block font-medium no-underline text-black text-lg hover:text-[#6F00FF]" href="../Login/registro.php">Registrarse</a>
+                    <?php endif; ?>
+                    
+                </div>
+            </div>
+        </div>
     </div>
 </nav>
 

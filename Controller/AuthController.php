@@ -1,30 +1,30 @@
 <?php
-include_once '../Models/UserModel.php';
+    include_once '../Models/UserModel.php';
 
-class AuthController {
-    private $userModel;
+    class AuthController {
+        private $userModel;
 
-    public function __construct() {
-        $this->userModel = new UserModel();
-    }
+        public function __construct() {
+            $this->userModel = new UserModel();
+        }
 
-    public function login($email, $password) {
-        $user = $this->userModel->getUserByEmail($email);
+        public function login($email, $password) {
+            $user = $this->userModel->getUserByEmail($email);
 
-        if ($user && password_verify($password, $user['password'])) {
+            if ($user && password_verify($password, $user['password'])) {
+                session_start();
+                $_SESSION['user_id'] = $user['id'];
+                $_SESSION['username'] = $user['username'];
+                $_SESSION['role'] = $user['role'];
+                header("Location: ../");
+            } else {
+                echo "Email o contraseña incorrectos.";
+            }
+        }
+
+        public function logout() {
             session_start();
-            $_SESSION['user_id'] = $user['id'];
-            $_SESSION['username'] = $user['username'];
-            $_SESSION['role'] = $user['role'];
-            require_once'';
-        } else {
-            echo "Email o contraseña incorrectos.";
+            session_destroy();
+            header("Location: ../");
         }
     }
-
-    public function logout() {
-        session_start();
-        session_destroy();
-        include_once ("../Public/");
-    }
-}

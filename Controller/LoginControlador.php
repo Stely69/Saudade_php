@@ -11,6 +11,9 @@
             $this->cargarVista("Login/LoginAction");
         }
 
+        public function logout(){
+            $this->cargarVista("Login/LogoutAction");
+        }
         public function registeraction(){
             $this->cargarVista("Login/RegisterAction");
         }

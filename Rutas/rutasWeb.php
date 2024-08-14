@@ -12,6 +12,7 @@
     Enrutador::get("/Login/registro",[LoginControlador::class,"registro"]);
     Enrutador::post("/Login/LoginAction",[LoginControlador::class,"loginaction"]);
     Enrutador::post("/Login/RegisterAction",[LoginControlador::class,"registeraction"]);
+    Enrutador::get("/Login/LogoutAction",[LoginControlador::class,"logout"]);
     //Catalogo
     Enrutador::get("/Catalogo/catalogo",[CatalogoControlador::class,"Catalogo"]);
     Enrutador::get("/Catalogo/compra",[CatalogoControlador::class,"Compra"]);
