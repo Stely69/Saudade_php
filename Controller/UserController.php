@@ -10,14 +10,14 @@ class UserController {
 
     public function index() {
         $users = $this->userModel->getUsers();
-        include_once '../Views/user_list.php';
+        include_once '';
     }
 
     public function register($username, $email, $password) {
         $hashed_password = password_hash($password, PASSWORD_BCRYPT);
         $role = "user"; // Establece el rol como "user"
         $this->userModel->createUser($username, $email, $hashed_password, $role);
-        include_once("../Views/registroexitoso.php");
+        include_once("../Public/");
     }
 }
-?>
+

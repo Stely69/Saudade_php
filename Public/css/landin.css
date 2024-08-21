@@ -5,7 +5,12 @@ body {
 
 #angel{
    
-    * La altura se ajustará automáticamente para mantener las proporciones de la imagen */
+    margin-left: 1150px; 
+        position: absolute;
+        width: 100%; /* La imagen ocupará el 100% del ancho de su contenedor */
+        max-width: 250px; /* Pero no se hará más grande que 230px */
+        height: auto;
+        margin-top: 300px; /* La altura se ajustará automáticamente para mantener las proporciones de la imagen */
     
 }
 
@@ -13,7 +18,7 @@ body {
     position: absolute;
    
     width: 230px;
-    margin-top: -00px;
+    margin-top: -1000px;
     margin-right: 10px;
     
      transform: scaleX(-1);
@@ -199,32 +204,4 @@ body {
 
 #nort{
     height: 10px;
-}
-.features-container {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    background-color: #f7f7f7;
-    padding: 20px;
-    border-radius: 10px;
-    margin: 20px 0;
-}
-
-.feature-item {
-    text-align: center;
-    flex: 1;
-    margin: 0 15px;
-}
-
-.feature-icon {
-    width: 40px; /* Ajusta el tamaño del ícono según sea necesario */
-    height: auto;
-    margin-bottom: 10px;
-}
-
-.feature-item p {
-    font-size: 16px;
-    font-weight: 500;
-    color: #333;
-    margin: 0;
 }

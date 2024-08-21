@@ -26,57 +26,41 @@
     session_start();
     ?>
     <nav id="header" class="barra">
-    <div class="w-full flex items-center justify-between px-6 py-4 backdrop-blur-lg">
-        <!-- Icono de menú para dispositivos móviles -->
-        <label for="menu-toggle" class="cursor-pointer md:hidden block">
-            <svg class="fill-current text-blue-600" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
-                <title>menu</title>
-                <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
-            </svg>
-        </label>
-        <input class="hidden" type="checkbox" id="menu-toggle">
+        <div class="w-full flex items-center justify-between px-6 py-4 backdrop-blur-lg">
+            <label for="menu-toggle" class="cursor-pointer md:hidden block">
+                <svg class="fill-current text-blue-600" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+                    <title>menu</title>
+                    <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
+                </svg>
+            </label>
+            <input class="hidden" type="checkbox" id="menu-toggle">
 
-        <!-- Menú de navegación -->
-        <div id="menu" class="hidden fixed top-0 left-0 h-full w-3/4 bg-purple-600 shadow-lg z-50 md:relative md:flex md:bg-transparent md:shadow-none md:w-auto md:h-auto md:order-1">
-            <nav>
-                <ul class="flex flex-col md:flex-row md:items-center text-base text-white md:text-black pt-4 md:pt-0">
-                    <li><a class="inline-block no-underline hover:text-[#6F00FF] font-medium text-lg py-2 px-4 lg:-ml-2" href="../Views/inicio.php">Inicio</a></li>
-                    <li><a class="inline-block no-underline hover:text-[#6F00FF] font-medium text-lg py-2 px-4 lg:-ml-2" href="../Views/quienessomos.php">Quiénes Somos</a></li>
-                    <li><a class="inline-block no-underline hover:text-[#6F00FF] font-medium text-lg py-2 px-4 lg:-ml-2" href="../Views/catalogo.php">Catalogo</a></li>
-                </ul>
-            </nav>
-        </div>
+            <div class="hidden md:flex md:items-center md:w-auto w-full order-3 md:order-1" id="menu">
+                <nav>
+                    <ul class="md:flex items-center justify-between text-base text-black pt-4 md:pt-0">
+                        <a class="inline-block no-underline hover:text-purple font-medium text-lg py-2 px-4 lg:-ml-2" href="#"></a>
+                        <li><a class="inline-block no-underline hover:text-[#6F00FF] font-medium text-lg py-2 px-4 lg:-ml-2" href="../Views/inicio.php">Inicio</a></li>
+                        <li><a class="inline-block no-underline hover:text-[#6F00FF] font-medium text-lg py-2 px-4 lg:-ml-2" href="../Views/quienessomos.php">Quiénes Somos</a></li>
+                        <li><a class="inline-block no-underline hover:text-[#9333ea] font-medium text-lg py-2 px-4 lg:-ml-2" href="../Views/catalogo.php">Catalogo</a></li>
+                    </ul>
+                </nav>
+            </div>
 
-        <!-- Contenido adicional del menú -->
-        <div class="order-2 md:order-3 flex flex-wrap items-center justify-end mr-0 md:mr-4" id="nav-content">
-            <div class="auth flex items-center w-full md:w-full">
-                <button><a style='font-size:24px;color:black' class='fas'>&#xf07a;</a></button>
+            <div class="order-2 md:order-3 flex flex-wrap items-center justify-end mr-0 md:mr-4" id="nav-content">
+                <div class="auth flex items-center w-full md:w-full">
+                    <button class="" id="cart-icon"><a style='font-size:24px;color:black' class='fas '>&#xf07a;</a></button>
 
-                <?php if (isset($_SESSION['username'])): ?>
-                    <span class="inline-block no-underline font-medium text-black text-lg px-4">Hola, <?php echo $_SESSION['username']; ?>!</span>
-                    <a class="inline-block no-underline font-medium text-black text-lg hover:text-[#6F00FF] px-4" href="../public/logout_action.php">Cerrar sesión</a>
+                    <?php if (isset($_SESSION['username'])): ?>
+                        <span class="inline-block no-underline font-medium text-black text-lg px-4">Hola, <?php echo $_SESSION['username']; ?>!</span>
+                        <a class="inline-block no-underline font-medium text-black text-lg hover:text-[#6F00FF] px-4" href="../public/logout_action.php">Cerrar sesión</a>
                     <?php else: ?>
                         <a class="inline-block font-medium no-underline text-black text-lg hover:text-[#6F00FF] px-4" href="../Views/inicio_sesion.php">Iniciar sesión</a>
                         <a class="inline-block font-medium no-underline text-black text-lg hover:text-[#6F00FF]" href="../Views/registro.php">Registrarse</a>
                     <?php endif; ?>
-                    
                 </div>
             </div>
         </div>
     </nav>
-
-<script>
-    const menuToggle = document.getElementById('menu-toggle');
-    const menu = document.getElementById('menu');
-
-    menuToggle.addEventListener('change', function() {
-        if (this.checked) {
-            menu.classList.remove('hidden');
-        } else {
-            menu.classList.add('hidden');
-        }
-    });
-</script>
 
     <div class="flex">
         <div class="w-0/4 p-4 bg-white shadow-lg sticky-sidebar">
@@ -129,223 +113,85 @@
             </div>
         </div>
 
-       
-
         <div class="w-3/4 p-4">
             <div class="container mx-auto max-w-7xl p-10">
-            <div class="text-center mb-8">
-      <h2 class="text-4xl font-bold">NEW MERCH</h2>
-      <div class="border-b-2 mb-8"></div>
-    </div>
-                
-                <br><br><br>
+                <div class="flex flex-col items-center mb-5">
+                    <h1 class="text-3xl font-bold">Catálogo de Camisas</h1>
+                    <p class="text-gray-500">Encuentra la camisa perfecta para ti.</p>
+                </div><br><br><br>
 
                 
 
-                <div class="grid grid-cols-1 md:grid-cols-4 gap-5 bg-white">
-    <div class="bg-white rounded-lg shadow-md hover:shadow-lg">
-        <img src="../Static/img/camiseta.jpg" alt="Camisa Nike" class="rounded-t-lg">
-        <div class="p-4">
-            <h3 class="text-black text-center font-medium">Polo</h3>
-            <p class="text-black">$45.000</p>
-            <div class="flex items-center justify-between mt-4">
-                <a href="../views/compra.php" class="text-blue-500 hover:underline">Ver detalles</a>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-5 bg-white">
+                    <div class="bg-whites rounded-lg shadow-md hover:shadow-lg">
+                        <img src="../Static/img/camiseta.jpg" alt="Camisa Nike" class="rounded-t-lg">
+                        <div class="p-4 ">
+                            <h3 class="text-black text-center font-medium">Polo</h3>
+                            <p class="text-black">$45.000</p>
+                            <div class="flex items-center justify-between mt-4">
+                                <a href="../views/compra.php" class="text-blue-500 hover:underline">Ver detalles</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-lg shadow-md hover:shadow-lg">
+                        <img src="../Static/img/basica.jpg" alt="Camisa Adidas" class="rounded-t-lg">
+                        <div class="p-4">
+                            <h3 class="text-black text-center font-medium">Camiseta</h3>
+                            <p class="text-black">$60.000</p>
+                            <div class="flex items-center justify-between mt-4">
+                                <a href="../Views/compra.php" class="text-blue-500 hover:underline">Ver detalles</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-md hover:shadow-lg">
+                        <img src="../Static/img/pantalon.jpg" alt="Camisa Adidas" class="rounded-t-lg">
+                        <div class="p-4">
+                            <h3 class="text-black text-center font-medium">Pantalon</h3>
+                            <p class="text-black">$60.000</p>
+                            <div class="flex items-center justify-between mt-4">
+                                <a href="../Views/compra.php" class="text-blue-500 hover:underline">Ver detalles</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-md hover:shadow-lg">
+                        <img src="../Static/img/pant.jpg" alt="Camisa Adidas" class="rounded-t-lg">
+                        <div class="p-4">
+                            <h3 class="text-black text-center font-medium">Bermuda</h3>
+                            <p class="text-black">$60.000</p>
+                            <div class="flex items-center justify-between mt-4">
+                                <a href="../Views/compra.php" class="text-blue-500 hover:underline">Ver detalles</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-md hover:shadow-lg">
+                        <img src="../Static/img/hoddie.jpg" alt="Camisa Adidas" class="rounded-t-lg">
+                        <div class="p-4">
+                            <h3 class="text-black text-center font-medium">Hooddies</h3>
+                            <p class="text-black">$60.000</p>
+                            <div class="flex items-center justify-between mt-4">
+                                <a href="../Views/compra.php" class="text-blue-500 hover:underline">Ver detalles</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-md hover:shadow-lg">
+                        <img src="../Static/img/ber1.jpg" alt="Camisa Adidas" class="rounded-t-lg">
+                        <div class="p-4">
+                            <h3 class="text-black text-center font-medium">Camisa</h3>
+                            <p class="text-black">$60.000</p>
+                            <div class="flex items-center justify-between mt-4">
+                                <a href="../Views/compra.php" class="text-blue-500 hover:underline">Ver detalles</a>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    
+                </div>
             </div>
         </div>
     </div>
-
-    <div class="bg-white rounded-lg shadow-md hover:shadow-lg">
-        <img src="../Static/img/basica.jpg" alt="Camisa Adidas" class="rounded-t-lg">
-        <div class="p-4">
-            <h3 class="text-black text-center font-medium">Camiseta</h3>
-            <p class="text-black">$60.000</p>
-            <div class="flex items-center justify-between mt-4">
-                <a href="../Views/compra.php" class="text-blue-500 hover:underline">Ver detalles</a>
-            </div>
-        </div>
-    </div>
-    
-    <div class="bg-white rounded-lg shadow-md hover:shadow-lg">
-        <img src="../Static/img/pantalon.jpg" alt="Camisa Adidas" class="rounded-t-lg">
-        <div class="p-4">
-            <h3 class="text-black text-center font-medium">Pantalon</h3>
-            <p class="text-black">$60.000</p>
-            <div class="flex items-center justify-between mt-4">
-                <a href="../Views/compra.php" class="text-blue-500 hover:underline">Ver detalles</a>
-            </div>
-        </div>
-    </div>
-
-    <div class="bg-white rounded-lg shadow-md hover:shadow-lg">
-        <img src="../Static/img/pant.jpg" alt="Camisa Adidas" class="rounded-t-lg">
-        <div class="p-4">
-            <h3 class="text-black text-center font-medium">Bermuda</h3>
-            <p class="text-black">$60.000</p>
-            <div class="flex items-center justify-between mt-4">
-                <a href="../Views/compra.php" class="text-blue-500 hover:underline">Ver detalles</a>
-            </div>
-        </div>
-    </div>
-
-    <div class="bg-white rounded-lg shadow-md hover:shadow-lg">
-        <img src="../Static/img/hoddie.jpg" alt="Camisa Adidas" class="rounded-t-lg">
-        <div class="p-4">
-            <h3 class="text-black text-center font-medium">Hooddies</h3>
-            <p class="text-black">$60.000</p>
-            <div class="flex items-center justify-between mt-4">
-                <a href="../Views/compra.php" class="text-blue-500 hover:underline">Ver detalles</a>
-            </div>
-        </div>
-    </div>
-
-    <div class="bg-white rounded-lg shadow-md hover:shadow-lg">
-        <img src="../Static/img/ber1.jpg" alt="Camisa Adidas" class="rounded-t-lg">
-        <div class="p-4">
-            <h3 class="text-black text-center font-medium">Camisa</h3>
-            <p class="text-black">$60.000</p>
-            <div class="flex items-center justify-between mt-4">
-                <a href="../Views/compra.php" class="text-blue-500 hover:underline">Ver detalles</a>
-            </div>
-        </div>
-    </div>
-
-    <div class="bg-white rounded-lg shadow-md hover:shadow-lg">
-        <img src="../Static/img/sombrero.jpg" alt="Camisa Adidas" class="rounded-t-lg">
-        <div class="p-4">
-            <h3 class="text-black text-center font-medium">Camisa</h3>
-            <p class="text-black">$60.000</p>
-            <div class="flex items-center justify-between mt-4">
-                <a href="../Views/compra.php" class="text-blue-500 hover:underline">Ver detalles</a>
-            </div>
-        </div>
-    </div>
-
-    <div class="bg-white rounded-lg shadow-md hover:shadow-lg">
-        <img src="../Static/img/pant.jpg" alt="Camisa Adidas" class="rounded-t-lg">
-        <div class="p-4">
-            <h3 class="text-black text-center font-medium">Camisa</h3>
-            <p class="text-black">$60.000</p>
-            <div class="flex items-center justify-between mt-4">
-                <a href="../Views/compra.php" class="text-blue-500 hover:underline">Ver detalles</a>
-            </div>
-        </div>
-    </div>
-
-
-
-    
-
-    
-
-   
-</div>
-  
-
-
-
-
-
-
-
-
-
-    <div class="notification" id="notification">
-        <img src="../Static/img/hoddie.jpg" alt="Tee Sweetie" class="notification-image">
-        <div class="notification-content">
-            <p>Alguien compró hace poco <strong>una chimba de hoddie</strong></p>
-            <p>Bogotá</p>
-            <p class="time-ago">hace 19 minutos</p>
-        </div>
-        <div class="timer-bar" id="timer-bar"></div>
-        <button class="close-btn" onclick="closeNotification()">×</button>
-    </div>
-
-    <style>
-        body {
-    font-family: Arial, sans-serif;
-}
-
-.notification {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background-color: #fff;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    display: flex;
-    align-items: center;
-    padding: 10px;
-    max-width: 300px;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
-}
-
-.notification-image {
-    width: 50px;
-    height: 50px;
-    border-radius: 9%;
-    margin-right: 10px;
-}
-
-.notification-content {
-    flex-grow: 1;
-}
-
-.time-ago {
-    font-size: 0.8em;
-    color: gray;
-}
-
-.timer-bar {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 5px;
-    background-color: black;
-    animation: timer 30s linear forwards;
-}
-
-.close-btn {
-    background: none;
-    border: none;
-    font-size: 1.2em;
-    color: black;
-    cursor: pointer;
-    margin-left: 10px;
-}
-
-@keyframes timer {
-    from { width: 100%; }
-    to { width: 0%; }
-}
-
-    </style>
-
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-    // Mostrar la notificación después de 3 segundos
-    setTimeout(function() {
-        var notification = document.getElementById("notification");
-        notification.style.opacity = "1";
-        notification.style.visibility = "visible";
-    }, 3000);
-
-    // Ocultar la notificación después de 30 segundos
-    setTimeout(function() {
-        closeNotification();
-    }, 33000); // 3 segundos de espera + 30 segundos de visualización
-});
-
-function closeNotification() {
-    var notification = document.getElementById("notification");
-    notification.style.opacity = "0";
-    notification.style.visibility = "hidden";
-}
-
-    </script>
+    <img src="../Static/img/ANGEL SIN FONDO.png" class="angel2">
 
 </body>
 

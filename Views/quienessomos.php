@@ -13,37 +13,34 @@
     <?php
         session_start();
     ?>
+    <nav id="header" class="barra">
+        <div class="w-full flex items-center justify-between px-6 py-4 backdrop-blur-lg">
+            <label for="menu-toggle" class="cursor-pointer md:hidden block">
+                <svg class="fill-current text-blue-600" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+                    <title>menu</title>
+                    <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
+                </svg>
+            </label>
+            <input class="hidden" type="checkbox" id="menu-toggle">
 
-<nav id="header" class="barra">
-    <div class="w-full flex items-center justify-between px-6 py-4 backdrop-blur-lg">
-        <!-- Icono de menú para dispositivos móviles -->
-        <label for="menu-toggle" class="cursor-pointer md:hidden block">
-            <svg class="fill-current text-blue-600" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
-                <title>menu</title>
-                <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
-            </svg>
-        </label>
-        <input class="hidden" type="checkbox" id="menu-toggle">
+            <div class="hidden md:flex md:items-center md:w-auto w-full order-3 md:order-1" id="menu">
+                <nav>
+                    <ul class="md:flex items-center justify-between text-base text-black pt-4 md:pt-0">
+                        <a class="inline-block no-underline hover:text-purple font-medium text-lg py-2 px-4 lg:-ml-2" href="#"></a>
+                        <li><a class="inline-block no-underline hover:text-[#6F00FF] font-medium text-lg py-2 px-4 lg:-ml-2" href="../Views/inicio.php">Inicio</a></li>
+                        <li><a class="inline-block no-underline hover:text-[#6F00FF] font-medium text-lg py-2 px-4 lg:-ml-2" href="../Views/quienessomos.php">Quiénes Somos</a></li>
+                        <li><a class="inline-block no-underline hover:text-[#9333ea] font-medium text-lg py-2 px-4 lg:-ml-2" href="../Views/catalogo.php">Catalogo</a></li>
+                    </ul>
+                </nav>
+            </div>
 
-        <!-- Menú de navegación -->
-        <div id="menu" class="hidden fixed top-0 left-0 h-full w-3/4 bg-purple-600 shadow-lg z-50 md:relative md:flex md:bg-transparent md:shadow-none md:w-auto md:h-auto md:order-1">
-            <nav>
-                <ul class="flex flex-col md:flex-row md:items-center text-base text-white md:text-black pt-4 md:pt-0">
-                    <li><a class="inline-block no-underline hover:text-[#6F00FF] font-medium text-lg py-2 px-4 lg:-ml-2" href="../Views/inicio.php">Inicio</a></li>
-                    <li><a class="inline-block no-underline hover:text-[#6F00FF] font-medium text-lg py-2 px-4 lg:-ml-2" href="../Views/quienessomos.php">Quiénes Somos</a></li>
-                    <li><a class="inline-block no-underline hover:text-[#6F00FF] font-medium text-lg py-2 px-4 lg:-ml-2" href="../Views/catalogo.php">Catalogo</a></li>
-                </ul>
-            </nav>
-        </div>
+            <div class="order-2 md:order-3 flex flex-wrap items-center justify-end mr-0 md:mr-4" id="nav-content">
+                <div class="auth flex items-center w-full md:w-full">
+                    <button class=""><a style='font-size:24px;color:black' class='fas '>&#xf07a;</a></button>
 
-        <!-- Contenido adicional del menú -->
-        <div class="order-2 md:order-3 flex flex-wrap items-center justify-end mr-0 md:mr-4" id="nav-content">
-            <div class="auth flex items-center w-full md:w-full">
-                <button><a style='font-size:24px;color:black' class='fas'>&#xf07a;</a></button>
-
-                <?php if (isset($_SESSION['username'])): ?>
-                    <span class="inline-block no-underline font-medium text-black text-lg px-4">Hola, <?php echo $_SESSION['username']; ?>!</span>
-                    <a class="inline-block no-underline font-medium text-black text-lg hover:text-[#6F00FF] px-4" href="../public/logout_action.php">Cerrar sesión</a>
+                    <?php if (isset($_SESSION['username'])): ?>
+                        <span class="inline-block no-underline font-medium text-black text-lg px-4">Hola, <?php echo $_SESSION['username']; ?>!</span>
+                        <a class="inline-block no-underline font-medium text-black text-lg hover:text-[#6F00FF] px-4" href="../public/logout_action.php">Cerrar sesión</a>
                     <?php else: ?>
                         <a class="inline-block font-medium no-underline text-black text-lg hover:text-[#6F00FF] px-4" href="../Views/inicio_sesion.php">Iniciar sesión</a>
                         <a class="inline-block font-medium no-underline text-black text-lg hover:text-[#6F00FF]" href="../Views/registro.php">Registrarse</a>
@@ -52,23 +49,7 @@
                 </div>
             </div>
         </div>
-    </nav>
-
-<script>
-    const menuToggle = document.getElementById('menu-toggle');
-    const menu = document.getElementById('menu');
-
-    menuToggle.addEventListener('change', function() {
-        if (this.checked) {
-            menu.classList.remove('hidden');
-        } else {
-            menu.classList.add('hidden');
-        }
-    });
-</script>
-
-
-
+    </nav>  
     <div class="relative w-full h-screen overflow-hidden">
         <video id="video" class="absolute inset-0 w-full h-full object-cover blur-lg" autoplay muted loop>
             <source src="../Static/video/street.mp4" type="video/mp4">
@@ -81,7 +62,7 @@
                 <h2 class="font-bold text-4xl text-white mb-4">Quiénes Somos</h2>
                 <div class="border-b-4 border-[#130048] w-80 mx-auto"></div>
                 <p class="text-lg text-white mt-4">
-                    Saudade nace en el 2024 como una propuesta a la moda moderna,tratando de mostrar algo mas que algo solo estetico, un mensaje, saudade viene del protugues, Se refiere a un sentimiento profundo de nostalgia o añoranza por algo o alguien que se ha perdido, ya sea temporalmente o para siempre. Saudade es más que solo extrañar; es una mezcla de melancolía, amor, y una apreciación por lo que fue. Es una conexión emocional con lo que se añora, algo que trae tanto tristeza como una especie de belleza y consuelo en los recuerdos, Saudade nos recuerda que hemos experimentado momentos tan bellos y significativos que dejaron una huella profunda en nuestras almas. Aunque la nostalgia puede doler, también es una señal de que hemos vivido plenamente, que hemos amado con intensidad y que hemos tenido la suerte de tener algo que añorar. Así que, cuando sientas saudade, en lugar de enfocarte en la ausencia, celebra la riqueza de esos recuerdos y la posibilidad de crear nuevos momentos que, algún día, también traerán esa dulce melancolía, ese es el mensaje de nuestra marca, parchese.
+                    Desde elegantes conjuntos para el trabajo hasta outfits relajados para el fin de semana, nuestra colección te invita a explorar y experimentar con tu estilo propio. Cada prenda ha sido seleccionada con esmero para garantizar la máxima calidad, comodidad y estilo.
                 </p>
                 <div class="flex gap-4 items-center pt-4 border-t border-[#130048] text-white mt-6">
                     <span class="flex gap-1 items-center text-sm">

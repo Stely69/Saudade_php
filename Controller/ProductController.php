@@ -18,4 +18,3 @@ class ProductController {
         header("Location: ../Public/index.php");
     }
 }
-?>

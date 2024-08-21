@@ -24,37 +24,34 @@
     <?php
     session_start();
     ?>
-    
     <nav id="header" class="barra">
-    <div class="w-full flex items-center justify-between px-6 py-4 backdrop-blur-lg">
-        <!-- Icono de menú para dispositivos móviles -->
-        <label for="menu-toggle" class="cursor-pointer md:hidden block">
-            <svg class="fill-current text-blue-600" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
-                <title>menu</title>
-                <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
-            </svg>
-        </label>
-        <input class="hidden" type="checkbox" id="menu-toggle">
+        <div class="w-full flex items-center justify-between px-6 py-4 backdrop-blur-lg">
+            <label for="menu-toggle" class="cursor-pointer md:hidden block">
+                <svg class="fill-current text-blue-600" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+                    <title>menu</title>
+                    <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
+                </svg>
+            </label>
+            <input class="hidden" type="checkbox" id="menu-toggle">
 
-        <!-- Menú de navegación -->
-        <div id="menu" class="hidden fixed top-0 left-0 h-full w-3/4 bg-purple-600 shadow-lg z-50 md:relative md:flex md:bg-transparent md:shadow-none md:w-auto md:h-auto md:order-1">
-            <nav>
-                <ul class="flex flex-col md:flex-row md:items-center text-base text-white md:text-black pt-4 md:pt-0">
-                    <li><a class="inline-block no-underline hover:text-[#6F00FF] font-medium text-lg py-2 px-4 lg:-ml-2" href="../Views/inicio.php">Inicio</a></li>
-                    <li><a class="inline-block no-underline hover:text-[#6F00FF] font-medium text-lg py-2 px-4 lg:-ml-2" href="../Views/quienessomos.php">Quiénes Somos</a></li>
-                    <li><a class="inline-block no-underline hover:text-[#6F00FF] font-medium text-lg py-2 px-4 lg:-ml-2" href="../Views/catalogo.php">Catalogo</a></li>
-                </ul>
-            </nav>
-        </div>
+            <div class="hidden md:flex md:items-center md:w-auto w-full order-3 md:order-1" id="menu">
+                <nav>
+                    <ul class="md:flex items-center justify-between text-base text-black pt-4 md:pt-0">
+                        <a class="inline-block no-underline hover:text-purple font-medium text-lg py-2 px-4 lg:-ml-2" href="#"></a>
+                        <li><a class="inline-block no-underline hover:text-[#6F00FF] font-medium text-lg py-2 px-4 lg:-ml-2" href="../Views/inicio.php">Inicio</a></li>
+                        <li><a class="inline-block no-underline hover:text-[#6F00FF] font-medium text-lg py-2 px-4 lg:-ml-2" href="../Views/quienessomos.php">Quiénes Somos</a></li>
+                        <li><a class="inline-block no-underline hover:text-[#9333ea] font-medium text-lg py-2 px-4 lg:-ml-2" href="../Views/catalogo.php">Catalogo</a></li>
+                    </ul>
+                </nav>
+            </div>
 
-        <!-- Contenido adicional del menú -->
-        <div class="order-2 md:order-3 flex flex-wrap items-center justify-end mr-0 md:mr-4" id="nav-content">
-            <div class="auth flex items-center w-full md:w-full">
-                <button><a style='font-size:24px;color:black' class='fas'>&#xf07a;</a></button>
+            <div class="order-2 md:order-3 flex flex-wrap items-center justify-end mr-0 md:mr-4" id="nav-content">
+                <div class="auth flex items-center w-full md:w-full">
+                    <button class=""><a style='font-size:24px;color:black' class='fas '>&#xf07a;</a></button>
 
-                <?php if (isset($_SESSION['username'])): ?>
-                    <span class="inline-block no-underline font-medium text-black text-lg px-4">Hola, <?php echo $_SESSION['username']; ?>!</span>
-                    <a class="inline-block no-underline font-medium text-black text-lg hover:text-[#6F00FF] px-4" href="../public/logout_action.php">Cerrar sesión</a>
+                    <?php if (isset($_SESSION['username'])): ?>
+                        <span class="inline-block no-underline font-medium text-black text-lg px-4">Hola, <?php echo $_SESSION['username']; ?>!</span>
+                        <a class="inline-block no-underline font-medium text-black text-lg hover:text-[#6F00FF] px-4" href="../public/logout_action.php">Cerrar sesión</a>
                     <?php else: ?>
                         <a class="inline-block font-medium no-underline text-black text-lg hover:text-[#6F00FF] px-4" href="../Views/inicio_sesion.php">Iniciar sesión</a>
                         <a class="inline-block font-medium no-underline text-black text-lg hover:text-[#6F00FF]" href="../Views/registro.php">Registrarse</a>
@@ -64,30 +61,6 @@
             </div>
         </div>
     </nav>
-
-<script>
-    const menuToggle = document.getElementById('menu-toggle');
-    const menu = document.getElementById('menu');
-
-    menuToggle.addEventListener('change', function() {
-        if (this.checked) {
-            menu.classList.remove('hidden');
-        } else {
-            menu.classList.add('hidden');
-        }
-    });
-</script>
-
-
-
-
-
-
-
-
-
-
-
 
     <video id="video" class="" autoplay muted loop>
         <source src="../Static/video/street.mp4" type="video/mp4">
@@ -113,238 +86,140 @@
         src="https://open.spotify.com/embed/track/7bywjHOc0wSjGGbj04XbVi?utm_source=generator&theme=0" width="100%"
         height="352" frameBorder="0" allowfullscreen=""allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy">
     </iframe>
-
-    <div class="bg-white py-16">
-  <div class="container mx-auto">
-    <!-- Sección Dynamo Ropa Urbana -->
-    <div class="text-center mb-16">
-      <h1 class="text-4xl font-bold mb-4">SAUDADE</h1>
-      <p class="text-gray-600 mb-8">La vida es muy corta para seguir usando prendas aburridas. Viste tu actitud con saudade ropa urbana: Camisetas, jeans, gorras, accesorios y mucho más.</p>
-      <div class="flex justify-center space-x-8">
-        <div class="text-center">
-          <p class="text-gray-800 font-medium">Envíos a toda Colombia</p>
-        </div>
-        <div class="text-center">
-        </div>
-        <div class="text-center">
-          <p class="text-gray-800 font-medium">Devoluciones hasta 30 días</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Sección NEW MERCH -->
-    <div class="text-center mb-8">
-      <h2 class="text-4xl font-bold">NEW MERCH</h2>
-      <div class="border-b-2 mb-8"></div>
-    </div>
-
-    <!-- Carousel Container -->
-    <div class="grid grid-cols-1 md:grid-cols-4 gap-8 shadow-lg ">
-      <div class="relative">
-        <img src="../Static/img/pantalon.jpg" alt="Product 1" class="w-full">
-        <p class="text-center mt-4">Jeans Baggy Para Hombre Azul</p>
-        <p class="text-center font-bold">$160.000,00</p>
-      </div>
-      <div class="relative">
-        <img src="../Static/img/basica.jpg" alt="Product 2" class="w-full">
-        <p class="text-center mt-4">Camisa Para Hombre Oversize Crudo Calavera</p>
-        <p class="text-center font-bold">$125.000,00</p>
-      </div>
-      <div class="relative">
-        <img src="../Static/img/pantalon.jpg" alt="Product 3" class="w-full">
-        <p class="text-center mt-4">Jeans Baggy Para Hombre Negro</p>
-        <p class="text-center font-bold">$130.000,00</p>
-      </div>
-      <div class="relative">
-        <img src="../Static/img/pant.jpg" alt="Product 4" class="w-full">
-        <p class="text-center mt-4">Jogger Para Hombre Cargo Negro - Bota Ajustable</p>
-        <p class="text-center font-bold">$155.000,00</p>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     
-   
+    <!--Acerca de Saudade-->
+
+    <div class="relative flex min-h-screen flex-col justify-center overflow-hidden bg-slate-100   sm:py-0">
+        <div class=" ">
+            <div class="max-w-screen-lg my-40 mx-auto py-4">
+                <h2
+                    class="flex font-bold text-center text-3xl text-black font-display border-b-4 border-[#130048] w-28">
+                    Inicio
+                </h2>
+                <div class="border-b-4 border-[#130048] drop-shadow-sm blur-sm w-28 ">
+                </div>
+                <p class="text-center mt-4 font-medium text-black"></p>
+
+                <div id="contenedor1"
+                    class="bg-[#050016] w-1/3 shadow rounded-lg overflow-hidden flex flex-col  items-center justify-center p-4">
+                    <img id="modelo" src="../static/img/modelo1.jpeg" class="rounded-lg object-cover h-50 w-42" alt="">
+                    <div class="p-6 flex flex-col flex-1">
+                        <span class="block text-slate-400 font-semibold text-sm"></span>
+                        <h2 class="text-xs text-slate-400 mb-3"></h2>
+                        <div class="flex gap-4 items-center mt-auto pt-4 border-t border-slate-300">
+
+                        </div>
+                    </div>
+                </div>
+
+                <img id="estrella1" src="../static/img/estrella.png" alt="">
+                <img id="estrella1" src="../static/img/estrella.png" alt="">
+                <img id="estrella2" src="../static/img/estrella.png" alt="">
+                <img id="estrella2" src="../static/img/estrella.png" alt="">
+                <img id="estrella3" src="../static/img/estrella.png" alt="">
+                <img id="estrella3" src="../static/img/estrella.png" alt="">
+
+                <div class="">
+                    <div class="absolute z-20  top-1/2  right-20 text-black -translate-y-1/2">
+                        <img src="../static/img/camiseta1.png" class="absolute z-10 " alt="">
+                    </div>
+                    <div class="relative  p-10 h-full w-1/2">
+                        <h2 class="text-black text-3xl font-medium">Saudade</h2>
+                        <p class="text-mg text-black mt-4">
+                            Desde elegantes conjuntos para el trabajo hasta outfits relajados para el fin de semana,
+                            nuestra colección te invita a explorar y experimentar con tu estilo propio. Cada prenda ha
+                            sido seleccionada con esmero para garantizar la máxima calidad, comodidad y estilo.
+                        </p>
+                        <div class="flex gap-4 items-center pt-4 border-t border-[#130048] text-slate-300 mt-6">
+                            <span class="flex gap-1 items-center text-sm text-black">
+                                <a href="">Instagram</a>
+                            </span>
+                            <span class="flex gap-1 items-center text-sm text-black">
+                                <a href="">Facebook</a>
+                            </span>
+                        </div>
+                    </div>
+                </div class="">
+                    <img id="angel" src="../static/img/ANGEL SIN FONDO.png" alt="">
+                    <br><br><br><br><br><br><br><br><br><br><br><br>
+                    <h2
+                        class="flex font-bold text-center text-2xl text-black font-display  border-b-4 border-[#130048] w-48">
+                        Camisetas
+                    </h2>
+                    <div class="border-b-4 border-[#130048] drop-shadow-sm  blur-sm w-48 ">
+                </div>
+
+                <!--Catalogo de las camisas -->
+
+                <div class="flex sgap-2  mt-10 ">
+                    <div id="grande4" class="bg-[#050016] w-1/3 shadow rounded-lg overflow-hidden flex flex-col  items-center justify-center p-4">
+                        <img id="camiseta2" src="../Static/img/hoddie.jpg" class="rounded-lg object-cover h-50 w-42"
+                            alt="">
+                        <div class="p-6 flex flex-col flex-1">
+                            <h3 class="mt-3 mb-2 font-bold text-lg text-white ">
+                                Camiseta Personalizada
+                            </h3>
+
+                            <h2 class="text-xs text-slate-400 mb-3"></h2>
+                            <div
+                                class="flex gap-4 items-center justify-self-center mt-auto pt-4 border-t border-slate-300 ">
+                                <a href="../Views/compra.php"> <button class="text-white">Ver mas</button></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="grande2"
+                        class="bg-[#050016] w-1/3 shadow rounded-lg overflow-hidden flex flex-col  items-center justify-center p-4">
+                        <img id="camiseta1" src="../Static/img/basica.jpg" class="rounded-lg object-cover h-50 w-42"
+                            alt="">
+                        <div class="p-6 flex flex-col flex-1">
+                            <span class="block text-slate-400 font-semibold text-sm"></span>
+                            <h3 class="mt-3 mb-2 font-bold text-lg text-white">
+                                Camiseta Personalizada
+                            </h3>
+                            <h2 class="text-xs text-slate-400 mb-3"></h2>
+                            <div class="flex gap-4 items-center mt-auto pt-4 border-t border-slate-300">
+                                <a href="../Views/compra.php"> <button class="text-white">Ver mas</button></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="grande1"
+                        class="bg-[#050016] w-1/3 shadow rounded-lg overflow-hidden flex flex-col items-center justify-center p-4">
+                        <img id="camiseta3" src="../Static/img/sombrero.jpg" class="rounded-lg object-cover h-50 w-42"
+                            alt="">
+                        <div class="p-6 flex flex-col flex-1">
+                            <span class="block text-white font-semibold text-sm"></span>
+                            <h3 class="mt-3 mb-2 font-bold text-lg text-white">
+                                Camiseta Personalizada
+                            </h3>
+                            <h2 class="text-xs text-slate-400 mb-3"></h2>
+                            <div class="flex gap-4 items-center mt-auto pt-4 border-t border-slate-300">
+                                <a href="../Views/compra.php"> <button class="text-white">Ver mas</button></a>
+                            </div>
+                        </div>
+                    </div>
 
 
+                    <div id="grande1"
+                        class="bg-[#050016] w-1/3 shadow rounded-lg overflow-hidden flex flex-col items-center justify-center p-4">
+                        <img id="camiseta3" src="../Static/img/camiseta.jpg" class="rounded-lg object-cover h-50 w-42"
+                            alt="">
+                        <div class="p-6 flex flex-col flex-1">
+                            <span class="block text-white font-semibold text-sm"></span>
+                            <h3 class="mt-3 mb-2 font-bold text-lg text-white">
+                                Camiseta Personalizada
+                            </h3>
+                            <h2 class="text-xs text-slate-400 mb-3"></h2>
+                            <div class="flex gap-4 items-center mt-auto pt-4 border-t border-slate-300">
+                                <a href="../Views/compra.php"> <button class="text-white">Ver mas</button></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-
-        <img id="estrella1" src="../static/img/estrella.png" alt="">
-        <img id="estrella1" src="../static/img/estrella.png" alt="">
-        <img id="estrella2" src="../static/img/estrella.png" alt="">
-        <img id="estrella2" src="../static/img/estrella.png" alt="">
-        <img id="estrella3" src="../static/img/estrella.png" alt="">
-        <img id="estrella3" src="../static/img/estrella.png" alt="">
-        
-        
-
-
-
-
-
-
-        <br><br><br><br>
-        </div>
-     <!-- Cierre del div con clase max-w-screen-lg -->
-  <!-- Cierre del div con clase relative flex min-h-screen -->
-
-
-  <div class="carousel-container ">
-    <div class="carousel">
-        <div class="video-container small">
-            <video src="../Static/video/video1.mp4" muted></video>
-        </div>
-        <div class="video-container small">
-            <video src="../Static/video/video5.mp4" muted></video>
-        </div>
-        <div class="video-container main">
-            <video src="../Static/video/video2.mp4" autoplay muted loop></video>
-        </div>
-        <div class="video-container small">
-            <video src="../Static/video/video3.mp4" muted></video>
-        </div>
-        <div class="video-container small">
-            <video src="../Static/video/video4.mp4" muted></video>
-        </div>
-    </div>
-    <div class="navigation">
-        <button class="arrow left-arrow"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <path d="M14 17l-5-5 5-5v10z" fill="black"/>
-</svg></button>
-        <button class="arrow right-arrow"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <path d="M10 17l5-5-5-5v10z" fill="black"/>
-</svg></button>
-    </div>
-</div>
-
-<style>
-.carousel-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    
-}
-
-.carousel {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-}
-
-.video-container {
-    transition: transform 0.5s ease, width 0.5s ease, height 0.5s ease;
-    overflow: hidden;
-    border-radius: 10px;
-}
-
-.video-container video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.small {
-    width: 250px;
-    height: 350px;
-    margin: 0 10px;
-}
-
-.main {
-    width: 350px;
-    height: 500px;
-    margin: 0 20px;
-}
-
-.navigation {
-    margin-top: 20px;
-}
-
-.arrow {
-   
-    border: none;
-    font-size: 24px;
-    cursor: pointer;
-    color: white;
-    padding: 10px;
-    margin: 0 10px;
-    border-radius: 50%;
-    outline: none;
-}
-</style>
-
-<script>
-let currentIndex = 2;
-
-const videos = document.querySelectorAll('.video-container');
-const totalVideos = videos.length;
-
-document.querySelector('.left-arrow').addEventListener('click', () => {
-    rotateCarousel(-1);
-});
-
-document.querySelector('.right-arrow').addEventListener('click', () => {
-    rotateCarousel(1);
-});
-
-function rotateCarousel(direction) {
-    currentIndex = (currentIndex + direction + totalVideos) % totalVideos;
-
-    videos.forEach((video, index) => {
-        const videoElement = video.querySelector('video');
-        video.classList.remove('main', 'small');
-        video.classList.add(index === currentIndex ? 'main' : 'small');
-
-        if (index === currentIndex) {
-            videoElement.play();
-        } else {
-            videoElement.pause();
-            videoElement.currentTime = 0; // Reinicia el video para que comience desde el inicio cuando vuelva a ser el principal
-        }
-    });
-}
-</script>
-
-
-
-
-<br><br><br>
-
-
-
-
-
-
-
-
-
-
-
-
-
-            
+            <img id="angel2" src="../static/img/ANGEL SIN FONDO.png" alt="">
 
             <div class="nav-bottom">
                 <img id="wasa" src="{{ url_for('static', filename='img/wasa.png') }}" width="50" alt="">
@@ -392,8 +267,6 @@ function rotateCarousel(direction) {
             height: auto;
             max-height: 64vh;
             object-fit: cover;
-            opacity: 0.8; /* Cambia el valor para ajustar la transparencia */
-            
         }
     </style>
 
@@ -417,42 +290,42 @@ function rotateCarousel(direction) {
             <!-- Item 1 -->
             <a href="https://example.com/item1" class="relative zoom block overflow-hidden">
                 <img src="../Static/img/camiseta.jpg" alt="Camisetas" class="w-full h-auto max-h-[70vh] object-cover">
-                <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
+                <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
                     <span class="text-white text-xl font-bold">CAMISETAS</span>
                 </div>
             </a>
             <!-- Item 2 -->
             <a href="../Static/img/basica.jpg" class="relative zoom block overflow-hidden">
                 <img src="../Static/img/basica.jpg" alt="Básicas" class="w-full h-auto max-h-[70vh] object-cover">
-                <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
+                <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
                     <span class="text-white text-xl font-bold">BÁSICAS</span>
                 </div>
             </a>
             <!-- Item 3 -->
             <a href="https://example.com/item3" class="relative zoom block overflow-hidden">
                 <img src="../Static/img/hoddie.jpg" alt="Hoodies" class="w-full h-auto max-h-[70vh] object-cover">
-                <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
+                <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
                     <span class="text-white text-xl font-bold">HOODIES</span>
                 </div>
             </a>
             <!-- Item 4 -->
             <a href="https://example.com/item4" class="relative zoom block overflow-hidden">
                 <img src="../Static/img/pant.jpg" alt="Item 4" class="w-full h-auto max-h-[70vh] object-cover">
-                <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
+                <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
                     <span class="text-white text-xl font-bold">BERMUDAS</span>
                 </div>
             </a>
             <!-- Item 5 -->
             <a href="https://example.com/item5" class="relative zoom block overflow-hidden">
                 <img src="../Static/img/sombrero.jpg" alt="Item 5" class="w-full h-auto max-h-[70vh] object-cover">
-                <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
+                <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
                     <span class="text-white text-xl font-bold">GORROS</span>
                 </div>
             </a>
             <!-- Item 6 -->
             <a href="https://example.com/item6" class="relative zoom block overflow-hidden">
                 <img src="../Static/img/pantalon.jpg" alt="Item 6" class="w-full h-auto max-h-[70vh] object-cover">
-                <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
+                <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
                     <span class="text-white text-xl font-bold">PANTALON</span>
                 </div>
             </a>

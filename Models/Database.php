@@ -1,6 +1,6 @@
 <?php
 class Database {
-    private $host = "127.0.0.1:33065"; //127.0.0.1:33065 
+    private $host = "localhost"; //127.0.0.1:33065 
     private $db_name = "tienda_online"; // Nombre de tu base de datos
     private $username = "root"; // Tu usuario de la base de datos
     private $password = ""; // Tu contraseña de la base de datos
@@ -19,4 +19,4 @@ class Database {
         return $this->conn;
     }
 }
-?>
+

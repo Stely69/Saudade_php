@@ -39,7 +39,7 @@
             <div class="order-2 md:order-3 flex flex-wrap items-center justify-end mr-0 md:mr-4" id="nav-content">
                 <div class="auth flex items-center w-full md:w-full">
                     
-                    <a class="  inline-block  font-medium no-underline text-black text-lg  hover:text-[#6F00FF] px-4"href="../Views/inicioseller.php"> Iniciar sesion </a>
+                    <a class="  inline-block  font-medium no-underline text-black text-lg  hover:text-[#6F00FF] px-4"href="../Views/inicio_sesion.php"> Iniciar sesion </a>
                     <a class="  inline-block  font-medium no-underline text-black text-lg hover:text-[#6F00FF]"href="../Views/registro.php" > Registrarse</a>
                                           
                 </div>
