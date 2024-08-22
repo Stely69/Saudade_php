@@ -28,4 +28,4 @@ class ProductModel {
         return $stmt->execute();
     }
 }
-?>
+

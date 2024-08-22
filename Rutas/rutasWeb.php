@@ -4,6 +4,7 @@
     use Controller\InicioControlador;
     use Controller\CatalogoControlador;
     use Controller\LoginControlador;
+    use Controller\AdminController;
     use Libreria\Enrutador;
 
     Enrutador::get("/",[InicioControlador::class,"inicio"]);
@@ -18,5 +19,7 @@
     Enrutador::get("/Catalogo/compra",[CatalogoControlador::class,"Compra"]);
     //Quienes somos
     Enrutador::get("/QuieneSomos/quienessomos",[QuienesControlador::class,"Quienes"]);
+    //admin
+    Enrutador::get("/Admin/admin",[AdminController::class,"Admin"]);
 
     Enrutador::obtenerRuta();
