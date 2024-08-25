@@ -120,10 +120,6 @@ INSERT INTO `users` (`id`, `username`, `email`, `password`, `role`, `created_at`
 (1, 'admin', 'admin@example.com', 'admin_password', 'admin', '2024-07-14 03:15:49'),
 (2, 'seller1', 'seller1@example.com', 'seller1_password', 'seller', '2024-07-14 03:15:49'),
 (3, 'user1', 'user1@example.com', 'user1_password', 'user', '2024-07-14 03:15:49'),
-(26, 'Julian', 'julian@gmail.com', '$2y$10$JIck5e6dd.x6yOg/TE9UD.v2vP.fFArJbrx00CH7KBLA7MAj/SoHK', 'user', '2024-07-14 05:21:51'),
-(27, 'steven', 'williamsteven237g@gmail.com', '$2y$10$Y4y33N0a0JWZBR90H/2ORuWcIaR/v/mDAtJ5djuJMjOeMTqZK8Wsm', 'user', '2024-07-14 05:33:42'),
-(29, 'Julian22', 'julian22@gmail.com', '$2y$10$D/WcDAm1UGSgbTbS.9DahexHuwZ0z1TjfJn5d87lBRZwzp2nMd3K.', 'user', '2024-07-16 02:55:13'),
-(31, 'kevin', 'kevin@gmail.com', '$2y$10$/iFwhB6EmQ.FxojAGg09k.4nNFAMKidI2PNHXPRNp0BGjqLn.7uRK', 'user', '2024-07-16 20:07:16');
 
 -- --------------------------------------------------------
 
