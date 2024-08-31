@@ -11,6 +11,7 @@
 <body>
     <?php
         session_start();
+
     ?>
     <nav id="header" class="barra">
         <div class="w-full flex items-center justify-between px-6 py-4 backdrop-blur-lg">
@@ -69,6 +70,10 @@
                 <label for="password" class="block font-bold text-mg text-white">Contraseña</label>
                 <input type="password" id="password" name="password" placeholder="Contraseña" class="form-input w-full rounded-md border border-gray-300 py-1 focus:border-blue-500" required>
             </div>
+
+            <?php if(isset($_GET['error'])):?>
+                <p class="text-red-500"><?php echo $_GET['error']; ?></p>
+            <?php endif; ?>
         
             <div class="flex items-center justify-between mb-5">
                 <a href="" class="text-sm text-blue-500 hover:underline">¿Olvidaste tu contraseña?</a>
@@ -77,7 +82,7 @@
             <button type="submit" class="bg-blue-500 text-white font-bold py-2 px-4 rounded-md hover:bg-blue-600">Inicio de sesión</button>
         
             <div class="text-center text-white mt-5">
-                <p>¿Aún no estás en Saudade? <a href="{{ url_for('registro') }}" class="text-blue-500 hover:underline">Regístrate</a></p>
+                <p>¿Aún no estás en Saudade? <a href="registro" class="text-blue-500 hover:underline">Regístrate</a></p>
             </div>
         </form>
 

@@ -23,6 +23,11 @@
             $uri = trim(substr($uri, $posicionPublic + 6),"/");
             foreach(self::$rutas[$metodo] as $rutas=> $funcionCall){
                 $uri=trim($uri,"/");
+
+                if(strpos($uri, '?')){
+                    $uri = substr($uri , 0 , strpos($uri, "?"));
+                }
+
                 if(strpos($rutas,":")){
                     $rutas = preg_replace("#:[a-zA-Z0-9]+#","([a-zA-Z0-9]+)",$rutas);
                 }

@@ -5,4 +5,3 @@
     $authController->login($_POST['email'], $_POST['password']);
 
     session_start();
-

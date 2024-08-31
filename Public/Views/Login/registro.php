@@ -10,7 +10,8 @@
 </head>
 <body>
     <?php
-    session_start();
+        session_start();
+
     ?>
     
     <nav id="header" class="barra">

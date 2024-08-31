@@ -17,8 +17,10 @@
                 $_SESSION['username'] = $user['username'];
                 $_SESSION['role'] = $user['role'];
                 header("Location: ../");
+                exit();
             } else {
-                echo "Email o contraseña incorrectos.";
+                header('Location: ../Login/inicio_sesion?error=Email o contraseña incorrectos');
+                exit();
             }
         }
 
