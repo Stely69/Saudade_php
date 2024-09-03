@@ -71,6 +71,10 @@
             <label for="email" class="block font-bold text-mg py-1 text-white">Correo Electrónico</label>
             <input type="email" id="email" name="email" class="form-input w-full rounded-md border py-1 border-gray-300 focus:border-blue-500" required>
         </div>
+
+        <?php if(isset($_GET['error'])):?>
+                <p class="text-red-500 font-bold"><?php echo $_GET['error']; ?></p>
+        <?php endif; ?>
     
         <div class="mb-3">
             <label for="password" class="block font-bold text-mg py-1 text-white">Contraseña</label>
