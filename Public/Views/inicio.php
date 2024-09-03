@@ -20,7 +20,7 @@
 
 </head>
 
-<>
+<body>
     <nav id="header" class="barra">
         <div class="w-full flex items-center justify-between px-6 py-4 backdrop-blur-lg">
             <!-- Icono de menú para dispositivos móviles -->
