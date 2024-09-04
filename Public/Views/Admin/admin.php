@@ -7,19 +7,10 @@
     <title>Document</title>
 </head>
 <body>
-
-
-<<<<<<< HEAD
-<?php
-    session_start();
-    ?>
-=======
       <?php
          require_once '../Controller/CheckRole.php';
          checkRole('admin');
       ?>
-
->>>>>>> v-2.0-stiwi
     <nav id="header" class="barra">
         <div class="w-full flex items-center justify-between px-6 py-4 backdrop-blur-lg">
             <label for="menu-toggle" class="cursor-pointer md:hidden block">
@@ -55,18 +46,6 @@
                 </div>
             </div>
         </div>
-<<<<<<< HEAD
-    </nav>
-
-
-
-
-
-
-=======
-    </nav>           
->>>>>>> v-2.0-stiwi
-
     <div class="w-full relative flex ct-docs-disable-sidebar-content overflow-x-hidden">
         <nav class="block py-4 px-6 top-0 bottom-0 w-64 bg-white shadow-xl left-0 absolute flex-row flex-nowrap md:z-10 z-9999 transition-all duration-300 ease-in-out transform md:translate-x-0 -translate-x-full">
            <button class="md:hidden flex items-center justify-center cursor-pointer text-blueGray-700 w-6 h-10 border-l-0 border-r border-t border-b border-solid border-blueGray-100 text-xl leading-none bg-white rounded-r border border-solid border-transparent absolute top-1/2 -right-24-px focus:outline-none z-9998"><i class="fas fa-ellipsis-v"></i></button>
