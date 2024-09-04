@@ -3,6 +3,7 @@
 
     $authController = new AuthController();
     $authController->login($_POST['email'], $_POST['password']);
+<<<<<<< HEAD
     session_start();
 
 //$validEmail = 'seller1@example.com';
@@ -40,3 +41,7 @@
     //session_start();
 
 
+=======
+
+    session_start();
+>>>>>>> v-2.0-stiwi

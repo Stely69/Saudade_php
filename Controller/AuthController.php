@@ -9,16 +9,20 @@
         }
 
         public function login($email, $password) {
-            $user = $this->userModel->getUserByEmail($email);
+            $user = $this->userModel->getEmail($email);
 
             if ($user && password_verify($password, $user['password'])) {
                 session_start();
                 $_SESSION['user_id'] = $user['id'];
                 $_SESSION['username'] = $user['username'];
-                $_SESSION['role'] = $user['role'];
+                $_SESSION['role_id'] = $user['role_id'];
+                  
                 header("Location: ../");
+
+                exit();
             } else {
-                echo "Email o contraseña incorrectos.";
+                header('Location: ../Login/inicio_sesion?error=Email o contraseña incorrectos');
+                exit();
             }
         }
 
@@ -28,3 +32,4 @@
             header("Location: ../");
         }
     }
+

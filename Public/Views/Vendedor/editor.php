@@ -8,6 +8,16 @@
     <title>Editor De Saudade</title>
 </head>
 <body>
+<<<<<<< HEAD
+=======
+
+    
+        <?php
+            require_once '../Controller/CheckRole.php';
+            checkRole('vendedor');
+        ?>
+
+>>>>>>> v-2.0-stiwi
     <nav id="header" class="barra">
         <div class="w-full flex items-center justify-between z-50 fixed px-6 py-4 backdrop-blur-lg ">
             <label for="menu-toggle" class="cursor-pointer md:hidden block">
