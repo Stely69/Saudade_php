@@ -6,4 +6,8 @@
         public function Admin(){
             $this->cargarVista("Admin/admin");
         }
+
+        public function Vendedor(){
+            $this->cargarVista("Vendedor/editor");
+        }
     }

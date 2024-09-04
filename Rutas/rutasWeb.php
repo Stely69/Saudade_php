@@ -21,5 +21,7 @@
     Enrutador::get("/QuieneSomos/quienessomos",[QuienesControlador::class,"Quienes"]);
     //admin
     Enrutador::get("/Admin/admin",[AdminController::class,"Admin"]);
+    //Vendedor
+    Enrutador::get("/Vendedor/editor",[AdminController::class,"Vendedor"]);
 
     Enrutador::obtenerRuta();

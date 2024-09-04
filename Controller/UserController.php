@@ -13,8 +13,7 @@ class UserController {
 
     public function register($username, $email, $password) {
 
-        $role = $this->rolModel->getRoleIdByName('user');
-        $role_id = $role['id'];
+        $role_id = 3;
 
         $telefono = null ;
         $direccion_id = null;
