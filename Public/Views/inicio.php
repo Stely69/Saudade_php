@@ -287,19 +287,6 @@
     <br><br><br>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
     <div class="nav-bottom">
         <img id="wasa" src="{{ url_for('static', filename='img/wasa.png') }}" width="50" alt="">
         <div class="popup-whatsapp fadeIn">
@@ -324,11 +311,6 @@
             </div>
         </div>
 
-
-
-
-
-
         <button type="button" id="whats-openPopup" class="whatsapp-button">
             <div class="float">
                 <i class="fa fa-whatsapp my-float"></i>
@@ -352,20 +334,11 @@
         }
     </style>
 
-
-
-
-
-
-
     <div class="flex items-center justify-center my-8">
         <hr class="flex-grow border-t border-gray-300">
         <span class="mx-4 text-gray-700 text-xl font-semibold">lo mejor lo encuentras en saudade</span>
         <hr class="flex-grow border-t border-gray-300">
     </div>
-
-
-
 
     <div class="container mx-auto p-4">
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
