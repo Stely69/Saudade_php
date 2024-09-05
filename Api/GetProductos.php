@@ -1,6 +1,13 @@
 <?php
-include_once '../Controller/ProductController.php';
+    include_once '../Models/ProductModel.php';
 
-$productController = new ProductController();
-$productController->getProducts();
+    header('Content-Type: application/json');
 
+    $productModel = new ProductModel();
+    $products = $productModel->getAllProducts();
+
+    if ($products) {
+        echo json_encode($products);
+    } else {
+        echo json_encode([]); // Devuelve un array vacío si no hay productos
+    }

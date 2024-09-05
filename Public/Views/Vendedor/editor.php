@@ -31,7 +31,7 @@
                 <div id="menu" class="hidden fixed top-0 left-0 h-full w-3/4 bg-purple-600 shadow-lg z-50 md:relative md:flex md:bg-transparent md:shadow-none md:w-auto md:h-auto md:order-1">
                     <nav>
                         <ul class="flex flex-col md:flex-row md:items-center text-base text-white md:text-black pt-4 md:pt-0">
-                        <li><a class="inline-block no-underline hover:text-[#6F00FF] font-medium text-lg py-2 px-4 lg:-ml-2" href="/../">Inicio</a></li>
+                        <li><a class="inline-block no-underline hover:text-[#6F00FF] font-medium text-lg py-2 px-4 lg:-ml-2" href="../">Inicio</a></li>
                         <li><a class="inline-block no-underline hover:text-[#6F00FF] font-medium text-lg py-2 px-4 lg:-ml-2" href="../QuieneSomos/quienessomos">Quiénes Somos</a></li>
                         <li><a class="inline-block no-underline hover:text-[#6F00FF] font-medium text-lg py-2 px-4 lg:-ml-2" href="../Catalogo/catalogo">Catalogo</a></li>
 
@@ -209,10 +209,7 @@
 
 <div id="productos" class="grid grid-cols-1 md:grid-cols-3 gap-5 bg-white md:pl-80 pt-20 md:px-40">
     <!-- Productos existentes y dinámicos -->
-    <?php 
-       $lista = $producto->getProducts();
-        echo $lista
-    ?>
+   
 </div>
 
 <script>
@@ -238,32 +235,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
 </script>
 
-<script>
-           document.addEventListener("DOMContentLoaded", function() {
-            // URL del archivo PHP que retorna los productos en formato JSON
-            const url = '';
-
-            fetch(url)
-                .then(response => response.json())
-                .then(data => {
-                    const productosContainer = document.getElementById('productos');
-
-                    data.forEach(producto => {
-                        const productoElement = document.createElement('div');
-                        productoElement.className = 'bg-white p-4 border rounded-lg shadow-lg';
-                        productoElement.innerHTML = `
-                            <img src="../uploads/${producto.imagen}" alt="${producto.name_producto}" class="w-full h-32 object-cover mb-4 rounded-lg">
-                            <h3 class="text-xl font-semibold">${producto.name_producto}</h3>
-                            <p class="text-gray-600">${producto.descripcion}</p>
-                            <p class="text-lg font-bold">$${producto.precio}</p>
-                            <p class="text-gray-500">Cantidad: ${producto.cantidad}</p>
-                        `;
-                        productosContainer.appendChild(productoElement);
-                    });
-                })
-                .catch(error => console.error('Error al cargar los productos:', error));
-        });
-</script>
 
 <script>
     function showAlert(type, message) {
@@ -297,6 +268,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 </script>
-<!--<script src="../../Public/js/api.js"></script>-->
+<script src="../../Public/js/api.js"></script>
+<!---->
 </body>
 </html>
