@@ -15,7 +15,6 @@ class UserController {
 
         $role_id = 3;
 
-        $telefono = null ;
         $direccion_id = null;
 
         if($this->userModel->usuarioExiste($email)){
@@ -23,7 +22,7 @@ class UserController {
             exit();
         }
 
-        if($this->userModel->createuser($username,$email,$telefono,$password,$role_id,$direccion_id)){
+        if($this->userModel->createuser($username,$email,$password,$role_id,$direccion_id)){
             header('Location: ../');
             exit();
         }else{

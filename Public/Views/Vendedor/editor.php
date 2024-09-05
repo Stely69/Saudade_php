@@ -9,51 +9,73 @@
 </head>
 <body>
 
-    
-        <?php
-            require_once '../Controller/CheckRole.php';
-            checkRole('vendedor');
-        ?>
+    <?php
+        require_once '../Controller/CheckRole.php';
+        require_once '../Controller/ProductController.php';
+        checkRole('vendedor');
+        $producto = new ProductController();
+    ?>
 
     <nav id="header" class="barra">
-        <div class="w-full flex items-center justify-between z-50 fixed px-6 py-4 backdrop-blur-lg ">
-            <label for="menu-toggle" class="cursor-pointer md:hidden block">
-                <svg class="fill-current text-blue-600" xmlns="http://www.w3.org/2000/svg" width="20" height="20"
-                    viewBox="0 0 20 20">
-                    <title>menu</title>
-                    <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
-                </svg>
-            </label>
-            <input class="hidden" type="checkbox" id="menu-toggle">
+            <div class="w-full flex items-center justify-between px-6 py-4 backdrop-blur-lg">
+                <!-- Icono de menú para dispositivos móviles -->
+                <label for="menu-toggle" class="cursor-pointer md:hidden block">
+                    <svg class="fill-current text-blue-600" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+                        <title>menu</title>
+                        <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
+                    </svg>
+                </label>
+                <input class="hidden" type="checkbox" id="menu-toggle">
 
-            <div class="hidden md:flex md:items-center md:w-auto w-full order-3 md:order-1" id="menu">
-                <nav>
-                    <ul class="md:flex items-center justify-between text-base text-black pt-4 md:pt-0">
-                        <a class="inline-block no-underline hover:text-purple  font-medium text-lg py-2 px-4 lg:-ml-2"
-                            href="#"></a>
-                        <li><a class="inline-block no-underline hover:text-[#6F00FF] font-medium text-lg py-2 px-4 lg:-ml-2"
-                                href="../Views/inicio.php">Inicio</a></li>
-                        <li><a class="inline-block no-underline hover:text-[#6F00FF] font-medium text-lg py-2 px-4 lg:-ml-2"
-                                href="../Views/quienessomos.php">Quiénes Somos</a></li>
+                <!-- Menú de navegación -->
+                <div id="menu" class="hidden fixed top-0 left-0 h-full w-3/4 bg-purple-600 shadow-lg z-50 md:relative md:flex md:bg-transparent md:shadow-none md:w-auto md:h-auto md:order-1">
+                    <nav>
+                        <ul class="flex flex-col md:flex-row md:items-center text-base text-white md:text-black pt-4 md:pt-0">
+                        <li><a class="inline-block no-underline hover:text-[#6F00FF] font-medium text-lg py-2 px-4 lg:-ml-2" href="/../">Inicio</a></li>
+                        <li><a class="inline-block no-underline hover:text-[#6F00FF] font-medium text-lg py-2 px-4 lg:-ml-2" href="../QuieneSomos/quienessomos">Quiénes Somos</a></li>
+                        <li><a class="inline-block no-underline hover:text-[#6F00FF] font-medium text-lg py-2 px-4 lg:-ml-2" href="../Catalogo/catalogo">Catalogo</a></li>
 
-                        <li><a class="inline-block no-underline hover:text-[#9333ea] font-medium text-lg py-2 px-4 lg:-ml-2"
-                                href="../Views/catalogo.php">Catalogo</a></li>
+                        <?php
+                            
+                            include_once '../Models/RolesModel.php';
 
-                    </ul>
-                </nav>
-            </div>
+                            $role = null;
+                            if (isset($_SESSION['role_id'])) {
+                                $rolesModel = new RolesModel();
+                                $roleData = $rolesModel->getRoleById($_SESSION['role_id']);
+                                $role = $roleData['role_name'];
+                            }
 
-            <div class="order-2 md:order-3 flex flex-wrap items-center justify-end mr-0 md:mr-4" id="nav-content">
-                <div class="auth flex items-center w-full md:w-full">
-                    
-                    <a class="  inline-block  font-medium no-underline text-black text-lg  hover:text-[#6F00FF] px-4"href="../Views/inicioseller.php"> Iniciar sesion </a>
-                    <a class="  inline-block  font-medium no-underline text-black text-lg hover:text-[#6F00FF]"href="../Views/registro.php" > Registrarse</a>
-                                          
+                        ?>
+
+                        <?php if ($role === 'admin' ): ?>
+                            <li><a class="inline-block no-underline font-medium text-black text-lg hover:text-[#6F00FF] px-4" href="Admin/admin">Admin Dashboard</a></li>
+                        <?php elseif ($role === 'vendedor'): ?>
+                            <li><a class="inline-block no-underline font-medium text-black text-lg hover:text-[#6F00FF] px-4" href="../Vendedor/editor">Vendedor Dashboard</a></li>
+                        <?php endif; ?>
+
+                        </ul>
+                    </nav>
+                </div>
+
+                <!-- Contenido adicional del menú -->
+                <div class="order-2 md:order-3 flex flex-wrap items-center justify-end mr-0 md:mr-4" id="nav-content">
+                    <div class="auth flex items-center w-full md:w-full">
+                        <button><a style='font-size:24px;color:black' class='fas'>&#xf07a;</a></button>             
+
+                        <?php if (isset($_SESSION['user_id'])): ?>
+                            <span class="inline-block no-underline font-medium text-black text-lg px-4">Hola, <?php echo $_SESSION['username']; ?>!</span>
+                            <a class="inline-block no-underline font-medium text-black text-lg hover:text-[#6F00FF] px-4" href="Login/LogoutAction">Cerrar Sesión </a>
+                        <?php else: ?>
+                            <a class="inline-block no-underline font-medium text-black text-lg hover:text-[#6F00FF] px-4" href="Login/inicio_sesion">Iniciar Sesión</a>
+                            <a class="inline-block no-underline font-medium text-black text-lg hover:text-[#6F00FF] px-4" href="Login/registro">Registrarse</a>
+                        <?php endif; ?>
+
+                    </div>
                 </div>
             </div>
-        </div>
     </nav>
-    
+
     <aside class="bg-gradient-to-br from-gray-800 to-gray-900 z-50 -translate-x-80 fixed inset-0 my-20 ml-2 h-[calc(100vh-32px)] w-72 rounded-xl transition-transform duration-300 xl:translate-x-0">
         <div class="relative border-b border-white/20">
         <a class="flex items-center gap-4 py-6 px-8" href="#/">
@@ -94,44 +116,9 @@
             <a class="" href="#">
                 <button class="middle none font-sans font-bold center transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-3 rounded-lg text-white hover:bg-white/10 active:bg-white/30 w-full flex items-center gap-4 px-4 capitalize" type="button">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" class="w-5 h-5 text-inherit">
-                    <path fill-rule="evenodd" d="M1.5 5.625c0-1.036.84-1.875 1.875-1.875h17.25c1.035 0 1.875.84 1.875 1.875v12.75c0 1.035-.84 1.875-1.875 1.875H3.375A1.875 1.875 0 011.5 18.375V5.625zM21 9.375A.375.375 0 0020.625 9h-7.5a.375.375 0 00-.375.375v1.5c0 .207.168.375.375.375h7.5a.375.375 0 00.375-.375v-1.5zm0 3.75a.375.375 0 00-.375-.375h-7.5a.375.375 0 00-.375.375v1.5c0 .207.168.375.375.375h7.5a.375.375 0 00.375-.375v-1.5zm0 3.75a.375.375 0 00-.375-.375h-7.5a.375.375 0 00-.375.375v1.5c0 .207.168.375.375.375h7.5a.375.375 0 00.375-.375v-1.5zM10.875 18.75a.375.375 0 00.375-.375v-1.5a.375.375 0 00-.375-.375h-7.5a.375.375 0 00-.375.375v1.5c0 .207.168.375.375.375h7.5zM3.375 15h7.5a.375.375 0 00.375-.375v-1.5a.375.375 0 00-.375-.375h-7.5a.375.375 0 00-.375.375v1.5c0 .207.168.375.375.375zm0-3.75h7.5a.375.375 0 00.375-.375v-1.5A.375.375 0 0010.875 9h-7.5A.375.375 0 003 9.375v1.5c0 .207.168.375.375.375z" clip-rule="evenodd"></path>
+                    <path d="M15.75 2.25H21a.75.75 0 01.75.75v5.25a.75.75 0 01-1.5 0V4.81l-5.72 5.72a.75.75 0 01-1.06 0L11.75 9.06l-7.47 7.47a.75.75 0 11-1.06-1.06l8-8a.75.75 0 011.06 0l2.72 2.72L18.94 3.75H15.75a.75.75 0 010-1.5z"></path>
                 </svg>
-                <p class="block antialiased font-sans text-base leading-relaxed text-inherit font-medium capitalize">tables</p>
-                </button>
-            </a>
-            </li>
-            <li>
-            <a class="" href="#">
-                <button class="middle none font-sans font-bold center transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-3 rounded-lg text-white hover:bg-white/10 active:bg-white/30 w-full flex items-center gap-4 px-4 capitalize" type="button">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" class="w-5 h-5 text-inherit">
-                    <path fill-rule="evenodd" d="M5.25 9a6.75 6.75 0 0113.5 0v.75c0 2.123.8 4.057 2.118 5.52a.75.75 0 01-.297 1.206c-1.544.57-3.16.99-4.831 1.243a3.75 3.75 0 11-7.48 0 24.585 24.585 0 01-4.831-1.244.75.75 0 01-.298-1.205A8.217 8.217 0 005.25 9.75V9zm4.502 8.9a2.25 2.25 0 104.496 0 25.057 25.057 0 01-4.496 0z" clip-rule="evenodd"></path>
-                </svg>
-                <p class="block antialiased font-sans text-base leading-relaxed text-inherit font-medium capitalize">Notificacion</p>
-                </button>
-            </a>
-            </li>
-        </ul>
-        <ul class="mb-4 flex flex-col gap-1">
-            <li class="mx-3.5 mt-4 mb-2">
-            <p class="block antialiased font-sans text-sm leading-normal text-white font-black uppercase opacity-75">auth pages</p>
-            </li>
-            <li>
-            <a class="" href="#">
-                <button class="middle none font-sans font-bold center transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-3 rounded-lg text-white hover:bg-white/10 active:bg-white/30 w-full flex items-center gap-4 px-4 capitalize" type="button">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" class="w-5 h-5 text-inherit">
-                    <path fill-rule="evenodd" d="M7.5 3.75A1.5 1.5 0 006 5.25v13.5a1.5 1.5 0 001.5 1.5h6a1.5 1.5 0 001.5-1.5V15a.75.75 0 011.5 0v3.75a3 3 0 01-3 3h-6a3 3 0 01-3-3V5.25a3 3 0 013-3h6a3 3 0 013 3V9A.75.75 0 0115 9V5.25a1.5 1.5 0 00-1.5-1.5h-6zm10.72 4.72a.75.75 0 011.06 0l3 3a.75.75 0 010 1.06l-3 3a.75.75 0 11-1.06-1.06l1.72-1.72H9a.75.75 0 010-1.5h10.94l-1.72-1.72a.75.75 0 010-1.06z" clip-rule="evenodd"></path>
-                </svg>
-                <p class="block antialiased font-sans text-base leading-relaxed text-inherit font-medium capitalize">sign in</p>
-                </button>
-            </a>
-            </li>
-            <li>
-            <a class="" href="#">
-                <button class="middle none font-sans font-bold center transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-3 rounded-lg text-white hover:bg-white/10 active:bg-white/30 w-full flex items-center gap-4 px-4 capitalize" type="button">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" class="w-5 h-5 text-inherit">
-                    <path d="M6.25 6.375a4.125 4.125 0 118.25 0 4.125 4.125 0 01-8.25 0zM3.25 19.125a7.125 7.125 0 0114.25 0v.003l-.001.119a.75.75 0 01-.363.63 13.067 13.067 0 01-6.761 1.873c-2.472 0-4.786-.684-6.76-1.873a.75.75 0 01-.364-.63l-.001-.122zM19.75 7.5a.75.75 0 00-1.5 0v2.25H16a.75.75 0 000 1.5h2.25v2.25a.75.75 0 001.5 0v-2.25H22a.75.75 0 000-1.5h-2.25V7.5z"></path>
-                </svg>
-                <p class="block antialiased font-sans text-base leading-relaxed text-inherit font-medium capitalize">sign up</p>
+                <p class="block antialiased font-sans text-base leading-relaxed text-inherit font-medium capitalize">Ventas</p>
                 </button>
             </a>
             </li>
@@ -139,81 +126,177 @@
         </div>
     </aside>
 
-    <div class="pt-20 md:pl-80">
+
+    <script>
+        const menuToggle = document.getElementById('menu-toggle');
+        const menu = document.getElementById('menu');
+
+        menuToggle.addEventListener('change', function() {
+            if (this.checked) {
+                menu.classList.remove('hidden');
+            } else {
+                menu.classList.add('hidden');
+            }
+        });
+    </script>
+
+
+    <div class="pt-10 md:pl-80">
         <div class="">
-            <a href="">
-                <button class="bg-blue-200 p-4 rounded-2xl w-52 flex flex-row items-center justify-center space-x-2">
-                    <i style="font-size:24px" class="fa">&#xf196;</i>
-                    <p>Agregar Producto</p>
-                </button>
-            </a>
+            <button id="agregarProductoBtn" class="bg-blue-200 p-4 rounded-2xl w-52 flex flex-row items-center justify-center space-x-2">
+                <i style="font-size:24px" class="fa">&#xf196;</i>
+                <p>Agregar Producto</p>
+            </button>
         </div>
-    </div>
 
+    
    
-
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-5 bg-white md:pl-80  pt-20  md:px-40 ">
-            <div class="bg-whites rounded-lg shadow-md hover:shadow-lg">
-                <img src="../static/img/camiseta2.png" alt="Camisa Nike" class="rounded-t-lg">
-                <div class="p-4 ">
-                    <h3 class="text-black text-center font-medium">Camisa</h3>
-                    <p class="text-black">$45.000</p>
-                    <div class="flex items-center justify-between mt-4">
-                        <a href="../views/compra.php" class="text-blue-500 hover:underline">Editar</a>
-                    </div>
-                </div>
+    <!-- Modal para agregar/editar producto -->
+    <div id="productoModal" class="hidden fixed inset-0 bg-gray-800 bg-opacity-50 flex items-center justify-center">
+    <div class="bg-white rounded-lg p-6 w-3/4 md:w-1/2">
+        <h2 id="modalTitle" class="text-2xl mb-4">Agregar Producto</h2>
+        <form action="VendedorAction" method="post" id="productoForm" enctype="multipart/form-data">
+            <div class="mb-4">
+                <label for="nombre" class="block text-gray-700">Nombre:</label>
+                <input type="text" id="nombre" name="name" class="w-full p-2 border rounded" required>
+            </div>
+            <div class="mb-4">
+                <label for="descripcion" class="block text-gray-700">Descripción:</label>
+                <textarea id="descripcion" name="descripcion" class="w-full p-2 border rounded" required></textarea>
+            </div>
+            <div class="mb-4">
+                <label for="cantidad">Cantidad:</label>
+                <input class="w-full p-2 border rounded" type="number" id="cantidad" name="cantidad" required>
+            </div>
+            <div class="mb-4">
+                <label for="tallas" class="block text-sm font-medium text-gray-700">Tallas Disponibles:</label>
+                <select id="tallas" name="tallas[]" multiple required
+                    class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
+                    <option value="1">S</option>
+                    <option value="2">M</option>
+                    <option value="3">L</option>
+                </select>
             </div>
 
-            <div class="bg-white rounded-lg shadow-md hover:shadow-lg">
-                <img src="../static/img/camiseta3.png" alt="Camisa Adidas" class="rounded-t-lg">
-                <div class="p-4">
-                    <h3 class="text-black text-center font-medium">Camisa </h3>
-                    <p class="text-black">$60.000</p>
-                    <div class="flex items-center justify-between mt-4">
-                        <a href="../Views/compra.php" class="text-blue-500 hover:underline">Editar</a>
-                   </div>
-                </div>
+            <div class="mb-4">
+                <label for="precio" class="block text-gray-700">Precio:</label>
+                <input type="number" id="precio" name="precio" class="w-full p-2 border rounded" required>
             </div>
-            <div class="bg-white  rounded-lg shadow-md hover:shadow-lg">
-              <img src="../static/img/camiseta3.png" alt="Camisa Adidas" class="rounded-t-lg">
-              <div class="p-4">
-                  <h3 class="text-black text-center font-medium">Camisa </h3>
-                  <p class="text-black">$60.000</p>
-                  <div class="flex items-center justify-between mt-4">
-                      <a href="../Views/compra.php" class="text-blue-500 hover:underline">Editar</a>
-                 </div>
-              </div>
-          </div>
-          <div class="bg-white rounded-lg shadow-md hover:shadow-lg">
-            <img src="../static/img/camiseta2.png" alt="Camisa Adidas" class="rounded-t-lg">
-            <div class="p-4">
-                <h3 class="text-black text-center font-medium">Camisa </h3>
-                <p class="text-black">$60.000</p>
-                <div class="flex items-center justify-between mt-4">
-                    <a href="../Views/compra.php" class="text-blue-500 hover:underline">Editar</a>
-               </div>
+            <div class="mb-4">
+                <label for="imagen" class="block text-gray-700">Imagen:</label>
+                <input type="file" id="imagen" name="imagen" accept="image/*" class="w-full p-2 border rounded">
             </div>
-        </div>
-        <div class="bg-white rounded-lg shadow-md hover:shadow-lg">
-          <img src="../static/img/camiseta1.png" alt="Camisa Adidas" class="rounded-t-lg">
-          <div class="p-4">
-              <h3 class="text-black text-center font-medium">Camisa</h3>
-              <p class="text-black">$60.000</p>
-              <div class="flex items-center justify-between mt-4">
-                  <a href="../Views/compra.php" class="text-blue-500 hover:underline">Editar</a>
-             </div>
-          </div>
-      </div>
-      <div class="bg-white rounded-lg shadow-md hover:shadow-lg">
-        <img src="../static/img/camiseta1.png" alt="Camisa Adidas" class="rounded-t-lg">
-        <div class="p-4">
-            <h3 class="text-black text-center font-medium">Camisa</h3>
-            <p class="text-black">$60.000</p>
-            <div class="flex items-center justify-between mt-4">
-                <a href="../Views/compra.php" class="text-blue-500 hover:underline">Editar</a>
-           </div>
-        </div>
+            <div class="flex justify-end">
+                <button type="button" id="cancelarBtn" class="bg-red-500 text-white px-4 py-2 rounded mr-2">Cancelar</button>
+                <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded">Guardar</button>
+            </div>
+        </form>
+
     </div>
+</div>
 
+<div id="successAlert" class="fixed top-20 right-4 bg-green-500 text-white p-4 rounded-lg shadow-lg hidden">
+            <?php if(isset($_GET['exito'])):?>
+                <p  id="successMessage"><?php echo $_GET['exito']; ?></p>
+            <?php endif; ?>
+</div>
+
+<div id="errorAlert" class="fixed top-20 right-4 bg-red-500 text-white p-4 rounded-lg shadow-lg hidden">
+            <?php if(isset($_GET['error'])):?>
+                <p  id="errorMessage"><?php echo $_GET['error']; ?></p>
+            <?php endif; ?>
+</div>
+
+<div id="productos" class="grid grid-cols-1 md:grid-cols-3 gap-5 bg-white md:pl-80 pt-20 md:px-40">
+    <!-- Productos existentes y dinámicos -->
+    <?php 
+       $lista = $producto->getProducts();
+        echo $lista
+    ?>
+</div>
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function() {
+    const agregarProductoBtn = document.getElementById('agregarProductoBtn');
+    const modalTitle = document.getElementById('modalTitle');
+    const productoForm = document.getElementById('productoForm');
+    const productoModal = document.getElementById('productoModal');
+    const cancelarBtn = document.getElementById('cancelarBtn');
+
+    agregarProductoBtn.addEventListener("click", function () {
+        editIndex = null;
+        modalTitle.textContent = "Agregar Producto";
+        productoForm.reset();
+        productoModal.classList.remove("hidden");
+    });
+
+    cancelarBtn.addEventListener("click", function () {
+        productoModal.classList.add("hidden");
+    });
+});
+
+</script>
+
+<script>
+           document.addEventListener("DOMContentLoaded", function() {
+            // URL del archivo PHP que retorna los productos en formato JSON
+            const url = '';
+
+            fetch(url)
+                .then(response => response.json())
+                .then(data => {
+                    const productosContainer = document.getElementById('productos');
+
+                    data.forEach(producto => {
+                        const productoElement = document.createElement('div');
+                        productoElement.className = 'bg-white p-4 border rounded-lg shadow-lg';
+                        productoElement.innerHTML = `
+                            <img src="../uploads/${producto.imagen}" alt="${producto.name_producto}" class="w-full h-32 object-cover mb-4 rounded-lg">
+                            <h3 class="text-xl font-semibold">${producto.name_producto}</h3>
+                            <p class="text-gray-600">${producto.descripcion}</p>
+                            <p class="text-lg font-bold">$${producto.precio}</p>
+                            <p class="text-gray-500">Cantidad: ${producto.cantidad}</p>
+                        `;
+                        productosContainer.appendChild(productoElement);
+                    });
+                })
+                .catch(error => console.error('Error al cargar los productos:', error));
+        });
+</script>
+
+<script>
+    function showAlert(type, message) {
+        console.log("showAlert called with type:", type, "and message:", message); // Agrega esta línea
+        const successAlert = document.getElementById('successAlert');
+        const errorAlert = document.getElementById('errorAlert');
+        const successMessage = document.getElementById('successMessage');
+        const errorMessage = document.getElementById('errorMessage');
+
+        successAlert.classList.add('hidden');
+        errorAlert.classList.add('hidden');
+
+        if (type === 'success') {
+            successMessage.textContent = message;
+            successAlert.classList.remove('hidden');
+        } else if (type === 'error') {
+            errorMessage.textContent = message;
+            errorAlert.classList.remove('hidden');
+        }
+    }
+
+    document.addEventListener("DOMContentLoaded", function() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const success = urlParams.get('exito');
+        const error = urlParams.get('error');
+
+        if (success) {
+            showAlert('success', success);
+        } else if (error) {
+            showAlert('error', error);
+        }
+    });
+</script>
+<!--<script src="../../Public/js/api.js"></script>-->
 </body>
 </html>

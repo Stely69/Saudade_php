@@ -729,5 +729,4 @@ svg {
 <script src="../Public/js/carrucel.js"></script>
 <script src="../Public/js/whastsapp.js"></script>
 
->>>>>>> v-2.0-stiwi
 </html>

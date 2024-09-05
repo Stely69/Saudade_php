@@ -46,6 +46,6 @@
                 }  
                 
             }
-            require_once ("../Public/Views/404/error404.php");
+           require_once ("../Public/Views/404/error404.php");
         }   
     }

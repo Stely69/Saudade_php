@@ -24,9 +24,9 @@ class UserModel {
         return $stmt->fetchColumn() > 0;
     }
 
-    public function createuser($username, $email, $telefono, $password, $role_id, $direccion_id){
-        $stmt = $this->conn->prepare("INSERT INTO usuarios (username, email, telefono, password, role_id, direccion_id) VALUES (?, ?, ?, ?, ?, ?)");
-        return $stmt->execute([$username, $email, $telefono, password_hash($password,PASSWORD_BCRYPT), $role_id, $direccion_id]);
+    public function createuser($username, $email,  $password, $role_id, $direccion_id){
+        $stmt = $this->conn->prepare("INSERT INTO usuarios (username, email,password, role_id, direccion_id) VALUES (?, ?, ?, ?, ?)");
+        return $stmt->execute([$username, $email, password_hash($password,PASSWORD_BCRYPT), $role_id, $direccion_id]);
     }
 
 }

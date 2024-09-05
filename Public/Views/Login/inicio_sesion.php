@@ -210,5 +210,4 @@
         </div>
     </div>
 </footer>
->>>>>>> v-2.0-stiwi
 </html>

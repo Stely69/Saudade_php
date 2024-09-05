@@ -14,7 +14,7 @@ function checkRole($requiredRole) {
 
     if ($roleData === false) {
         // Si no se encuentra un rol, redirige al inicio
-        header('Location: ../');
+        header('Location: ../404/error404?error=No tienes un rol');
         exit();
     }
     

@@ -10,4 +10,9 @@
         public function Vendedor(){
             $this->cargarVista("Vendedor/editor");
         }
+
+        public function vendedoraction(){
+            $this->cargarVista("Vendedor/VendedorAction");
+        }
+        
     }

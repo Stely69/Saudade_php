@@ -23,5 +23,6 @@
     Enrutador::get("/Admin/admin",[AdminController::class,"Admin"]);
     //Vendedor
     Enrutador::get("/Vendedor/editor",[AdminController::class,"Vendedor"]);
+    Enrutador::post("/Vendedor/VendedorAction",[AdminController::class,"vendedoraction"]);
 
     Enrutador::obtenerRuta();
