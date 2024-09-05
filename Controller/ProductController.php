@@ -21,10 +21,10 @@ class ProductController {
     
         if (move_uploaded_file($tmpImagen, $rutaImagen)) {
             if ($this->productModel->createProductWithTallas($name, $descripcion, $precio, $cantidad, $rutaImagen, $tallas)) {
-                header('Location: ../Vendedor/editor?exito=Se agrego con exito');
+                header('Location: ../Vendedor/editor?error=Hubo problemas para agregar el producto');
                 exit();
             } else {
-                header('Location: ../Vendedor/editor?error=Hubo problemas para agregar el producto');
+                header('Location: ../Vendedor/editor?exito=Se agrego con exito');
                 exit();
             }
         } else {
@@ -33,9 +33,4 @@ class ProductController {
         }
     }
     
-    public function getProducts() {
-        header('Content-Type: application/json');
-        $products = $this->productModel->getAllProducts();
-        return json_encode($products);
-    }
 }
