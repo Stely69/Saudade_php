@@ -50,9 +50,11 @@
         </div>
     </nav>
 
-    <img src="../Img/ANGEL SIN FONDO.png" class="angel1">
-    <!-- Imagen angel 2 --> 
-    <img src="../Img/ANGEL SIN FONDO.png" class="angel2">
+    <img src="../Img/ANGEL SIN FONDO.png" class="angel1 transform -scale-x-100 absolute">
+<!-- Imagen angel 2 --> 
+<img src="../Img/ANGEL SIN FONDO.png" class="angel2 transform -scale-x-200 absolute">
+
+
 
     <div class="container mx-auto max-w-lg p-10 rounded-lg drop-shadow-2xl  my-20 bg-[#050016]">
         <div class="text-center py-5 mb-5">

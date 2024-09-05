@@ -121,54 +121,76 @@
     </iframe>
 
     <div class="bg-white py-16">
-        <div class="container mx-auto">
-            <!-- Sección Dynamo Ropa Urbana -->
-            <div class="text-center mb-16">
-                <h1 class="text-4xl font-bold mb-4">SAUDADE</h1>
-                <p class="text-gray-600 mb-8">La vida es muy corta para seguir usando prendas aburridas. Viste tu actitud con saudade ropa urbana: Camisetas, jeans, gorras, accesorios y mucho más.</p>
-                <div class="flex justify-center space-x-8">
-                    <div class="text-center">
-                        <p class="text-gray-800 font-medium">Envíos a toda Colombia</p>
-                    </div>
-                    <div class="text-center">
-                    </div>
-                    <div class="text-center">
-                        <p class="text-gray-800 font-medium">Devoluciones hasta 30 días</p>
-                    </div>
-                </div>
-            </div>
+    <div class="container mx-auto">
+    <!-- Sección Dynamo Ropa Urbana -->
 
-            <!-- Sección NEW MERCH -->
-            <div class="text-center mb-8">
-                <h2 class="text-4xl font-bold">NEW MERCH</h2>
-                <div class="border-b-2 mb-8"></div>
-            </div>
+    <!-- Carousel Container -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-8 shadow-lg">
+        <div class="relative">
+            <img src="../public/img/camiseta.jpg" alt="Product 1" class="w-full">
+            <p class="text-center mt-4">Jeans Baggy Para Hombre Azul</p>
+            <p class="text-center font-bold">$160.000,00</p>
+        </div>
+        <div class="relative">
+            <img src="../public/img/basica.jpg" alt="Product 2" class="w-full">
+            <p class="text-center mt-4">Camisa Para Hombre Oversize Crudo Calavera</p>
+            <p class="text-center font-bold">$125.000,00</p>
+        </div>
+        <div class="relative">
+            <img src="../public/img/pantalon.jpg" alt="Product 3" class="w-full">
+            <p class="text-center mt-4">Jeans Baggy Para Hombre Negro</p>
+            <p class="text-center font-bold">$130.000,00</p>
+        </div>
+        <div class="relative">
+            <img src="../public/img/pant.jpg" alt="Product 4" class="w-full">
+            <p class="text-center mt-4">Jogger Para Hombre Cargo Negro - Bota Ajustable</p>
+            <p class="text-center font-bold">$155.000,00</p>
+        </div>
+    </div><br><br>
 
-            <!-- Carousel Container -->
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 shadow-lg ">
-                <div class="relative">
-                    <img src="../public/img/camiseta.jpg" alt="Product 1" class="w-full">
-                    <p class="text-center mt-4">Jeans Baggy Para Hombre Azul</p>
-                    <p class="text-center font-bold">$160.000,00</p>
-                </div>
-                <div class="relative">
-                    <img src="../public/img/basica.jpg" alt="Product 2" class="w-full">
-                    <p class="text-center mt-4">Camisa Para Hombre Oversize Crudo Calavera</p>
-                    <p class="text-center font-bold">$125.000,00</p>
-                </div>
-                <div class="relative">
-                    <img src="../public/img/pantalon.jpg" alt="Product 3" class="w-full">
-                    <p class="text-center mt-4">Jeans Baggy Para Hombre Negro</p>
-                    <p class="text-center font-bold">$130.000,00</p>
-                </div>
-                <div class="relative">
-                    <img src="../public/img/pant.jpg" alt="Product 4" class="w-full">
-                    <p class="text-center mt-4">Jogger Para Hombre Cargo Negro - Bota Ajustable</p>
-                    <p class="text-center font-bold">$155.000,00</p>
-                </div>
-            </div>
+    <div class="text-center mb-16">
+        <h1 class="text-4xl font-bold mb-4">SAUDADE</h1>
+        <p class="text-gray-600 mb-8">La vida es muy corta para seguir usando prendas aburridas. Viste tu actitud con saudade ropa urbana: Camisetas, jeans, gorras, accesorios y mucho más.</p>
+    </div>
+
+    <!-- Sección NEW MERCH -->
+    <div class="text-center mb-8">
+        <h2 class="text-4xl font-bold">NEW MERCH</h2>
+        <div class="border-b-2 mb-8"></div>
+    </div>
+
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-8 shadow-lg">
+        <div class="relative">
+            <img src="../public/img/pant.jpg" alt="Product 1" class="w-full">
+            <p class="text-center mt-4">Jeans Baggy Para Hombre Azul</p>
+            <p class="text-center font-bold">$160.000,00</p>
+        </div>
+        <div class="relative">
+            <img src="../public/img/basica.jpg" alt="Product 2" class="w-full">
+            <p class="text-center mt-4">Camisa Para Hombre Oversize Crudo Calavera</p>
+            <p class="text-center font-bold">$125.000,00</p>
+        </div>
+        <div class="relative">
+            <img src="../public/img/pantalon.jpg" alt="Product 3" class="w-full">
+            <p class="text-center mt-4">Jeans Baggy Para Hombre Negro</p>
+            <p class="text-center font-bold">$130.000,00</p>
+        </div>
+        <div class="relative">
+            <img src="../public/img/camiseta.jpg" alt="Product 4" class="w-full">
+            <p class="text-center mt-4">Jogger Para Hombre Cargo Negro - Bota Ajustable</p>
+            <p class="text-center font-bold">$155.000,00</p>
         </div>
     </div>
+</div>
+
+
+            
+        </div>
+    </div><br>
+
+    <img src="../public/img/parchese.png" alt="" class="mx-auto max-w-full h-auto" style="position: relative; top: 100px;">
+
+
     <img id="estrella1" src="../static/img/estrella.png" alt="">
     <img id="estrella1" src="../static/img/estrella.png" alt="">
     <img id="estrella2" src="../static/img/estrella.png" alt="">
@@ -216,6 +238,8 @@
             align-items: center;
             justify-content: center;
             position: relative;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra */
+
 
         }
 
@@ -239,14 +263,14 @@
         }
 
         .small {
-            width: 250px;
-            height: 350px;
+            width: 300px;
+            height: 500px;
             margin: 0 10px;
         }
 
         .main {
-            width: 350px;
-            height: 500px;
+            width: 400px;
+            height: 700px;
             margin: 0 20px;
         }
 
@@ -378,7 +402,7 @@
 
     <div class="flex items-center justify-center my-8">
         <hr class="flex-grow border-t border-gray-300">
-        <span class="mx-4 text-gray-700 text-xl font-semibold">lo mejor lo encuentras en saudade</span>
+        <span class="mx-4 text-gray-700 text-xl font-semibold">LO MEJOR LO ENCUENTRAS EN SAUDADE</span>
         <hr class="flex-grow border-t border-gray-300">
     </div>
 
@@ -440,6 +464,109 @@
         }
     </style>
 
+<div class="text-center mb-8">
+        <h2 class="text-4xl font-bold">MANTENTE AL TANTO DE SAUDADE</h2>
+        <div class="border-b-2 mb-8"></div>
+    </div>
+
+
+
+<div class="flex justify-center items-center py-8">
+        <div class="bg-white shadow-lg rounded-lg max-w-3xl w-full p-4 flex">
+            <!-- Imagen -->
+            <div class="w-1/2">
+                <img src="../public/img/grupo.jpg" alt="Imagen del anuncio" class="w-full h-auto rounded-lg">
+            </div>
+
+            <!-- Contenido del anuncio -->
+            <div class="w-1/2 pl-4">
+                <!-- Botón de cerrar -->
+                <button id="close-button" class="absolute top-2 right-2 text-gray-500">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+                
+                <!-- Texto principal -->
+                <h2 class="text-xl font-bold mb-2">PARCHESE CON SAUDADE</h2>
+                <p class="text-xs mb-2">Te mantendremos al tanto de proximos drops!</p>
+
+                <!-- Formulario -->
+                <form id="subscription-form" class="space-y-2">
+                    <div>
+                        <label for="email" class="sr-only">Email</label>
+                        <input type="email" id="email" name="email" class="w-full px-2 py-1 border border-red-500 rounded-md focus:outline-none focus:border-black" placeholder="Email" required>
+                        <span id="error-message" class="text-red-500 text-xs"></span>
+                    </div>
+
+                    <button type="submit" class="w-full bg-black text-white py-1 rounded-md hover:bg-gray-800 transition">
+                        DE UNA
+                    </button>
+                </form>
+
+                <!-- Mostrar mensaje de éxito o error -->
+                <p id="status-message" class="text-xs mt-2"></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('subscription-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Evita el envío normal del formulario
+
+            const email = document.getElementById('email').value;
+            const errorMessage = document.getElementById('error-message');
+            const statusMessage = document.getElementById('status-message');
+
+            // Limpia los mensajes anteriores
+            errorMessage.textContent = '';
+            statusMessage.textContent = '';
+
+            if (!email) {
+                errorMessage.textContent = 'El email es requerido';
+                return;
+            }
+
+            if (!validateEmail(email)) {
+                errorMessage.textContent = 'El email ingresado no es válido';
+                return;
+            }
+
+            // Envía los datos del formulario usando fetch
+            fetch('../Controller/procces.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: new URLSearchParams({
+                    'email': email,
+                }),
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === 'success') {
+                    statusMessage.textContent = '¡Gracias por suscribirte!';
+                    statusMessage.classList.add('text-green-500');
+                } else {
+                    statusMessage.textContent = 'Hubo un error al enviar el correo. Inténtalo de nuevo.';
+                    statusMessage.classList.add('text-red-500');
+                }
+            })
+            .catch(error => {
+                statusMessage.textContent = 'Hubo un error al enviar el correo. Inténtalo de nuevo.';
+                statusMessage.classList.add('text-red-500');
+            });
+        });
+
+        function validateEmail(email) {
+            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return re.test(email);
+        }
+    </script>
+
+
+
+
 
 
 </body>
@@ -484,55 +611,81 @@
   <div class="lightning"></div>
 
   <div class="footer-content">
-    <div class="footer-section left">
-      <h3>SHOP</h3>
-      <ul>
-  SHOP Summer '24</li>
-        <li>SHOP OUTERWEAR</li>
-        <li>SHOP SHIRTS</li>
-        <li>SHOP PANTS, SHORTS, OVERALLS</li>
-        <li>SHOP WOMENS</li>
-        <li>SHOP MYSTERY BOXES</li>
-        <li>SHOP HEADWEAR</li>
-        <li>PUMA x SAUDADE</li>
-        <li>SHOP FOOTWEAR</li>
-        <li>SHOP SOCKS</li>
-        <li>SHOP ALL ACCESSORIES</li>
-        <li>SHOP 420</li>
-        <li>BUY WITH PRIME</li>
-      </ul>
-    </div>
-    <div class="footer-section center">
-      <h3>SUPPORT</h3>
-      <ul>
-        <li>CONTACTO</li>
-        <li>LINEA whastsapp</li>
-        <li>CORREO</li>
-        <li>ASESOR</li>
-        
-      </ul>
-    </div>
-    <div class="footer-section right">
-      <h3>TIENDAS OFICIALES</h3>
-      <ul>
-        <li>SAUDADE</li>
-        <li>INSTAGRAM</li>
-        <li>FACEBOOK</li>
-        <li>whastsapp</li>
-      </ul>
-    </div>
-    <div class="footer-section right">
-      <h3>FOLLOW US</h3>
-      <ul>
-        <li>@SAUDADE</li>
-        <li>@SAUDADE.CO</li>
-        <li>@SAUDADE.IG</li>
-        <li>@PARCHESE.</li>
-        <li>@SAUDADE Snap</li>
-        <li>@SAUDADE TikTok</li>
-        <li>@SAUDADE Twitter <br><br><br></li>
-      </ul>
-    </div>
+<<<<<<< HEAD
+  <div class="container mx-auto px-4">
+        <div class="flex flex-wrap text-left lg:text-left">
+            <div class="w-full lg:w-6/12 px-4">
+                <h4 class="text-3xl fonat-semibold text-white">Saudade</h4>
+                <h5 class="text-lg mt-0 mb-2 text-white">
+                    Tienda Virtual
+                </h5>
+                <div class="mt-6 lg:mb-0 mb-6">
+                    <button
+                        class="bg-white text-lightBlue-400 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
+                        type="button">
+                        <i class="fab fa-twitter"></i></button><button
+                        class="bg-white text-lightBlue-600 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
+                        type="button">
+                        <i class="fab fa-facebook-square"></i></button><button
+                        class="bg-white text-pink-400 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
+                        type="button">
+                        <i class="fab fa-dribbble"></i></button><button
+                        class="bg-white text-blueGray-800 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
+                        type="button">
+                        <i class="fab fa-github"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="w-full lg:w-6/12 px-4">
+                <div class="flex flex-wrap items-top mb-6">
+                    <div class="w-full lg:w-4/12 px-4 ml-auto">
+                        <span class="block uppercase text-white text-sm font-semibold mb-2">Acerca de Nosotros</span>
+                        <ul class="list-unstyled">
+                            <li>
+                                <a class="text-white hover:text-blueGray-500 font-semibold block pb-2 text-sm"
+                                    href="#">Contacto</a>
+                            </li>
+                            <li>
+                                <a class="text-white hover:text-blueGray-500 font-semibold block pb-2 text-sm"
+                                    href="#">Blog</a>
+                            </li>
+                            <li>
+                                <a class="text-white hover:text-blueGray-500 font-semibold block pb-2 text-sm"
+                                    href="#">Villeta Cundinamarca </a>
+                            </li>
+                            <li>
+                                <a class="text-white hover:text-blueGray-500 font-semibold block pb-2 text-sm"
+                                    href="#">Free
+                                    Products</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="w-full lg:w-4/12 px-4">
+                        <span class="block uppercase text-white text-sm font-semibold mb-2">Enlaces Rapidos</span>
+                        <ul class="list-unstyled">
+                            <li>
+                                <a class="text-white hover:text-blueGray-500 font-semibold block pb-2 text-sm"
+                                    href="#">Mi cuenta License</a>
+                            </li>
+                            <li>
+                                <a class="text-white hover:text-blueGray-500 font-semibold block pb-2 text-sm"
+                                    href="#">Home</a>
+                            </li>
+                            <li>
+                                <a class="text-white hover:text-blueGray-500 font-semibold block pb-2 text-sm"
+                                    href="#">Terminos y condiciones</a>
+                            </li>
+                            <li>
+                                <a class="text-white hover:text-blueGray-500 font-semibold block pb-2 text-sm"
+                                    href="#">Politicas de privacidad </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+=======
+    
   </div>
 </footer>
 
@@ -729,4 +882,5 @@ svg {
 <script src="../Public/js/carrucel.js"></script>
 <script src="../Public/js/whastsapp.js"></script>
 
+>>>>>>> v-2.0-stiwi   solo SAUDADE 
 </html>
