@@ -79,55 +79,71 @@
 </script>
 
     <div class="flex">
-        <div class="w-0/4 p-4 bg-white shadow-lg sticky-sidebar">
-            <div class="mb-6">
-                <h2 class="font-bold text-lg mb-2">Categorías</h2>
-                <ul>
-                    <li class="mb-1"><a href="#" class="hover:underline">🌴 Summer Club</a></li>
-                    <li class="mb-1"><a href="#" class="hover:underline">🔥 New Merch</a></li>
-                    <li class="mb-1"><a href="#" class="hover:underline">Camisetas</a></li>
-                    <li class="mb-1"><a href="#" class="hover:underline">Camisas y Polos</a></li>
-                    <li class="mb-1"><a href="#" class="hover:underline">Inferiores 🩳</a></li>
-                    <li class="mb-1"><a href="#" class="hover:underline">Básicos</a></li>
-                    <li class="mb-1"><a href="#" class="hover:underline">Gorras</a></li>
-                    <li class="mb-1"><a href="#" class="hover:underline">Sacos y Chaquetas</a></li>
-                    <li class="mb-1"><a href="#" class="hover:underline">🎁 Gift Card</a></li>
-                </ul>
-            </div>
-            <div class="mb-6">
-                <h2 class="font-bold text-lg mb-2">Precio</h2>
-                <div class="flex items-center mb-2">
-                    <input type="range" min="0" max="180000" class="w-full">
-                </div>
-                <div class="flex justify-between">
-                    <input type="number" min="0" max="180000" class="w-1/2 p-2 border border-gray-300 rounded" placeholder="$ 0">
-                    <input type="number" min="0" max="180000" class="w-1/2 p-2 border border-gray-300 rounded" placeholder="$ 180000">
-                </div>
-                <button class="mt-4 w-full bg-black text-white py-2 rounded">Aplicar</button>
-            </div>
-            <div class="mb-6">
-                <h2 class="font-bold text-lg mb-2">Talla</h2>
-                <ul>
-                    <li><label><input type="checkbox" class="mr-2">S (29)</label></li>
-                    <li><label><input type="checkbox" class="mr-2">M (26)</label></li>
-                    <li><label><input type="checkbox" class="mr-2">L (23)</label></li>
-                    <li><label><input type="checkbox" class="mr-2">XL (27)</label></li>
-                    <li><label><input type="checkbox" class="mr-2">L / 34 (10)</label></li>
-                    <li><label><input type="checkbox" class="mr-2">M / 32 (10)</label></li>
-                </ul>
-            </div>
-            <div>
-                <h2 class="font-bold text-lg mb-2">Color</h2>
-                <div class="flex flex-wrap">
-                    <div class="w-6 h-6 bg-white border border-gray-300 rounded-full mr-2 mb-2"></div>
-                    <div class="w-6 h-6 bg-gray-200 border border-gray-300 rounded-full mr-2 mb-2"></div>
-                    <div class="w-6 h-6 bg-gray-400 border border-gray-300 rounded-full mr-2 mb-2"></div>
-                    <div class="w-6 h-6 bg-black border border-gray-300 rounded-full mr-2 mb-2"></div>
-                    <div class="w-6 h-6 bg-red-400 border border-gray-300 rounded-full mr-2 mb-2"></div>
-                    <div class="w-6 h-6 bg-yellow-200 border border-gray-300 rounded-full mr-2 mb-2"></div>
-                </div>
-            </div>
+        
+    <!-- Contenedor de la barra de filtrado -->
+<div id="filterSidebar" class="lg:w-1/5 lg:p-4 lg:bg-white lg:shadow-lg lg:relative lg:top-0 lg:block hidden">
+    <!-- Contenido de la barra de filtrado aquí -->
+    <div class="mb-6">
+        <h2 class="font-bold text-lg mb-2">Categorías</h2>
+        <ul>
+            <li class="mb-1"><a href="#" class="hover:underline">🌴 Summer Club</a></li>
+            <li class="mb-1"><a href="#" class="hover:underline">🔥 New Merch</a></li>
+            <li class="mb-1"><a href="#" class="hover:underline">Camisetas</a></li>
+            <li class="mb-1"><a href="#" class="hover:underline">Camisas y Polos</a></li>
+            <li class="mb-1"><a href="#" class="hover:underline">Inferiores 🩳</a></li>
+            <li class="mb-1"><a href="#" class="hover:underline">Básicos</a></li>
+            <li class="mb-1"><a href="#" class="hover:underline">Gorras</a></li>
+            <li class="mb-1"><a href="#" class="hover:underline">Sacos y Chaquetas</a></li>
+            <li class="mb-1"><a href="#" class="hover:underline">🎁 Gift Card</a></li>
+        </ul>
+    </div>
+    <div class="mb-6">
+        <h2 class="font-bold text-lg mb-2">Precio</h2>
+        <div class="flex items-center mb-2">
+            <input type="range" min="0" max="180000" class="w-full">
         </div>
+        <div class="flex justify-between">
+            <input type="number" min="0" max="180000" class="w-1/2 p-2 border border-gray-300 rounded" placeholder="$ 0">
+            <input type="number" min="0" max="180000" class="w-1/2 p-2 border border-gray-300 rounded" placeholder="$ 180000">
+        </div>
+        <button class="mt-4 w-full bg-black text-white py-2 rounded">Aplicar</button>
+    </div>
+    <div class="mb-6">
+        <h2 class="font-bold text-lg mb-2">Talla</h2>
+        <ul>
+            <li><label><input type="checkbox" class="mr-2">S (29)</label></li>
+            <li><label><input type="checkbox" class="mr-2">M (26)</label></li>
+            <li><label><input type="checkbox" class="mr-2">L (23)</label></li>
+            <li><label><input type="checkbox" class="mr-2">XL (27)</label></li>
+            <li><label><input type="checkbox" class="mr-2">L / 34 (10)</label></li>
+            <li><label><input type="checkbox" class="mr-2">M / 32 (10)</label></li>
+        </ul>
+    </div>
+    <div>
+        <h2 class="font-bold text-lg mb-2">Color</h2>
+        <div class="flex flex-wrap">
+            <div class="w-6 h-6 bg-white border border-gray-300 rounded-full mr-2 mb-2"></div>
+            <div class="w-6 h-6 bg-gray-200 border border-gray-300 rounded-full mr-2 mb-2"></div>
+            <div class="w-6 h-6 bg-gray-400 border border-gray-300 rounded-full mr-2 mb-2"></div>
+            <div class="w-6 h-6 bg-black border border-gray-300 rounded-full mr-2 mb-2"></div>
+            <div class="w-6 h-6 bg-red-400 border border-gray-300 rounded-full mr-2 mb-2"></div>
+            <div class="w-6 h-6 bg-yellow-200 border border-gray-300 rounded-full mr-2 mb-2"></div>
+        </div>
+    </div>
+</div>
+
+<!-- Botón para mostrar/ocultar la barra de filtrado en móvil -->
+<button id="toggleFilterButton" class="lg:hidden fixed bottom-4 right-4 bg-black text-white py-2 px-4 rounded">
+    Filtros
+</button>
+
+<!-- Script para manejar el toggle de la barra de filtrado -->
+<script>
+    document.getElementById('toggleFilterButton').addEventListener('click', function() {
+        const sidebar = document.getElementById('filterSidebar');
+        sidebar.classList.toggle('hidden');
+    });
+</script>
 
        
 
@@ -142,7 +158,7 @@
 
                 
 
-                <div class="grid grid-cols-1 md:grid-cols-4 gap-5 bg-white">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-5 bg-white">
     <div class="bg-white rounded-lg shadow-md hover:shadow-lg">
         <img src="../../Public/Img/camiseta.jpg" alt="Camisa Nike" class="rounded-t-lg">
         <div class="p-4">
