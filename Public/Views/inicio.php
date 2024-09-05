@@ -402,7 +402,7 @@
 
     <div class="flex items-center justify-center my-8">
         <hr class="flex-grow border-t border-gray-300">
-        <span class="mx-4 text-gray-700 text-xl font-semibold">lo mejor lo encuentras en saudade</span>
+        <span class="mx-4 text-gray-700 text-xl font-semibold">LO MEJOR LO ENCUENTRAS EN SAUDADE</span>
         <hr class="flex-grow border-t border-gray-300">
     </div>
 
@@ -463,6 +463,109 @@
             transition: transform 0.5s ease;
         }
     </style>
+
+<div class="text-center mb-8">
+        <h2 class="text-4xl font-bold">MANTENTE AL TANTO DE SAUDADE</h2>
+        <div class="border-b-2 mb-8"></div>
+    </div>
+
+
+
+<div class="flex justify-center items-center py-8">
+        <div class="bg-white shadow-lg rounded-lg max-w-3xl w-full p-4 flex">
+            <!-- Imagen -->
+            <div class="w-1/2">
+                <img src="../public/img/grupo.jpg" alt="Imagen del anuncio" class="w-full h-auto rounded-lg">
+            </div>
+
+            <!-- Contenido del anuncio -->
+            <div class="w-1/2 pl-4">
+                <!-- Botón de cerrar -->
+                <button id="close-button" class="absolute top-2 right-2 text-gray-500">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+                
+                <!-- Texto principal -->
+                <h2 class="text-xl font-bold mb-2">PARCHESE CON SAUDADE</h2>
+                <p class="text-xs mb-2">Te mantendremos al tanto de proximos drops!</p>
+
+                <!-- Formulario -->
+                <form id="subscription-form" class="space-y-2">
+                    <div>
+                        <label for="email" class="sr-only">Email</label>
+                        <input type="email" id="email" name="email" class="w-full px-2 py-1 border border-red-500 rounded-md focus:outline-none focus:border-black" placeholder="Email" required>
+                        <span id="error-message" class="text-red-500 text-xs"></span>
+                    </div>
+
+                    <button type="submit" class="w-full bg-black text-white py-1 rounded-md hover:bg-gray-800 transition">
+                        DE UNA
+                    </button>
+                </form>
+
+                <!-- Mostrar mensaje de éxito o error -->
+                <p id="status-message" class="text-xs mt-2"></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('subscription-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Evita el envío normal del formulario
+
+            const email = document.getElementById('email').value;
+            const errorMessage = document.getElementById('error-message');
+            const statusMessage = document.getElementById('status-message');
+
+            // Limpia los mensajes anteriores
+            errorMessage.textContent = '';
+            statusMessage.textContent = '';
+
+            if (!email) {
+                errorMessage.textContent = 'El email es requerido';
+                return;
+            }
+
+            if (!validateEmail(email)) {
+                errorMessage.textContent = 'El email ingresado no es válido';
+                return;
+            }
+
+            // Envía los datos del formulario usando fetch
+            fetch('../Controller/procces.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: new URLSearchParams({
+                    'email': email,
+                }),
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === 'success') {
+                    statusMessage.textContent = '¡Gracias por suscribirte!';
+                    statusMessage.classList.add('text-green-500');
+                } else {
+                    statusMessage.textContent = 'Hubo un error al enviar el correo. Inténtalo de nuevo.';
+                    statusMessage.classList.add('text-red-500');
+                }
+            })
+            .catch(error => {
+                statusMessage.textContent = 'Hubo un error al enviar el correo. Inténtalo de nuevo.';
+                statusMessage.classList.add('text-red-500');
+            });
+        });
+
+        function validateEmail(email) {
+            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return re.test(email);
+        }
+    </script>
+
+
+
 
 
 
@@ -582,56 +685,7 @@
             </div>
         </div>
 =======
-    <div class="footer-section left">
-      <h3>SHOP</h3>
-      <ul>
-  SHOP Summer '24</li>
-        <li>SHOP OUTERWEAR</li>
-        <li>SHOP SHIRTS</li>
-        <li>SHOP PANTS, SHORTS, OVERALLS</li>
-        <li>SHOP WOMENS</li>
-        <li>SHOP MYSTERY BOXES</li>
-        <li>SHOP HEADWEAR</li>
-        <li>PUMA x SAUDADE</li>
-        <li>SHOP FOOTWEAR</li>
-        <li>SHOP SOCKS</li>
-        <li>SHOP ALL ACCESSORIES</li>
-        <li>SHOP 420</li>
-        <li>BUY WITH PRIME</li>
-      </ul>
-    </div>
-    <div class="footer-section center">
-      <h3>SUPPORT</h3>
-      <ul>
-        <li>CONTACTO</li>
-        <li>LINEA whastsapp</li>
-        <li>CORREO</li>
-        <li>ASESOR</li>
-        
-      </ul>
-    </div>
-    <div class="footer-section right">
-      <h3>TIENDAS OFICIALES</h3>
-      <ul>
-        <li>SAUDADE</li>
-        <li>INSTAGRAM</li>
-        <li>FACEBOOK</li>
-        <li>whastsapp</li>
-      </ul>
-    </div>
-    <div class="footer-section right">
-      <h3>FOLLOW US</h3>
-      <ul>
-        <li>@SAUDADE</li>
-        <li>@SAUDADE.CO</li>
-        <li>@SAUDADE.IG</li>
-        <li>@PARCHESE.</li>
-        <li>@SAUDADE Snap</li>
-        <li>@SAUDADE TikTok</li>
-        <li>@SAUDADE Twitter <br><br><br></li>
-      </ul>
-    </div>
->>>>>>> 10a01648f95213a42ed82e949d4b36c50ede4bb8
+    
   </div>
 </footer>
 
