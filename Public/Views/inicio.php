@@ -27,7 +27,7 @@
             <label for="menu-toggle" class="cursor-pointer md:hidden block">
                 <svg class="fill-current text-blue-600" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
                     <title>menu</title>
-                    <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
+                    <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z  "></path>
                 </svg>
             </label>
             <input class="hidden" type="checkbox" id="menu-toggle">
@@ -115,10 +115,22 @@
 
     <!--Spotify-->
 
-    <iframe class="luna" style="border-radius:12px"
-        src="https://open.spotify.com/embed/track/7bywjHOc0wSjGGbj04XbVi?utm_source=generator&theme=0" width="100%"
-        height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy">
-    </iframe>
+    <iframe id="spotifyPlayer" class="luna" style="border-radius:12px"
+    src="https://open.spotify.com/embed/track/7bywjHOc0wSjGGbj04XbVi?utm_source=generator&theme=0" 
+    width="100%" height="352" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+    allowfullscreen="" loading="lazy">
+</iframe>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const iframe = document.getElementById('spotifyPlayer');
+        // Intenta cargar el iframe con autoplay
+        iframe.src += "&autoplay=1"; 
+    });
+</script>
+
+
+
 
     <div class="bg-white py-16">
     <div class="container mx-auto">

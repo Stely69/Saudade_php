@@ -108,6 +108,9 @@
                 </div>
                 <button id="add-to-cart" class="bg-black text-white w-full py-3 mt-5">AGREGAR AL CARRITO</button>
                 <button id="buy-now" class="bg-white border border-black text-black w-full py-3 mt-2">COMPRAR AHORA</button>
+                <button id="whatsapp-button" class="bg-[#70C05D] text-white w-full py-3 mt-2">PAGA POR WHATSAPP</button>
+
+
                 <div class="mt-5">
                     <p><i class="fas fa-shipping-fast"></i> Envíos a toda Colombia</p>
                     <p><i class="fas fa-undo-alt"></i> Devoluciones hasta 30 días</p>
@@ -196,6 +199,25 @@
             cartSidebar.classList.add('translate-x-full');
         }
     </script>
+
+<script>
+    document.getElementById('whatsapp-button').addEventListener('click', () => {
+        const size = document.getElementById('size').value;
+        const material = document.getElementById('material').value;
+        const color = document.getElementById('color').value;
+        const quantity = document.getElementById('quantity').value;
+        
+        // Construir el mensaje de WhatsApp
+        const message = `Hola, estoy interesado en comprar la Camiseta Unisex Oversize Natural Monaco.\n\nTalla: ${size}\nMaterial: ${material}\nColor: ${color}\nCantidad: ${quantity}\n\nPor favor, contáctenme para más detalles.`;
+
+        // Reemplaza '1234567890' con el número de WhatsApp al que deseas enviar el mensaje
+        const phoneNumber = '5731446626818';
+        const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+
+        // Redirigir al usuario a WhatsApp
+        window.location.href = whatsappURL;
+    });
+</script>
 
             
    <!-- Imagen angel 2 --> 
