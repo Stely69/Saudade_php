@@ -158,93 +158,9 @@
 
                 
 
-<div class="grid grid-cols-1 md:grid-cols-4 gap-5 bg-white">
-    <div class="bg-white rounded-lg shadow-md hover:shadow-lg">
-        <img src="../../Public/Img/camiseta.jpg" alt="Camisa Nike" class="rounded-t-lg">
-        <div class="p-4">
-            <h3 class="text-black text-center font-medium">Polo</h3>
-            <p class="text-black">$45.000</p>
-            <div class="flex items-center justify-between mt-4">
-                <a href="compra" class="text-blue-500 hover:underline">Ver detalles</a>
-            </div>
-        </div>
-    </div>
-
-    <div class="bg-white rounded-lg shadow-md hover:shadow-lg">
-        <img src="../../public/img/basica.jpg" alt="Camisa Adidas" class="rounded-t-lg">
-        <div class="p-4">
-            <h3 class="text-black text-center font-medium">Camiseta</h3>
-            <p class="text-black">$60.000</p>
-            <div class="flex items-center justify-between mt-4">
-                <a href="compra" class="text-blue-500 hover:underline">Ver detalles</a>
-            </div>
-        </div>
-    </div>
+    <div id="productos" class="grid grid-cols-1 md:grid-cols-4 gap-5 bg-white">
     
-    <div class="bg-white rounded-lg shadow-md hover:shadow-lg">
-        <img src="../../public/img/pantalon.jpg" alt="Camisa Adidas" class="rounded-t-lg">
-        <div class="p-4">
-            <h3 class="text-black text-center font-medium">Pantalon</h3>
-            <p class="text-black">$60.000</p>
-            <div class="flex items-center justify-between mt-4">
-                <a href="compra" class="text-blue-500 hover:underline">Ver detalles</a>
-            </div>
-        </div>
-    </div>
 
-    <div class="bg-white rounded-lg shadow-md hover:shadow-lg">
-        <img src="../../public/img/pant.jpg" alt="Camisa Adidas" class="rounded-t-lg">
-        <div class="p-4">
-            <h3 class="text-black text-center font-medium">Bermuda</h3>
-            <p class="text-black">$60.000</p>
-            <div class="flex items-center justify-between mt-4">
-                <a href="../Views/compra.php" class="text-blue-500 hover:underline">Ver detalles</a>
-            </div>
-        </div>
-    </div>
-
-    <div class="bg-white rounded-lg shadow-md hover:shadow-lg">
-        <img src="../../public/img/hoddie.jpg" alt="Camisa Adidas" class="rounded-t-lg">
-        <div class="p-4">
-            <h3 class="text-black text-center font-medium">Hooddies</h3>
-            <p class="text-black">$60.000</p>
-            <div class="flex items-center justify-between mt-4">
-                <a href="compra.php" class="text-blue-500 hover:underline">Ver detalles</a>
-            </div>
-        </div>
-    </div>
-
-    <div class="bg-white rounded-lg shadow-md hover:shadow-lg">
-        <img src="../../Public/img/ber1.jpg" alt="Camisa Adidas" class="rounded-t-lg">
-        <div class="p-4">
-            <h3 class="text-black text-center font-medium">Camisa</h3>
-            <p class="text-black">$60.000</p>
-            <div class="flex items-center justify-between mt-4">
-                <a href="compra" class="text-blue-500 hover:underline">Ver detalles</a>
-            </div>
-        </div>
-    </div>
-
-    <div class="bg-white rounded-lg shadow-md hover:shadow-lg">
-        <img src="../../Public/img/sombrero.jpg" alt="Camisa Adidas" class="rounded-t-lg">
-        <div class="p-4">
-            <h3 class="text-black text-center font-medium">Camisa</h3>
-            <p class="text-black">$60.000</p>
-            <div class="flex items-center justify-between mt-4">
-                <a href="compra" class="text-blue-500 hover:underline">Ver detalles</a>
-            </div>
-        </div>
-    </div>
-
-    <div class="bg-white rounded-lg shadow-md hover:shadow-lg">
-        <img src="../../Public/img/pant.jpg" alt="Camisa Adidas" class="rounded-t-lg">
-        <div class="p-4">
-            <h3 class="text-black text-center font-medium">Camisa</h3>
-            <p class="text-black">$60.000</p>
-            <div class="flex items-center justify-between mt-4">
-                <a href="compra" class="text-blue-500 hover:underline">Ver detalles</a>
-            </div>
-        </div>
     </div>
 
 
@@ -363,7 +279,7 @@ function closeNotification() {
 
     </script>
 
+<script src="../js/apicatalogo.js"></script>
 </body>
 
 </html>
->>>>>>> v-2.0-stiwi

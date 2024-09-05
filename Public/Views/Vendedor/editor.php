@@ -268,7 +268,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 </script>
-<script src="../../Public/js/api.js"></script>
+<script src="../../Public/js/apieditor.js"></script>
 <!---->
 </body>
 </html>

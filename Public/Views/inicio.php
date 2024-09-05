@@ -611,7 +611,6 @@
   <div class="lightning"></div>
 
   <div class="footer-content">
-<<<<<<< HEAD
   <div class="container mx-auto px-4">
         <div class="flex flex-wrap text-left lg:text-left">
             <div class="w-full lg:w-6/12 px-4">
@@ -684,7 +683,7 @@
                 </div>
             </div>
         </div>
-=======
+
     
   </div>
 </footer>
@@ -882,5 +881,4 @@ svg {
 <script src="../Public/js/carrucel.js"></script>
 <script src="../Public/js/whastsapp.js"></script>
 
->>>>>>> v-2.0-stiwi   solo SAUDADE 
 </html>

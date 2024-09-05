@@ -16,7 +16,7 @@
     Enrutador::get("/Login/LogoutAction",[LoginControlador::class,"logout"]);
     //Catalogo
     Enrutador::get("/Catalogo/catalogo",[CatalogoControlador::class,"Catalogo"]);
-    Enrutador::get("/Catalogo/compra",[CatalogoControlador::class,"Compra"]);
+    Enrutador::get("/Catalogo/compra/",[CatalogoControlador::class,"Compra"]);
     //Quienes somos
     Enrutador::get("/QuieneSomos/quienessomos",[QuienesControlador::class,"Quienes"]);
     //admin

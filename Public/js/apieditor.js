@@ -22,10 +22,22 @@ document.addEventListener("DOMContentLoaded", function () {
                     <p class="text-gray-600">${producto.descripcion}</p>
                     <p class="text-lg font-bold">$${producto.precio}</p>
                     <p class="text-gray-500 ">Cantidad: ${producto.cantidad}</p>
+                    <div class="flex space-x-5">
+                        <button class="bg-blue-500 text-white mt-2 px-4 py-2 rounded verMasBtn" data-id="${producto.id}">Editar</button>
+                        <button class="bg-red-500 text-white mt-2 px-4 py-2 rounded verMasBtn" data-id="${producto.id}">Eliminar</button>
+                    </div>
+
                 `;
 
                 productosContainer.appendChild(productoElement);
             });
+            const verMasButtons = document.querySelectorAll('.verMasBtn');
+            verMasButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const productId = this.getAttribute('data-id');
+                window.location.href = `editor?id=${productId}`;
+            });
+        });    
         })
         .catch(error => console.error('Error al cargar los productos:', error));
 });

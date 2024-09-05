@@ -32,5 +32,9 @@ class ProductController {
             exit();
         }
     }
+
+    public function getProductById($id) {
+        return $this->productModel->getProductById($id);
+    }
     
 }

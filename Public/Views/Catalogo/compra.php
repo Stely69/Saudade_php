@@ -1,3 +1,13 @@
+<?php
+include_once '../Controller/ProductController.php';
+
+if (isset($_GET['id'])) {
+    $productId = $_GET['id'];
+    $productController = new ProductController();
+    $producto = $productController->getProductById($productId);
+}
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -46,14 +56,9 @@
         </div>
         
         <!-- Botón del carrito -->
-        <div class="order-2 md:order-3 flex items-center justify-end w-full md:w-auto">
-            <button id="cart-icon" class="cart-icon mr-4">
-                🛒
-            </button>
-        </div>
         <div class="order-2 md:order-3 flex flex-wrap items-center justify-end mr-0 md:mr-4" id="nav-content">
             <div class="auth flex items-center w-full md:w-full">
-                <button><a style='font-size:24px;color:black' class='fas'>&#xf07a;</a></button>
+                <button><a style='font-size:24px;color:black' id="cart-icon" class='fas'>&#xf07a;</a></button>
 
                 <?php if (isset($_SESSION['username'])): ?>
                     <span class="inline-block no-underline font-medium text-black text-lg px-4">Hola, <?php echo $_SESSION['username']; ?>!</span>
@@ -69,18 +74,16 @@
     </div>
 </nav>
 
-
-   
-
     <div class="container mx-auto mt-5 shadow-lg">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
-                <img class="w-full" src="../../public/img/sombrero.jpg" alt="Producto">
+                <img class="w-full" src="../<?php echo $producto['imagen']; ?>" alt="<?php echo $producto['nombre']; ?>">
             </div>
             <div>
-                <h1 class="text-2xl font-bold">Camiseta Unisex Oversize Natural Monaco</h1>
-                <p class="text-gray-500 mt-2">Camiseta para hombre oversize con estampado en frente y espalda, tela algodón, cuello en tela Rib, silueta amplia, textura lisa, una prenda versátil infaltable en tu closet, úsala con jeans de diferentes estilos, pantalonetas o bermudas.</p>
-                <p class="text-3xl font-bold mt-5">$75.000,00</p>
+        
+                <h1 class="text-2xl font-bold"><?php echo $producto['nombre']; ?></h1>
+                <p class="text-gray-500 mt-2"><?php echo $producto['descripcion']; ?></p>
+                <p class="text-3xl font-bold mt-5">$<?php echo $producto['precio']; ?></p>
                 <div class="mt-5">
                     <label for="size" class="block mb-2">TALLA:</label>
                     <select id="size" class="block w-full border border-gray-300 rounded-md p-2">
@@ -196,7 +199,6 @@
             cartSidebar.classList.add('translate-x-full');
         }
     </script>
-
             
    <!-- Imagen angel 2 --> 
    <img src="../../public/img/ANGEL SIN FONDO.png" class="angel2">
@@ -341,4 +343,3 @@
    
 </body>
 </html>
->>>>>>> v-2.0-stiwi
