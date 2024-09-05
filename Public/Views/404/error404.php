@@ -32,6 +32,10 @@
             </div>
         </div>
 
+        <?php if(isset($_GET['error'])):?>
+            <p class="text-red-500"><?php echo $_GET['error']; ?></p>
+        <?php endif; ?>
+
         <!-- Continue With -->
         <div class="flex flex-col mt-48">
             <div class="text-gray-400 font-bold uppercase">
