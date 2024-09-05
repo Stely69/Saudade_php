@@ -15,8 +15,7 @@
     <link rel="stylesheet" href="../public/css/whats2.css">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 
-    <!--Titulo de la empresa-->
-    <title>Saudade</title>
+
 
 </head>
 
@@ -148,9 +147,13 @@
         </div>
     </div><br><br>
 
-    <div class="text-center mb-16">
-        <h1 class="text-4xl font-bold mb-4">SAUDADE</h1>
-        <p class="text-gray-600 mb-8">La vida es muy corta para seguir usando prendas aburridas. Viste tu actitud con saudade ropa urbana: Camisetas, jeans, gorras, accesorios y mucho más.</p>
+
+    <!-- Slogan de la page -->
+    <div style="text-align: center">
+    <img src="../public/Img/LOGO_SAUDADE.png" alt="Logo Saudade" class="sloganlogo">
+    <h1 class="slogan"> A VIDA É MUITO CURTA PARA CONTINUAR USANDO ROUPAS CHATAS </h1>
+    <p class="slogan2">Viste tu actitud con ropa urbana de SAUDADE</p>
+    <a href="#" class="sloganbtn">Compra Ahora</a>
     </div>
 
     <!-- Sección NEW MERCH -->
@@ -188,7 +191,7 @@
         </div>
     </div><br>
 
-    <img src="../public/img/parchese.png" alt="" class="mx-auto max-w-full h-auto" style="position: relative; top: 100px;">
+    <img src="../public/img/parchese.png" alt="" class="mx-auto max-w-full h-auto" style="position: relative; top: 40px;">
 
 
     <img id="estrella1" src="../static/img/estrella.png" alt="">
@@ -232,6 +235,40 @@
     </div>
 
     <style>
+        .sloganlogo{
+            height: 100px; /* Ajusta el tamaño del logo */
+            display: block;
+            margin: 0 auto; /* Centra el logo horizontalmente */
+        }
+        .slogan{
+            font-size: 2rem;
+            font-weight: 700;
+            margin: 15px 0;
+            color: #111;
+
+        }
+        .slogan2{
+            font-size: 1.2rem;
+            color: #555;
+            margin-bottom: 40px;
+        }
+        .sloganbtn {
+            background-color: #111;
+            color: #fff;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 25px;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: inline-block;
+            margin-bottom: 50px;
+            transition: background-color 0.3s ease;
+        }
+
+        .sloganbtn:hover {
+            background-color: #333; /* Cambia el color al pasar el ratón */
+        }
         .carousel-container {
             display: flex;
             flex-direction: column;
