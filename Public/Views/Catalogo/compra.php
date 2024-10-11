@@ -81,7 +81,7 @@ if (isset($_GET['id'])) {
             </div>
             <div>
         
-                <h1 class="text-2xl font-bold"><?php echo $producto['nombre']; ?></h1>
+                <span class="text-2xl font-bold" id="nombre"><?php echo $producto['nombre']; ?></span>
                 <p class="text-gray-500 mt-2"><?php echo $producto['descripcion']; ?></p>
                 <p class="text-3xl font-bold mt-5">$<?php echo $producto['precio']; ?></p>
                 <div class="mt-5">
@@ -205,13 +205,14 @@ if (isset($_GET['id'])) {
 
 <script>
     document.getElementById('whatsapp-button').addEventListener('click', () => {
+        const nombre = document.getElementById('nombre').value;
         const size = document.getElementById('size').value;
         const material = document.getElementById('material').value;
         const color = document.getElementById('color').value;
         const quantity = document.getElementById('quantity').value;
         
         // Construir el mensaje de WhatsApp
-        const message = `Hola, estoy interesado en comprar la Camiseta Unisex Oversize Natural Monaco.\n\nTalla: ${size}\nMaterial: ${material}\nColor: ${color}\nCantidad: ${quantity}\n\nPor favor, contáctenme para más detalles.`;
+        const message = `Hola, estoy interesado en comprar la Camiseta ${nombre} .\n\nTalla: ${size}\nMaterial: ${material}\nColor: ${color}\nCantidad: ${quantity}\n\nPor favor, contáctenme para más detalles.`;
 
         // Reemplaza '1234567890' con el número de WhatsApp al que deseas enviar el mensaje
         const phoneNumber = '5731446626818';

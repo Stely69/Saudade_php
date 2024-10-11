@@ -1,23 +1,30 @@
 <?php
 
-    namespace   Controller;
+    namespace Controller;
 
-    class LoginControlador extends Controlador{
-        public function login(){
+    class LoginControlador extends Controlador {
+        // Método para cargar la vista de inicio de sesión
+        public function login() {
             $this->cargarVista("Login/inicio_sesion");
         }
 
-        public function loginaction(){
+        // Método para cargar la vista de la acción de inicio de sesión
+        public function loginaction() {
             $this->cargarVista("Login/LoginAction");
         }
 
-        public function logout(){
+        // Método para cargar la vista de la acción de cierre de sesión
+        public function logout() {
             $this->cargarVista("Login/LogoutAction");
         }
-        public function registeraction(){
+
+        // Método para cargar la vista de la acción de registro
+        public function registeraction() {
             $this->cargarVista("Login/RegisterAction");
         }
-        public function registro(){
+
+        // Método para cargar la vista de registro
+        public function registro() {
             $this->cargarVista("Login/registro");
         }
     }

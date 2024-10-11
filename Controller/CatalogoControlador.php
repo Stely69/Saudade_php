@@ -1,15 +1,22 @@
 <?php 
-    namespace Controller ;
+    // Definir el espacio de nombres para evitar colisiones de nombres y organizar el código
+    namespace Controller;
 
-    class CatalogoControlador extends Controlador{
+    // Clase CatalogoControlador que hereda de la clase Controlador
+    class CatalogoControlador extends Controlador {
 
-        public function Catalogo(){
-            $this->CargarVista("Catalogo/catalogo");
+        // Método que carga la vista del catálogo
+        public function Catalogo() {
+            $this->CargarVista("Catalogo/catalogo"); // Carga la vista "Catalogo/catalogo"
         }
 
-        public function Compra(){
-           // $datos = $this->productsModel->getIdProducts($id);
+        // Método que carga la vista de la compra
+        public function Compra() {
+            // Se deja comentada una línea que probablemente recupera productos por su ID
+            //$datos = $this->productsModel->getIdProducts($id);
+            
+            // Carga la vista "Catalogo/compra"
             $this->CargarVista("Catalogo/compra");
         }
-        
     }
+

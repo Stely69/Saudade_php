@@ -23,21 +23,42 @@ document.addEventListener("DOMContentLoaded", function () {
                     <p class="text-lg font-bold">$${producto.precio}</p>
                     <p class="text-gray-500 ">Cantidad: ${producto.cantidad}</p>
                     <div class="flex space-x-5">
-                        <button class="bg-blue-500 text-white mt-2 px-4 py-2 rounded verMasBtn" data-id="${producto.id}">Editar</button>
-                        <button class="bg-red-500 text-white mt-2 px-4 py-2 rounded verMasBtn" data-id="${producto.id}">Eliminar</button>
+                        <button class="bg-blue-500 text-white mt-2 px-4 py-2 rounded editar" data-id="${producto.id}">Editar</button>
+                        <button class="bg-red-500 text-white mt-2 px-4 py-2 rounded eliminar" data-id="${producto.id}">Eliminar</button>
                     </div>
-
                 `;
 
                 productosContainer.appendChild(productoElement);
             });
-            const verMasButtons = document.querySelectorAll('.verMasBtn');
-            verMasButtons.forEach(button => {
-            button.addEventListener('click', function() {
-                const productId = this.getAttribute('data-id');
-                window.location.href = `editor?id=${productId}`;
+            
+            // Manejo de botones de editar
+            const editarButtons = document.querySelectorAll('.editar');
+            editarButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const productId = this.getAttribute('data-id');
+                    window.location.href = `editor?id=${productId}`; // Redirigir a la página de edición
+                });
             });
-        });    
-        })
+
+            // Manejo de botones de eliminar
+            const eliminarButtons = document.querySelectorAll('.eliminar');
+            eliminarButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const productId = this.getAttribute('data-id');
+                    if (confirm("¿Estás seguro de que deseas eliminar este producto?")) {
+                        fetch(`eliminarProducto.php?id=${productId}`, { method: 'DELETE' })
+                        .then(response => {
+                            if (!response.ok) {
+                                throw new Error('Error en la red al eliminar el producto');
+                            }
+                            // Recargar la página o eliminar el producto del DOM
+                            location.reload(); // Recarga la página después de eliminar el producto
+                        })
+                        .catch(error => console.error('Error al eliminar el producto:', error));
+                    }
+                });
+            });
+
+        })    
         .catch(error => console.error('Error al cargar los productos:', error));
 });
