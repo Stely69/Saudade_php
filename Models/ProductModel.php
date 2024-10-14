@@ -92,5 +92,20 @@
                 $stmtInsert->execute(); // Se ejecuta la inserción
             }
         }
+        public function getAvailableTallas() {
+            $query = "SELECT * FROM tallas"; // Ajusta la consulta si es necesario
+            $stmt = $this->conn->prepare($query);
+            $stmt->execute();
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        }
+    
+        // Obtener tallas de un producto específico
+        public function getProductTallas($product_id) {
+            $query = "SELECT talla_id FROM producto_tallas WHERE producto_id = :producto_id";
+            $stmt = $this->conn->prepare($query);
+            $stmt->bindParam(':producto_id', $product_id);
+            $stmt->execute();
+            return $stmt->fetchAll(PDO::FETCH_COLUMN); // Retorna solo los IDs de las tallas
+        }
     }
 

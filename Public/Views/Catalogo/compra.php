@@ -1,10 +1,11 @@
 <?php
+// Incluir el controlador de productos para poder acceder a sus métodos
 include_once '../Controller/ProductController.php';
-
+// Verificar si se ha recibido un ID de producto a través de la URL
 if (isset($_GET['id'])) {
-    $productId = $_GET['id'];
-    $productController = new ProductController();
-    $producto = $productController->getProductById($productId);
+    $productId = $_GET['id']; // Obtener el ID del producto
+    $productController = new ProductController();// Instanciar el controlador de productos
+    $producto = $productController->getProductById($productId); // Obtener los datos del producto por su ID
 }
 ?>
 
@@ -16,7 +17,7 @@ if (isset($_GET['id'])) {
     <title>Producto</title>
     <link rel="stylesheet" href="../../Public/css/style.css">
     <link rel="stylesheet" href="../../public/css/landin.css">
-
+    <!-- Incluir hojas de estilo -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="../../public/css/whats.css">
     <link rel="stylesheet" href="../../public/css/whats2.css">
@@ -33,6 +34,7 @@ if (isset($_GET['id'])) {
    
 </head>
 <body>
+    <!-- Navegación superior -->
 <nav id="header" class="w-full flex items-center justify-between px-6 py-4 backdrop-blur-lg">
     <div class="w-full z-20 flex items-center justify-between px-6 py-4 backdrop-blur-lg">
         <!-- Menú hamburguesa (visible en móviles) -->
@@ -73,7 +75,7 @@ if (isset($_GET['id'])) {
         </div>
     </div>
 </nav>
-
+    <!-- Contenedor del producto -->
     <div class="container mx-auto mt-5 shadow-lg">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
@@ -136,13 +138,14 @@ if (isset($_GET['id'])) {
     </div>
 
     <script>
+         // Función para agregar un producto al carrito
         const cartSidebar = document.getElementById('cart-sidebar');
         const addToCartButton = document.getElementById('add-to-cart');
         const closeCartButton = document.getElementById('close-cart');
         const cartIconButton = document.getElementById('cart-icon');
         const cartItemsContainer = document.getElementById('cart-items');
         const cart = [];
-
+          // Actualizar el total en el carrito (aquí se puede añadir lógica adicional para los precios)
         addToCartButton.addEventListener('click', () => {
             const size = document.getElementById('size').value;
             const material = document.getElementById('material').value;
@@ -161,7 +164,7 @@ if (isset($_GET['id'])) {
             updateCart();
             openCartSidebar();
         });
-
+        // Agregar el producto a la lista de elementos del carrito
         closeCartButton.addEventListener('click', () => {
             closeCartSidebar();
         });
@@ -193,11 +196,11 @@ if (isset($_GET['id'])) {
             cart.splice(index, 1);
             updateCart();
         }
-
+         // Cerrar el carrito
         function openCartSidebar() {
             cartSidebar.classList.remove('translate-x-full');
         }
-
+        // Mostrar el carrito
         function closeCartSidebar() {
             cartSidebar.classList.add('translate-x-full');
         }

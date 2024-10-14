@@ -2,11 +2,17 @@
 <html lang="es">
 
 <head>
+    <!-- Configuración básica de la página -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Importación de TailwindCSS desde CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Importación de FontAwesome para íconos -->
     <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
-    <!-- component -->
+    
+    <!-- Enlaces a CSS adicionales para la página -->
     <link rel="stylesheet" href="https://demos.creative-tim.com/notus-js/assets/styles/tailwind.css">
     <link rel="stylesheet" href="https://demos.creative-tim.com/notus-js/assets/vendor/@fortawesome/fontawesome-free/css/all.min.css">
     <link rel="stylesheet" href="../public/css/landin.css">
@@ -14,15 +20,14 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="../public/css/whats2.css">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-
-
-
 </head>
 
 <body>
+    <!-- Navegación -->
     <nav id="header" class="barra">
         <div class="w-full flex items-center justify-between px-6 py-4 backdrop-blur-lg">
-            <!-- Icono de menú para dispositivos móviles -->
+            
+            <!-- Ícono de menú para dispositivos móviles -->
             <label for="menu-toggle" class="cursor-pointer md:hidden block">
                 <svg class="fill-current text-blue-600" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
                     <title>menu</title>
@@ -31,56 +36,59 @@
             </label>
             <input class="hidden" type="checkbox" id="menu-toggle">
 
-            <!-- Menú de navegación -->
+            <!-- Menú de navegación, oculto en móviles y visible en pantallas más grandes -->
             <div id="menu" class="hidden fixed top-0 left-0 h-full w-3/4 bg-purple-600 shadow-lg z-50 md:relative md:flex md:bg-transparent md:shadow-none md:w-auto md:h-auto md:order-1">
                 <nav>
                     <ul class="flex flex-col md:flex-row md:items-center text-base text-white md:text-black pt-4 md:pt-0">
-                      <li><a class="inline-block no-underline hover:text-[#6F00FF] font-medium text-lg py-2 px-4 lg:-ml-2" href="./">Inicio</a></li>
-                      <li><a class="inline-block no-underline hover:text-[#6F00FF] font-medium text-lg py-2 px-4 lg:-ml-2" href="QuieneSomos/quienessomos">Quiénes Somos</a></li>
-                      <li><a class="inline-block no-underline hover:text-[#6F00FF] font-medium text-lg py-2 px-4 lg:-ml-2" href="Catalogo/catalogo">Catalogo</a></li>
+                        <!-- Enlaces de navegación -->
+                        <li><a class="inline-block no-underline hover:text-[#6F00FF] font-medium text-lg py-2 px-4 lg:-ml-2" href="./">Inicio</a></li>
+                        <li><a class="inline-block no-underline hover:text-[#6F00FF] font-medium text-lg py-2 px-4 lg:-ml-2" href="QuieneSomos/quienessomos">Quiénes Somos</a></li>
+                        <li><a class="inline-block no-underline hover:text-[#6F00FF] font-medium text-lg py-2 px-4 lg:-ml-2" href="Catalogo/catalogo">Catalogo</a></li>
 
-                      <?php
-                        session_start();
+                        <!-- PHP para manejar la sesión del usuario -->
+                        <?php
+                            session_start(); // Iniciar sesión si aún no ha sido iniciada
 
-                        include_once '../Models/RolesModel.php';
+                            include_once '../Models/RolesModel.php'; // Incluir modelo para manejo de roles
 
-                        $role = null;
-                        if (isset($_SESSION['role_id'])) {
-                            $rolesModel = new RolesModel();
-                            $roleData = $rolesModel->getRoleById($_SESSION['role_id']);
-                            $role = $roleData['role_name'];
-                        }
+                            $role = null;
+                            if (isset($_SESSION['role_id'])) { // Verificar si el rol está establecido en la sesión
+                                $rolesModel = new RolesModel(); // Instanciar modelo de roles
+                                $roleData = $rolesModel->getRoleById($_SESSION['role_id']); // Obtener datos del rol por ID
+                                $role = $roleData['role_name']; // Asignar el nombre del rol a una variable
+                            }
+                        ?>
 
-                      ?>
-
-                      <?php if ($role === 'admin' ): ?>
-                        <li><a class="inline-block no-underline font-medium text-black text-lg hover:text-[#6F00FF] px-4" href="Admin/admin">Admin Dashboard</a></li>
-                      <?php elseif ($role === 'vendedor'): ?>
-                        <li><a class="inline-block no-underline font-medium text-black text-lg hover:text-[#6F00FF] px-4" href="Vendedor/vendedordashboard">Vendedor Dashboard</a></li>
-                      <?php endif; ?>
-
+                        <!-- Mostrar enlaces adicionales dependiendo del rol del usuario -->
+                        <?php if ($role === 'admin' ): ?>
+                            <li><a class="inline-block no-underline font-medium text-black text-lg hover:text-[#6F00FF] px-4" href="Admin/admin">Admin Dashboard</a></li>
+                        <?php elseif ($role === 'vendedor'): ?>
+                            <li><a class="inline-block no-underline font-medium text-black text-lg hover:text-[#6F00FF] px-4" href="Vendedor/vendedordashboard">Vendedor Dashboard</a></li>
+                        <?php endif; ?>
                     </ul>
                 </nav>
             </div>
 
-            <!-- Contenido adicional del menú -->
+            <!-- Opciones de sesión y carrito de compras -->
             <div class="order-2 md:order-3 flex flex-wrap items-center justify-end mr-0 md:mr-4" id="nav-content">
                 <div class="auth flex items-center w-full md:w-full">
-                    <button><a style='font-size:24px;color:black' class='fas'>&#xf07a;</a></button>             
+                    <!-- Ícono de carrito de compras -->
+                    <button><a style='font-size:24px;color:black' class='fas'>&#xf07a;</a></button>
 
+                    <!-- PHP para mostrar mensaje de bienvenida o opciones de inicio de sesión/registro -->
                     <?php if (isset($_SESSION['user_id'])): ?>
-                          <span class="inline-block no-underline font-medium text-black text-lg px-4">Hola, <?php echo $_SESSION['username']; ?>!</span>
-                          <a class="inline-block no-underline font-medium text-black text-lg hover:text-[#6F00FF] px-4" href="Login/LogoutAction">Cerrar Sesión </a>
+                        <span class="inline-block no-underline font-medium text-black text-lg px-4">Hola, <?php echo $_SESSION['username']; ?>!</span>
+                        <a class="inline-block no-underline font-medium text-black text-lg hover:text-[#6F00FF] px-4" href="Login/LogoutAction">Cerrar Sesión </a>
                     <?php else: ?>
-                          <a class="inline-block no-underline font-medium text-black text-lg hover:text-[#6F00FF] px-4" href="Login/inicio_sesion">Iniciar Sesión</a>
-                          <a class="inline-block no-underline font-medium text-black text-lg hover:text-[#6F00FF] px-4" href="Login/registro">Registrarse</a>
+                        <a class="inline-block no-underline font-medium text-black text-lg hover:text-[#6F00FF] px-4" href="Login/inicio_sesion">Iniciar Sesión</a>
+                        <a class="inline-block no-underline font-medium text-black text-lg hover:text-[#6F00FF] px-4" href="Login/registro">Registrarse</a>
                     <?php endif; ?>
-
                 </div>
             </div>
         </div>
     </nav>
 
+    <!-- Script para mostrar/ocultar el menú en dispositivos móviles -->
     <script>
         const menuToggle = document.getElementById('menu-toggle');
         const menu = document.getElementById('menu');
@@ -94,15 +102,14 @@
         });
     </script>
 
+    <!-- Video de fondo en la página principal -->
     <video id="video" class="" autoplay muted loop>
         <source src="../public/img/video/street.mp4" type="video/mp4">
         Tu navegador no soporta la etiqueta de video.
     </video>
 
-    <!--Alerta ed inicio de session-->
-
-    <div id="popup" class="fixed z-50 bg-slate-100 opacity-95 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2  shadow-lg font-comic-sans rounded-md p-24 text-center animate-popup drop-shadow-2xl "
-        style="display: none; width: 500px; height: 550px;">
+    <!-- Pop-up de bienvenida para el usuario no registrado -->
+    <div id="popup" class="fixed z-50 bg-slate-100 opacity-95 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2  shadow-lg font-comic-sans rounded-md p-24 text-center animate-popup drop-shadow-2xl " style="display: none; width: 500px; height: 550px;">
         <img id="popup-image" src="../public/img/LOGO_SAUDADE.png" alt="Descripción de la imagen">
         <h2 class="text-xl font-bold py-2">¡Te Damos la Bienvenida a Saudade!</h2>
         <p class="py-2 text-lg font-normal">Obtén un descuento del 10% en tu primera compra iniciando sesión.</p>
@@ -112,498 +119,510 @@
         </div>
     </div>
 
-    <!--Spotify-->
+    <!-- Spotify Widget para agregar música -->
+    <iframe class="luna" style="border-radius:12px" src="https://open.spotify.com/embed/track/7bywjHOc0wSjGGbj04XbVi?utm_source=generator&theme=0" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
 
-    <iframe class="luna" style="border-radius:12px"
-        src="https://open.spotify.com/embed/track/7bywjHOc0wSjGGbj04XbVi?utm_source=generator&theme=0" width="100%"
-        height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy">
-    </iframe>
-
+    <!-- Sección de productos destacados -->
     <div class="bg-white py-16">
-    <div class="container mx-auto">
-    <!-- Sección Dynamo Ropa Urbana -->
+        <div class="container mx-auto">
+            <!-- Productos -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 shadow-lg">
+                <div class="relative">
+                    <img src="../public/img/camiseta.jpg" alt="Product 1" class="w-full">
+                    <p class="text-center mt-4">Jeans Baggy Para Hombre Azul</p>
+                    <p class="text-center font-bold">$160.000,00</p>
+                </div>
 
-    <!-- Carousel Container -->
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-8 shadow-lg">
-        <div class="relative">
-            <img src="../public/img/camiseta.jpg" alt="Product 1" class="w-full">
-            <p class="text-center mt-4">Jeans Baggy Para Hombre Azul</p>
-            <p class="text-center font-bold">$160.000,00</p>
+                <div class="relative">
+                    <img src="../public/img/basica.jpg" alt="Product 2" class="w-full">
+                    <p class="text-center mt-4">Camisa Para Hombre Oversize Crudo Calavera</p>
+                    <p class="text-center font-bold">$125.000,00</p>
+                </div>
+                <div class="relative">
+                    <img src="../public/img/pantalon.jpg" alt="Product 3" class="w-full">
+                    <p class="text-center mt-4">Jeans Baggy Para Hombre Negro</p>
+                    <p class="text-center font-bold">$130.000,00</p>
+                </div>
+                <div class="relative">
+                    <img src="../public/img/pant.jpg" alt="Product 4" class="w-full">
+                    <p class="text-center mt-4">Jogger Para Hombre Cargo Negro - Bota Ajustable</p>
+                    <p class="text-center font-bold">$155.000,00</p>
+                </div>
+                <!-- Más productos aquí... -->
+            </div>
+            
         </div>
-        <div class="relative">
-            <img src="../public/img/basica.jpg" alt="Product 2" class="w-full">
-            <p class="text-center mt-4">Camisa Para Hombre Oversize Crudo Calavera</p>
-            <p class="text-center font-bold">$125.000,00</p>
-        </div>
-        <div class="relative">
-            <img src="../public/img/pantalon.jpg" alt="Product 3" class="w-full">
-            <p class="text-center mt-4">Jeans Baggy Para Hombre Negro</p>
-            <p class="text-center font-bold">$130.000,00</p>
-        </div>
-        <div class="relative">
-            <img src="../public/img/pant.jpg" alt="Product 4" class="w-full">
-            <p class="text-center mt-4">Jogger Para Hombre Cargo Negro - Bota Ajustable</p>
-            <p class="text-center font-bold">$155.000,00</p>
-        </div>
+    </div>
+        
     </div><br><br>
 
 
-    <!-- Slogan de la page -->
-    <div style="text-align: center">
+  <!-- Slogan de la página -->
+<div style="text-align: center">
+    <!-- Logo de la marca Saudade -->
     <img src="../public/Img/LOGO_SAUDADE.png" alt="Logo Saudade" class="sloganlogo">
+    <!-- Slogan principal -->
     <h1 class="slogan"> A VIDA É MUITO CURTA PARA CONTINUAR USANDO ROUPAS CHATAS </h1>
+    <!-- Subtítulo adicional -->
     <p class="slogan2">Viste tu actitud con ropa urbana de SAUDADE</p>
+    <!-- Botón de llamada a la acción -->
     <a href="#" class="sloganbtn">Compra Ahora</a>
+</div>
+
+<!-- Sección NEW MERCH -->
+<div class="text-center mb-8">
+    <!-- Título de la sección -->
+    <h2 class="text-4xl font-bold">NEW MERCH</h2>
+    <!-- Línea decorativa -->
+    <div class="border-b-2 mb-8"></div>
+</div>
+
+<!-- Contenedor de productos en formato de cuadrícula -->
+<div class="grid grid-cols-2 md:grid-cols-4 gap-8 shadow-lg">
+    <div class="relative">
+        <!-- Producto 1: Jeans Baggy Para Hombre Azul -->
+        <img src="../public/img/pant.jpg" alt="Product 1" class="w-full">
+        <p class="text-center mt-4">Jeans Baggy Para Hombre Azul</p>
+        <p class="text-center font-bold">$160.000,00</p>
+    </div>
+    <div class="relative">
+        <!-- Producto 2: Camisa Para Hombre Oversize Crudo Calavera -->
+        <img src="../public/img/basica.jpg" alt="Product 2" class="w-full">
+        <p class="text-center mt-4">Camisa Para Hombre Oversize Crudo Calavera</p>
+        <p class="text-center font-bold">$125.000,00</p>
+    </div>
+    <div class="relative">
+        <!-- Producto 3: Jeans Baggy Para Hombre Negro -->
+        <img src="../public/img/pantalon.jpg" alt="Product 3" class="w-full">
+        <p class="text-center mt-4">Jeans Baggy Para Hombre Negro</p>
+        <p class="text-center font-bold">$130.000,00</p>
+    </div>
+    <div class="relative">
+        <!-- Producto 4: Jogger Para Hombre Cargo Negro -->
+        <img src="../public/img/camiseta.jpg" alt="Product 4" class="w-full">
+        <p class="text-center mt-4">Jogger Para Hombre Cargo Negro - Bota Ajustable</p>
+        <p class="text-center font-bold">$155.000,00</p>
+    </div>
+</div>
+</div>
+</div><br>
+
+<!-- Imagen adicional -->
+<img src="../public/img/parchese.png" alt="" class="mx-auto max-w-full h-auto" style="position: relative; top: 40px;">
+
+<!-- Estrellas decorativas -->
+<img id="estrella1" src="../static/img/estrella.png" alt="">
+<img id="estrella1" src="../static/img/estrella.png" alt="">
+<img id="estrella2" src="../static/img/estrella.png" alt="">
+<img id="estrella2" src="../static/img/estrella.png" alt="">
+<img id="estrella3" src="../static/img/estrella.png" alt="">
+<img id="estrella3" src="../static/img/estrella.png" alt="">
+<br><br><br><br>
+</div>
+<!-- Cierre del div con clase max-w-screen-lg -->
+<!-- Cierre del div con clase relative flex min-h-screen -->
+
+<!-- Contenedor del carrusel de videos -->
+<div class="carousel-container ">
+    <div class="carousel">
+        <!-- Videos pequeños -->
+        <div class="video-container small">
+            <video src="../public/img/video/video1.mp4" muted></video>
+        </div>
+        <div class="video-container small">
+            <video src="../public/img/video/video5.mp4" muted></video>
+        </div>
+        <!-- Video principal que se reproduce automáticamente -->
+        <div class="video-container main">
+            <video src="../public/img/video/video2.mp4" autoplay muted loop></video>
+        </div>
+        <div class="video-container small">
+            <video src="../public/img/video/video3.mp4" muted></video>
+        </div>
+        <div class="video-container small">
+            <video src="../public/img/video/video4.mp4" muted></video>
+        </div>
+    </div>
+    <!-- Controles de navegación del carrusel -->
+    <div class="navigation">
+        <!-- Botón para desplazarse a la izquierda -->
+        <button class="arrow left-arrow">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M14 17l-5-5 5-5v10z" fill="black" />
+            </svg>
+        </button>
+        <!-- Botón para desplazarse a la derecha -->
+        <button class="arrow right-arrow">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M10 17l5-5-5-5v10z" fill="black" />
+            </svg>
+        </button>
+    </div>
+</div>
+
+<!-- Estilos CSS para dar formato a la página -->
+<style>
+    .sloganlogo {
+        height: 100px; /* Ajusta el tamaño del logo */
+        display: block;
+        margin: 0 auto; /* Centra el logo horizontalmente */
+    }
+    .slogan {
+        font-size: 2rem; /* Tamaño de fuente para el eslogan */
+        font-weight: 700; /* Peso de fuente */
+        margin: 15px 0; /* Margen superior e inferior */
+        color: #111; /* Color del texto */
+    }
+    .slogan2 {
+        font-size: 1.2rem; /* Tamaño de fuente para el subtítulo */
+        color: #555; /* Color del subtítulo */
+        margin-bottom: 40px; /* Margen inferior */
+    }
+    .sloganbtn {
+        background-color: #111; /* Color de fondo del botón */
+        color: #fff; /* Color del texto del botón */
+        padding: 15px 30px; /* Relleno del botón */
+        text-decoration: none; /* Sin subrayado en el texto */
+        border-radius: 25px; /* Bordes redondeados */
+        font-size: 1rem; /* Tamaño de fuente */
+        text-transform: uppercase; /* Texto en mayúsculas */
+        letter-spacing: 1px; /* Espaciado entre letras */
+        display: inline-block; /* Permite márgenes */
+        margin-bottom: 50px; /* Margen inferior */
+        transition: background-color 0.3s ease; /* Transición para el cambio de color */
+    }
+
+    .sloganbtn:hover {
+        background-color: #333; /* Cambia el color al pasar el ratón */
+    }
+    .carousel-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Centra el contenido */
+        justify-content: center; /* Centra el contenido */
+        position: relative;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra */
+    }
+
+    .carousel {
+        display: flex; /* Usa flexbox para el carrusel */
+        align-items: center; /* Centra verticalmente */
+        justify-content: center; /* Centra horizontalmente */
+        position: relative;
+    }
+
+    .video-container {
+        transition: transform 0.5s ease, width 0.5s ease, height 0.5s ease; /* Animación suave al cambiar tamaño */
+        overflow: hidden; /* Oculta el desbordamiento */
+        border-radius: 10px; /* Bordes redondeados */
+    }
+
+    .video-container video {
+        width: 100%; /* Ancho completo del contenedor */
+        height: 100%; /* Alto completo del contenedor */
+        object-fit: cover; /* Mantiene la relación de aspecto */
+    }
+
+    .small {
+        width: 300px; /* Ancho para videos pequeños */
+        height: 500px; /* Alto para videos pequeños */
+        margin: 0 10px; /* Márgenes laterales */
+    }
+
+    .main {
+        width: 400px; /* Ancho para el video principal */
+        height: 700px; /* Alto para el video principal */
+        margin: 0 20px; /* Márgenes laterales */
+    }
+
+    .navigation {
+        margin-top: 20px; /* Margen superior para la navegación */
+    }
+
+    .arrow {
+        border: none; /* Sin borde */
+        font-size: 24px; /* Tamaño de fuente para el botón */
+        cursor: pointer; /* Cambia el cursor al pasar el ratón */
+        color: white; /* Color del ícono */
+        padding: 10px; /* Relleno */
+        margin: 0 10px; /* Márgenes laterales */
+        border-radius: 50%; /* Bordes redondeados para los botones */
+        outline: none; /* Sin contorno */
+    }
+</style>
+
+<!-- Script para manejar el carrusel -->
+<script>
+    let currentIndex = 2; // Índice del video actualmente visible
+
+    const videos = document.querySelectorAll('.video-container'); // Selecciona todos los contenedores de video
+    const totalVideos = videos.length; // Total de videos en el carrusel
+
+    // Evento para el botón de flecha izquierda
+    document.querySelector('.left-arrow').addEventListener('click', () => {
+        rotateCarousel(-1); // Rota hacia la izquierda
+    });
+
+    // Evento para el botón de flecha derecha
+    document.querySelector('.right-arrow').addEventListener('click', () => {
+        rotateCarousel(1); // Rota hacia la derecha
+    });
+
+    // Función para rotar el carrusel
+    function rotateCarousel(direction) {
+        currentIndex = (currentIndex + direction + totalVideos) % totalVideos; // Calcula el nuevo índice
+
+        videos.forEach((video, index) => {
+            const videoElement = video.querySelector('video'); // Selecciona el elemento de video
+            video.classList.remove('main', 'small'); // Elimina las clases anteriores
+            video.classList.add(index === currentIndex ? 'main' : 'small'); // Añade la clase según el índice
+
+            // Maneja la reproducción de los videos
+            if (index === currentIndex) {
+                videoElement.play(); // Reproduce el video actual
+            } else {
+                videoElement.pause(); // Pausa otros videos
+                videoElement.currentTime = 0; // Reinicia el video para que comience desde el inicio cuando vuelva a ser el principal
+            }
+        });
+    }
+</script>
+
+<br><br><br>
+
+
+
+
+
+
+
+
+
+
+
+<!-- Sección inferior de navegación -->
+<div class="nav-bottom">
+    <!-- Logo de Wasa -->
+    <img id="wasa" src="{{ url_for('static', filename='img/wasa.png') }}" width="50" alt="">
+
+    <!-- Popup de WhatsApp -->
+    <div class="popup-whatsapp fadeIn">
+        <div class="content-whatsapp -top">
+            <!-- Botón de cerrar el popup -->
+            <button type="button" class="closePopup">
+                <i class="material-icons icon-font-color">X</i>
+            </button>
+
+            <!-- Mensaje de bienvenida en el popup -->
+            <p>
+                <img src="../public/img/LOGO_SAUDADE.png" width="50" alt="Logo de Saudade">
+                Hola, ¿En qué podemos ayudarle?
+            </p>
+        </div>
+        <div class="content-whatsapp -bottom">
+            <!-- Campo de entrada de texto para enviar mensajes -->
+            <input class="whats-input" id="whats-in" type="text" placeholder="Enviar mensaje..." />
+            <!-- Botón de enviar -->
+            <button class="send-msPopup" id="send-btn" type="button">
+                <i class="material-icons icon-font-color--black">></i>
+            </button>
+        </div>
     </div>
 
-    <!-- Sección NEW MERCH -->
-    <div class="text-center mb-8">
-        <h2 class="text-4xl font-bold">NEW MERCH</h2>
-        <div class="border-b-2 mb-8"></div>
-    </div>
+    <!-- Botón para abrir el popup de WhatsApp -->
+    <button type="button" id="whats-openPopup" class="whatsapp-button">
+        <div class="float">
+            <i class="fa fa-whatsapp my-float"></i>
+        </div>
+    </button>
 
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-8 shadow-lg">
-        <div class="relative">
-            <img src="../public/img/pant.jpg" alt="Product 1" class="w-full">
-            <p class="text-center mt-4">Jeans Baggy Para Hombre Azul</p>
-            <p class="text-center font-bold">$160.000,00</p>
+    <!-- Animación circular (puede estar vacía para efectos de diseño) -->
+    <div class="circle-anime"></div>
+</div>
+
+<!-- Imagen de fondo -->
+<img class="nort" src="../public/img/nort.jpg" alt="">
+
+<!-- Estilo para la imagen de fondo -->
+<style>
+    .nort {
+        width: 100%; /* Ocupa el 100% del ancho del contenedor */
+        height: auto; /* Mantiene la proporción de la imagen */
+        max-height: 64vh; /* Limita la altura máxima */
+        object-fit: cover; /* Asegura que la imagen cubra el área sin distorsión */
+        opacity: 0.8; /* Transparencia */
+    }
+</style>
+
+<!-- Separador con texto en el medio -->
+<div class="flex items-center justify-center my-8">
+    <hr class="flex-grow border-t border-gray-300"> <!-- Línea horizontal -->
+    <span class="mx-4 text-gray-700 text-xl font-semibold">LO MEJOR LO ENCUENTRAS EN SAUDADE</span> <!-- Texto central -->
+    <hr class="flex-grow border-t border-gray-300"> <!-- Línea horizontal -->
+</div>
+
+<!-- Contenedor de productos -->
+<div class="container mx-auto p-4">
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+        <!-- Item 1: Camisetas -->
+        <a href="https://example.com/item1" class="relative zoom block overflow-hidden">
+            <img src="../public/img/camiseta.jpg" alt="Camisetas" class="w-full h-auto max-h-[70vh] object-cover">
+            <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
+                <span class="text-white text-xl font-bold">CAMISETAS</span>
+            </div>
+        </a>
+        <!-- Item 2: Básicas -->
+        <a href="../Static/img/basica.jpg" class="relative zoom block overflow-hidden">
+            <img src="../public/img/basica.jpg" alt="Básicas" class="w-full h-auto max-h-[70vh] object-cover">
+            <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
+                <span class="text-white text-xl font-bold">BÁSICAS</span>
+            </div>
+        </a>
+        <!-- Item 3: Hoodies -->
+        <a href="https://example.com/item3" class="relative zoom block overflow-hidden">
+            <img src="../public/img/hoddie.jpg" alt="Hoodies" class="w-full h-auto max-h-[70vh] object-cover">
+            <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
+                <span class="text-white text-xl font-bold">HOODIES</span>
+            </div>
+        </a>
+        <!-- Item 4: Bermudas -->
+        <a href="https://example.com/item4" class="relative zoom block overflow-hidden">
+            <img src="../public/img/pant.jpg" alt="Bermudas" class="w-full h-auto max-h-[70vh] object-cover">
+            <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
+                <span class="text-white text-xl font-bold">BERMUDAS</span>
+            </div>
+        </a>
+        <!-- Item 5: Gorros -->
+        <a href="https://example.com/item5" class="relative zoom block overflow-hidden">
+            <img src="../public/img/sombrero.jpg" alt="Gorros" class="w-full h-auto max-h-[70vh] object-cover">
+            <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
+                <span class="text-white text-xl font-bold">GORROS</span>
+            </div>
+        </a>
+        <!-- Item 6: Pantalones -->
+        <a href="https://example.com/item6" class="relative zoom block overflow-hidden">
+            <img src="../public/img/pantalon.jpg" alt="Pantalones" class="w-full h-auto max-h-[70vh] object-cover">
+            <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
+                <span class="text-white text-xl font-bold">PANTALON</span>
+            </div>
+        </a>
+    </div>
+</div>
+
+<!-- Efecto de zoom al pasar el mouse -->
+<style>
+    .zoom:hover img {
+        transform: scale(1.1); /* Aumenta el tamaño de la imagen */
+        transition: transform 0.5s ease; /* Animación suave */
+    }
+</style>
+
+<!-- Título para la sección de suscripción -->
+<div class="text-center mb-8">
+    <h2 class="text-4xl font-bold">MANTENTE AL TANTO DE SAUDADE</h2>
+    <div class="border-b-2 mb-8"></div> <!-- Línea de separación -->
+</div>
+
+<!-- Contenedor del formulario de suscripción -->
+<div class="flex justify-center items-center py-8">
+    <div class="bg-white shadow-lg rounded-lg max-w-3xl w-full p-4 flex">
+        <!-- Imagen del anuncio -->
+        <div class="w-1/2">
+            <img src="../public/img/grupo.jpg" alt="Imagen del anuncio" class="w-full h-auto rounded-lg">
         </div>
-        <div class="relative">
-            <img src="../public/img/basica.jpg" alt="Product 2" class="w-full">
-            <p class="text-center mt-4">Camisa Para Hombre Oversize Crudo Calavera</p>
-            <p class="text-center font-bold">$125.000,00</p>
-        </div>
-        <div class="relative">
-            <img src="../public/img/pantalon.jpg" alt="Product 3" class="w-full">
-            <p class="text-center mt-4">Jeans Baggy Para Hombre Negro</p>
-            <p class="text-center font-bold">$130.000,00</p>
-        </div>
-        <div class="relative">
-            <img src="../public/img/camiseta.jpg" alt="Product 4" class="w-full">
-            <p class="text-center mt-4">Jogger Para Hombre Cargo Negro - Bota Ajustable</p>
-            <p class="text-center font-bold">$155.000,00</p>
+
+        <!-- Contenido del anuncio -->
+        <div class="w-1/2 pl-4">
+            <!-- Botón de cerrar -->
+            <button id="close-button" class="absolute top-2 right-2 text-gray-500">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+            
+            <!-- Título del anuncio -->
+            <h2 class="text-xl font-bold mb-2">PARCHESE CON SAUDADE</h2>
+            <p class="text-xs mb-2">Te mantendremos al tanto de próximos drops!</p>
+
+            <!-- Formulario de suscripción -->
+            <form id="subscription-form" class="space-y-2">
+                <div>
+                    <label for="email" class="sr-only">Email</label>
+                    <input type="email" id="email" name="email" class="w-full px-2 py-1 border border-red-500 rounded-md focus:outline-none focus:border-black" placeholder="Email" required>
+                    <span id="error-message" class="text-red-500 text-xs"></span>
+                </div>
+
+                <!-- Botón para enviar la suscripción -->
+                <button type="submit" class="w-full bg-black text-white py-1 rounded-md hover:bg-gray-800 transition">
+                    DE UNA
+                </button>
+            </form>
+
+            <!-- Mensaje de éxito o error -->
+            <p id="status-message" class="text-xs mt-2"></p>
         </div>
     </div>
 </div>
 
+<!-- Script para manejar el envío del formulario -->
+<script>
+    // Escucha el evento de envío del formulario
+    document.getElementById('subscription-form').addEventListener('submit', function(event) {
+        event.preventDefault(); // Previene el comportamiento predeterminado de envío
 
-            
-        </div>
-    </div><br>
+        const email = document.getElementById('email').value; // Captura el valor del campo de email
+        const errorMessage = document.getElementById('error-message'); // Captura el elemento de mensaje de error
+        const statusMessage = document.getElementById('status-message'); // Captura el elemento de estado
 
-    <img src="../public/img/parchese.png" alt="" class="mx-auto max-w-full h-auto" style="position: relative; top: 40px;">
+        // Limpia mensajes anteriores
+        errorMessage.textContent = '';
+        statusMessage.textContent = '';
 
-
-    <img id="estrella1" src="../static/img/estrella.png" alt="">
-    <img id="estrella1" src="../static/img/estrella.png" alt="">
-    <img id="estrella2" src="../static/img/estrella.png" alt="">
-    <img id="estrella2" src="../static/img/estrella.png" alt="">
-    <img id="estrella3" src="../static/img/estrella.png" alt="">
-    <img id="estrella3" src="../static/img/estrella.png" alt="">
-    <br><br><br><br>
-    </div>
-    <!-- Cierre del div con clase max-w-screen-lg -->
-    <!-- Cierre del div con clase relative flex min-h-screen -->
-
-
-    <div class="carousel-container ">
-        <div class="carousel">
-            <div class="video-container small">
-                <video src="../public/img/video/video1.mp4" muted></video>
-            </div>
-            <div class="video-container small">
-                <video src="../public/img/video/video5.mp4" muted></video>
-            </div>
-            <div class="video-container main">
-                <video src="../public/img/video/video2.mp4" autoplay muted loop></video>
-            </div>
-            <div class="video-container small">
-                <video src="../public/img/video/video3.mp4" muted></video>
-            </div>
-            <div class="video-container small">
-                <video src="../public/img/video/video4.mp4" muted></video>
-            </div>
-        </div>
-        <div class="navigation">
-            <button class="arrow left-arrow"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M14 17l-5-5 5-5v10z" fill="black" />
-                </svg></button>
-            <button class="arrow right-arrow"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M10 17l5-5-5-5v10z" fill="black" />
-                </svg></button>
-        </div>
-    </div>
-
-    <style>
-        .sloganlogo{
-            height: 100px; /* Ajusta el tamaño del logo */
-            display: block;
-            margin: 0 auto; /* Centra el logo horizontalmente */
-        }
-        .slogan{
-            font-size: 2rem;
-            font-weight: 700;
-            margin: 15px 0;
-            color: #111;
-
-        }
-        .slogan2{
-            font-size: 1.2rem;
-            color: #555;
-            margin-bottom: 40px;
-        }
-        .sloganbtn {
-            background-color: #111;
-            color: #fff;
-            padding: 15px 30px;
-            text-decoration: none;
-            border-radius: 25px;
-            font-size: 1rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            display: inline-block;
-            margin-bottom: 50px;
-            transition: background-color 0.3s ease;
+        // Valida el email ingresado
+        if (!email) {
+            errorMessage.textContent = 'El email es requerido';
+            return;
         }
 
-        .sloganbtn:hover {
-            background-color: #333; /* Cambia el color al pasar el ratón */
-        }
-        .carousel-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra */
-
-
+        if (!validateEmail(email)) {
+            errorMessage.textContent = 'El email ingresado no es válido';
+            return;
         }
 
-        .carousel {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-        }
-
-        .video-container {
-            transition: transform 0.5s ease, width 0.5s ease, height 0.5s ease;
-            overflow: hidden;
-            border-radius: 10px;
-        }
-
-        .video-container video {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .small {
-            width: 300px;
-            height: 500px;
-            margin: 0 10px;
-        }
-
-        .main {
-            width: 400px;
-            height: 700px;
-            margin: 0 20px;
-        }
-
-        .navigation {
-            margin-top: 20px;
-        }
-
-        .arrow {
-
-            border: none;
-            font-size: 24px;
-            cursor: pointer;
-            color: white;
-            padding: 10px;
-            margin: 0 10px;
-            border-radius: 50%;
-            outline: none;
-        }
-    </style>
-
-    <script>
-        let currentIndex = 2;
-
-        const videos = document.querySelectorAll('.video-container');
-        const totalVideos = videos.length;
-
-        document.querySelector('.left-arrow').addEventListener('click', () => {
-            rotateCarousel(-1);
-        });
-
-        document.querySelector('.right-arrow').addEventListener('click', () => {
-            rotateCarousel(1);
-        });
-
-        function rotateCarousel(direction) {
-            currentIndex = (currentIndex + direction + totalVideos) % totalVideos;
-
-            videos.forEach((video, index) => {
-                const videoElement = video.querySelector('video');
-                video.classList.remove('main', 'small');
-                video.classList.add(index === currentIndex ? 'main' : 'small');
-
-                if (index === currentIndex) {
-                    videoElement.play();
-                } else {
-                    videoElement.pause();
-                    videoElement.currentTime = 0; // Reinicia el video para que comience desde el inicio cuando vuelva a ser el principal
-                }
-            });
-        }
-    </script>
-
-
-
-
-    <br><br><br>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <div class="nav-bottom">
-        <img id="wasa" src="{{ url_for('static', filename='img/wasa.png') }}" width="50" alt="">
-        <div class="popup-whatsapp fadeIn">
-
-            <div class="content-whatsapp -top">
-                <button type="button" class="closePopup">
-                    <i class="material-icons icon-font-color">X</i>
-                </button>
-
-                <p> <img src="../public/img/LOGO_SAUDADE.png" width="50">
-                    Hola, ¿En qué podemos ayudarle?
-                </p>
-
-            </div>
-            <div class="content-whatsapp -bottom">
-                <input class="whats-input" id="whats-in" type="text" Placeholder="Enviar mensaje..." />
-
-                <button class="send-msPopup" id="send-btn" type="button">
-                    <i class="material-icons icon-font-color--black">></i>
-                </button>
-
-            </div>
-        </div>
-
-
-
-
-
-
-        <button type="button" id="whats-openPopup" class="whatsapp-button">
-            <div class="float">
-                <i class="fa fa-whatsapp my-float"></i>
-            </div>
-        </button>
-        <div class="circle-anime">
-
-        </div>
-    </div>
-
-    <img class="nort" src="../public/img/nort.jpg" alt="">
-    <style>
-        .nort {
-            width: 100%;
-            height: auto;
-            max-height: 64vh;
-            object-fit: cover;
-            opacity: 0.8;
-            /* Cambia el valor para ajustar la transparencia */
-
-        }
-    </style>
-
-
-
-
-
-
-
-    <div class="flex items-center justify-center my-8">
-        <hr class="flex-grow border-t border-gray-300">
-        <span class="mx-4 text-gray-700 text-xl font-semibold">LO MEJOR LO ENCUENTRAS EN SAUDADE</span>
-        <hr class="flex-grow border-t border-gray-300">
-    </div>
-
-
-
-
-    <div class="container mx-auto p-4">
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-            <!-- Item 1 -->
-            <a href="https://example.com/item1" class="relative zoom block overflow-hidden">
-                <img src="../public/img/camiseta.jpg" alt="Camisetas" class="w-full h-auto max-h-[70vh] object-cover">
-                <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
-                    <span class="text-white text-xl font-bold">CAMISETAS</span>
-                </div>
-            </a>
-            <!-- Item 2 -->
-            <a href="../Static/img/basica.jpg" class="relative zoom block overflow-hidden">
-                <img src="../public/img/basica.jpg" alt="Básicas" class="w-full h-auto max-h-[70vh] object-cover">
-                <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
-                    <span class="text-white text-xl font-bold">BÁSICAS</span>
-                </div>
-            </a>
-            <!-- Item 3 -->
-            <a href="https://example.com/item3" class="relative zoom block overflow-hidden">
-                <img src="../public/img/hoddie.jpg" alt="Hoodies" class="w-full h-auto max-h-[70vh] object-cover">
-                <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
-                    <span class="text-white text-xl font-bold">HOODIES</span>
-                </div>
-            </a>
-            <!-- Item 4 -->
-            <a href="https://example.com/item4" class="relative zoom block overflow-hidden">
-                <img src="../public/img/pant.jpg" alt="Item 4" class="w-full h-auto max-h-[70vh] object-cover">
-                <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
-                    <span class="text-white text-xl font-bold">BERMUDAS</span>
-                </div>
-            </a>
-            <!-- Item 5 -->
-            <a href="https://example.com/item5" class="relative zoom block overflow-hidden">
-                <img src="../public/img/sombrero.jpg" alt="Item 5" class="w-full h-auto max-h-[70vh] object-cover">
-                <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
-                    <span class="text-white text-xl font-bold">GORROS</span>
-                </div>
-            </a>
-            <!-- Item 6 -->
-            <a href="https://example.com/item6" class="relative zoom block overflow-hidden">
-                <img src="../public/img/pantalon.jpg" alt="Item 6" class="w-full h-auto max-h-[70vh] object-cover">
-                <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
-                    <span class="text-white text-xl font-bold">PANTALON</span>
-                </div>
-            </a>
-        </div>
-    </div>
-    <br><br>
-
-    <style>
-        .zoom:hover img {
-            transform: scale(1.1);
-            transition: transform 0.5s ease;
-        }
-    </style>
-
-<div class="text-center mb-8">
-        <h2 class="text-4xl font-bold">MANTENTE AL TANTO DE SAUDADE</h2>
-        <div class="border-b-2 mb-8"></div>
-    </div>
-
-
-
-<div class="flex justify-center items-center py-8">
-        <div class="bg-white shadow-lg rounded-lg max-w-3xl w-full p-4 flex">
-            <!-- Imagen -->
-            <div class="w-1/2">
-                <img src="../public/img/grupo.jpg" alt="Imagen del anuncio" class="w-full h-auto rounded-lg">
-            </div>
-
-            <!-- Contenido del anuncio -->
-            <div class="w-1/2 pl-4">
-                <!-- Botón de cerrar -->
-                <button id="close-button" class="absolute top-2 right-2 text-gray-500">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-                    </svg>
-                </button>
-                
-                <!-- Texto principal -->
-                <h2 class="text-xl font-bold mb-2">PARCHESE CON SAUDADE</h2>
-                <p class="text-xs mb-2">Te mantendremos al tanto de proximos drops!</p>
-
-                <!-- Formulario -->
-                <form id="subscription-form" class="space-y-2">
-                    <div>
-                        <label for="email" class="sr-only">Email</label>
-                        <input type="email" id="email" name="email" class="w-full px-2 py-1 border border-red-500 rounded-md focus:outline-none focus:border-black" placeholder="Email" required>
-                        <span id="error-message" class="text-red-500 text-xs"></span>
-                    </div>
-
-                    <button type="submit" class="w-full bg-black text-white py-1 rounded-md hover:bg-gray-800 transition">
-                        DE UNA
-                    </button>
-                </form>
-
-                <!-- Mostrar mensaje de éxito o error -->
-                <p id="status-message" class="text-xs mt-2"></p>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        document.getElementById('subscription-form').addEventListener('submit', function(event) {
-            event.preventDefault(); // Evita el envío normal del formulario
-
-            const email = document.getElementById('email').value;
-            const errorMessage = document.getElementById('error-message');
-            const statusMessage = document.getElementById('status-message');
-
-            // Limpia los mensajes anteriores
-            errorMessage.textContent = '';
-            statusMessage.textContent = '';
-
-            if (!email) {
-                errorMessage.textContent = 'El email es requerido';
-                return;
+        // Envía el email usando fetch
+        fetch('../Controller/procces.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded', // Define el tipo de contenido
+            },
+            body: new URLSearchParams({
+                'email': email, // Envía el email
+            }),
+        })
+        .then(response => response.json()) // Procesa la respuesta como JSON
+        .then(data => {
+            // Verifica el estado de la respuesta
+            if (data.status === 'success') {
+                statusMessage.textContent = '¡Gracias por suscribirte!'; // Mensaje de éxito
+                statusMessage.classList.add('text-green-500'); // Clase para texto verde
+            } else {
+                statusMessage.textContent = 'Hubo un error al enviar el correo. Inténtalo de nuevo.'; // Mensaje de error
+                statusMessage.classList.add('text-red-500'); // Clase para texto rojo
             }
-
-            if (!validateEmail(email)) {
-                errorMessage.textContent = 'El email ingresado no es válido';
-                return;
-            }
-
-            // Envía los datos del formulario usando fetch
-            fetch('../Controller/procces.php', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded',
-                },
-                body: new URLSearchParams({
-                    'email': email,
-                }),
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.status === 'success') {
-                    statusMessage.textContent = '¡Gracias por suscribirte!';
-                    statusMessage.classList.add('text-green-500');
-                } else {
-                    statusMessage.textContent = 'Hubo un error al enviar el correo. Inténtalo de nuevo.';
-                    statusMessage.classList.add('text-red-500');
-                }
-            })
-            .catch(error => {
-                statusMessage.textContent = 'Hubo un error al enviar el correo. Inténtalo de nuevo.';
-                statusMessage.classList.add('text-red-500');
-            });
+        })
+        .catch(error => {
+            // Manejo de errores
+            statusMessage.textContent = 'Hubo un error al enviar el correo. Inténtalo de nuevo.';
+            statusMessage.classList.add('text-red-500');
         });
+    });
 
-        function validateEmail(email) {
-            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            return re.test(email);
-        }
-    </script>
-
-
-
-
+    // Función para validar el formato del email
+    function validateEmail(email) {
+        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Expresión regular para validar email
+        return re.test(email); // Devuelve true o false
+    }
+</script>
 
 
 </body>

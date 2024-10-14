@@ -72,4 +72,13 @@
             move_uploaded_file($imageFile["tmp_name"], $target_file);
             return $target_file;
         }
+
+        public function getTallasAvailable() {
+            $this->productModel->getAvailableTallas();
+        }
+
+        public function getTallasProductId($product_id) {
+            $this->productModel->getProductTallas($product_id);
+        }
+
     }
