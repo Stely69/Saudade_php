@@ -6,9 +6,19 @@
     use Controller\LoginControlador;
     use Controller\AdminController;
     use Libreria\Enrutador;
+    use controller\CargaControlador;
 
     // Rutas para la página de inicio
-    Enrutador::get("/", [InicioControlador::class, "inicio"]);
+
+    Enrutador::get(url: "/", llamarFuncion: [CargaControlador::class, "loader"]);
+
+
+
+    //Ruta pagina principal
+
+    Enrutador::get("/Inicio/inicioPage", [InicioControlador::class, "inicio"]); // Ruta de la página de inicio
+
+
 
     // Rutas de Login
     Enrutador::get("/Login/inicio_sesion", [LoginControlador::class, "login"]); // Mostrar formulario de inicio de sesión
