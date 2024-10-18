@@ -24,5 +24,9 @@
         public function editor() {
             $this->cargarVista("Vendedor/editor"); // Carga la vista ubicada en "Vendedor/editor"
         }
+        
+        public function Usuario(){
+            $this->cargarVista("Admin/usuarios");
+        }
     }
 

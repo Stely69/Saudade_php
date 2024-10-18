@@ -77,8 +77,8 @@
             $this->productModel->getAvailableTallas();
         }
 
-        public function getTallasProductId($product_id) {
-            $this->productModel->getProductTallas($product_id);
+        public function getTallasProductId($productId) {
+            $this->productModel->getProductTallas($productId);
         }
 
     }
