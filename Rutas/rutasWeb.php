@@ -6,18 +6,13 @@
     use Controller\LoginControlador;
     use Controller\AdminController;
     use Libreria\Enrutador;
-    use controller\CargaControlador;
+    use Controller\CargaControlador;
 
     // Rutas para la página de inicio
 
     Enrutador::get(url: "/", llamarFuncion: [CargaControlador::class, "loader"]);
 
-
-
-    //Ruta pagina principal
-
-    Enrutador::get("/Inicio/inicioPage", [InicioControlador::class, "inicio"]); // Ruta de la página de inicio
-
+    Enrutador::get(url: "/inicio", llamarFuncion: [InicioControlador::class, "inicio"]); // Página principal
 
 
     // Rutas de Login

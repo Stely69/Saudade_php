@@ -41,7 +41,7 @@
                 <nav>
                     <ul class="flex flex-col md:flex-row md:items-center text-base text-white md:text-black pt-4 md:pt-0">
                         <!-- Enlaces de navegación -->
-                        <li><a class="inline-block no-underline hover:text-[#6F00FF] font-medium text-lg py-2 px-4 lg:-ml-2" href="./">Inicio</a></li>
+                        <li><a class="inline-block no-underline hover:text-[#6F00FF] font-medium text-lg py-2 px-4 lg:-ml-2" href="inicio">Inicio</a></li>
                         <li><a class="inline-block no-underline hover:text-[#6F00FF] font-medium text-lg py-2 px-4 lg:-ml-2" href="QuieneSomos/quienessomos">Quiénes Somos</a></li>
                         <li><a class="inline-block no-underline hover:text-[#6F00FF] font-medium text-lg py-2 px-4 lg:-ml-2" href="Catalogo/catalogo">Catalogo</a></li>
 
@@ -107,6 +107,42 @@
         <source src="../public/img/video/street.mp4" type="video/mp4">
         Tu navegador no soporta la etiqueta de video.
     </video>
+
+    <div class="w-full bg-white py-2 overflow-hidden">
+  <div class="animate-marquee flex space-x-20 whitespace-nowrap">
+    <span class="flex items-center space-x-2">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 2l1.42 4.94m6.06 1.7L19.5 15m-.95 6.48l-5.62-2.07M4.5 15l5.62-2.07M12 22l-1.42-4.94m-6.06-1.7L4.5 9m.95-6.48l5.62 2.07M12 2l-5.62 2.07M2 12h20"></path>
+      </svg>
+      <span>PRENDAS HECHAS PARA LOS AMANTES DEL STREETWEAR</span>
+    </span>
+    <span class="flex items-center space-x-2">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.5 15l-7.5-5 7.5-5m-15 0h1.5v10H4.5M4 4l-2 1.5v13L4 20M15 5v10M12 3l-7 5v4"></path>
+      </svg>
+      <span>PARCHAO</span>
+    </span>
+    <span class="flex items-center space-x-2">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 14v6m-8-2v-6m-6-2v6m6 2v-6"></path>
+      </svg>
+      <span>PRENDAS DE ALTA CALIDAD HECHAS EN COLOMBIA</span>
+    </span>
+  </div>
+</div>
+<style>
+@keyframes marquee {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+.animate-marquee {
+  animation: marquee 15s linear infinite;
+}
+</style>
 
     <!-- Pop-up de bienvenida para el usuario no registrado -->
     <div id="popup" class="fixed z-50 bg-slate-100 opacity-95 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2  shadow-lg font-comic-sans rounded-md p-24 text-center animate-popup drop-shadow-2xl " style="display: none; width: 500px; height: 550px;">
@@ -516,6 +552,36 @@
         transition: transform 0.5s ease; /* Animación suave */
     }
 </style>
+<div class="bg-black text-white py-4 flex justify-center items-center">
+    <p class="text-center">Envios gratis a partir de compras por mas de 100k</p>
+</div>
+
+
+<section class="relative h-screen w-full flex">
+    <!-- Imagen ocupando el 50% de la pantalla -->
+    <div class="w-1/2 h-full">
+        <img src="../public/img/zavat.jpg" alt="New Arrivals" class="h-full w-full object-cover object-center">
+    </div>
+    
+    <!-- Sección de texto en el lado derecho -->
+    <div class="w-1/2 h-full bg-gray-100 flex flex-col justify-center items-start p-16">
+        <h2 class="text-black text-lg uppercase mb-2">NEW ARRIVALS</h2>
+        <p class="text-black text-xl mb-4">drop:2 SS24</p>
+        <p class="text-black text-sm mb-8">FOR ALL MOMENTS</p>
+        
+        <!-- Botón de compra -->
+        <button class="bg-black text-white py-2 px-6 uppercase tracking-wider">Comprar</button>
+    </div>
+</section><br><br>
+
+
+
+
+
+
+
+
+
 
 <!-- Título para la sección de suscripción -->
 <div class="text-center mb-8">
