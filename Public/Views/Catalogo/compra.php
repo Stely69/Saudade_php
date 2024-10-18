@@ -112,7 +112,11 @@ if (isset($_GET['id'])) {
                     <input type="number" id="quantity" class="block w-full border border-gray-300 rounded-md p-2" value="1">
                 </div>
                 <button id="add-to-cart" class="bg-black text-white w-full py-3 mt-5">AGREGAR AL CARRITO</button>
-                <button id="buy-now" class="bg-white border border-black text-black w-full py-3 mt-2">COMPRAR AHORA</button>
+                <a href="https://checkout.bold.co/payment/LNK_HP1U37UZ18" target="_blank">
+  <button id="buy-now" class="bg-white border border-black text-black w-full py-3 mt-2">
+    COMPRAR AHORA
+  </button>
+</a>
                 <button id="whatsapp-button" class="bg-[#70C05D] text-white w-full py-3 mt-2">PAGA POR WHATSAPP</button>
 
 

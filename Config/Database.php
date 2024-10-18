@@ -2,7 +2,7 @@
     // Definición de la clase Database para gestionar la conexión a una base de datos
     class Database {
         // Atributos privados para la configuración de la conexión a la base de datos
-        private $host = "localhost"; // Dirección del servidor de la base de datos (puede ser localhost o una IP)
+        private $host = "127.0.0.1:33065"; // Dirección del servidor de la base de datos (puede ser localhost o una IP)
         private $db_name = "saudade"; // Nombre de la base de datos a la que te conectarás
         private $username = "root"; // Usuario de la base de datos (por defecto 'root' en muchos sistemas locales)
         private $password = ""; // Contraseña para el usuario de la base de datos (en este caso está vacía)
