@@ -35,5 +35,27 @@
             // Se ejecuta la consulta con los valores proporcionados, incluyendo el hash de la contraseña
             return $stmt->execute([$username, $email, password_hash($password, PASSWORD_BCRYPT), $role_id, $direccion_id]);
         }
+
+        // Modelo (UserModel.php)
+        public function getAllUsers() {
+            $query = "SELECT usuarios.id, usuarios.username, usuarios.email, roles.role_name
+                      FROM usuarios
+                      JOIN roles ON usuarios.role_id = roles.id"; // Ajusta según tus tablas y relaciones
+            $stmt = $this->conn->prepare($query);
+            $stmt->execute();
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        }
+        
+
+        // Modelo (UserModel.php)
+        public function updateUserRoleAndDate($userId, $newRoleId, $fechaAsignacion) {
+            $query = "UPDATE users SET role_id = :role_id, fecha_asignacion = :fecha WHERE id = :id";
+            $stmt = $this->conn->prepare($query);
+            $stmt->bindParam(':role_id', $newRoleId);
+            $stmt->bindParam(':fecha', $fechaAsignacion);
+            $stmt->bindParam(':id', $userId);
+            return $stmt->execute();
+        }
+
     }
         

@@ -51,7 +51,7 @@
                         <?php if ($role === 'admin' ): ?>
                             <li><a class="inline-block no-underline font-medium text-black text-lg hover:text-[#6F00FF] px-4" href="Admin/admin">Admin Dashboard</a></li>
                         <?php elseif ($role === 'vendedor'): ?>
-                            <li><a class="inline-block no-underline font-medium text-black text-lg hover:text-[#6F00FF] px-4" href="../Vendedor/editor">Vendedor Dashboard</a></li>
+                            <li><a class="inline-block no-underline font-medium text-black text-lg hover:text-[#6F00FF] px-4" href="../Vendedor/vendedordashboard">Vendedor Dashboard</a></li>
                         <?php endif; ?>
 
                         </ul>

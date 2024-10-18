@@ -31,6 +31,7 @@
 
     // Rutas para el administrador
     Enrutador::get("/Admin/admin", [AdminController::class, "Admin"]); // Panel del administrador
+    Enrutador::get("/Admin/usuarios", [AdminController::class, "Usuario"]);
 
     // Rutas para el vendedor
     Enrutador::get("/Vendedor/editor/", [AdminController::class, "editor"]); // Editor de productos para vendedores

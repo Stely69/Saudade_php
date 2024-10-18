@@ -7,9 +7,10 @@
         $productController = new ProductController();// Instanciar el controlador de productos
         $producto = $productController->getProductById($productId); // Obtener los datos del producto por su ID
         $availableTallas = $productController->getTallasAvailable();
-        $productTallas = $productController->getTallasProductId($product_id);
+        $productTallas = $productController->getTallasProductId($productId);
     }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -54,7 +55,7 @@
                             <?php if ($role === 'admin' ): ?>
                                 <li><a class="inline-block no-underline font-medium text-black text-lg hover:text-[#6F00FF] px-4" href="Admin/admin">Admin Dashboard</a></li>
                             <?php elseif ($role === 'vendedor'): ?>
-                                <li><a class="inline-block no-underline font-medium text-black text-lg hover:text-[#6F00FF] px-4" href="../Vendedor/editor">Vendedor Dashboard</a></li>
+                                <li><a class="inline-block no-underline font-medium text-black text-lg hover:text-[#6F00FF] px-4" href="../Vendedor/vendedordashboard">Vendedor Dashboard</a></li>
                             <?php endif; ?>
 
                             </ul>
@@ -79,61 +80,69 @@
                 </div>
     </nav>
 
-<form action="/ProductController/updateProduct" method="POST" enctype="multipart/form-data">
-    <!-- Producto ID -->
-    <Span><?php echo $product['id']; ?></Span>
+<div class="flex justify-center items-center min-h-screen bg-gray-100">
+    <div class="bg-white shadow-md rounded-lg p-8 w-full max-w-lg">
+        <h2 class="text-2xl font-bold text-gray-800 mb-6 text-center">Editar Producto</h2>
 
-    <!-- Nombre del producto -->
-    <div class="mb-4">
-        <label for="name_producto" class="block text-gray-700 font-bold mb-2">Nombre del producto:</label>
-        <input type="text" id="name_producto" name="name_producto" value="<?= $product['nombre'] ?>" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
-    </div>
+        <form action="../ProductController/updateProduct" method="POST" enctype="multipart/form-data">
+            <!-- Producto ID -->
+            <div class="mb-4 text-center">
+                <span class="text-gray-600 font-semibold">ID: <?php echo $producto['id']; ?></span>
+            </div>
 
-    <!-- Descripción del producto -->
-    <div class="mb-4">
-        <label for="descripcion" class="block text-gray-700 font-bold mb-2">Descripción:</label>
-        <textarea id="descripcion" name="descripcion" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required><?= $product['descripcion'] ?></textarea>
-    </div>
+            <!-- Nombre del producto -->
+            <div class="mb-4">
+                <label for="name_producto" class="block text-gray-700 font-bold mb-2">Nombre del producto:</label>
+                <input type="text" id="name_producto" name="name_producto" value="<?= $producto['nombre'] ?>" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
+            </div>
 
-    <!-- Precio -->
-    <div class="mb-4">
-        <label for="precio" class="block text-gray-700 font-bold mb-2">Precio:</label>
-        <input type="number" id="precio" name="precio" step="0.01" value="<?= $product['precio'] ?>" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
-    </div>
+            <!-- Descripción del producto -->
+            <div class="mb-4">
+                <label for="descripcion" class="block text-gray-700 font-bold mb-2">Descripción:</label>
+                <textarea id="descripcion" name="descripcion" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required><?= $producto['descripcion'] ?></textarea>
+            </div>
 
-    <!-- Cantidad -->
-    <div class="mb-4">
-        <label for="cantidad" class="block text-gray-700 font-bold mb-2">Cantidad:</label>
-        <input type="number" id="cantidad" name="cantidad" value="<?= $product['cantidad'] ?>" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
-    </div>
+            <!-- Precio -->
+            <div class="mb-4">
+                <label for="precio" class="block text-gray-700 font-bold mb-2">Precio:</label>
+                <input type="number" id="precio" name="precio" step="0.01" value="<?= $producto['precio'] ?>" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
+            </div>
 
-    <!-- Imagen -->
-    <div class="mb-4">
-        <label for="imagen" class="block text-gray-700 font-bold mb-2">Cambiar imagen (opcional):</label>
-        <input type="file" id="imagen" name="imagen" accept="image/*" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
-        <img src="<?= $product['imagen'] ?>" alt="<?= $product['nombre'] ?>" class="mt-4 w-48 h-48 object-cover">
-    </div>
+            <!-- Cantidad -->
+            <div class="mb-4">
+                <label for="cantidad" class="block text-gray-700 font-bold mb-2">Cantidad:</label>
+                <input type="number" id="cantidad" name="cantidad" value="<?= $producto['cantidad'] ?>" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
+            </div>
 
-    <!-- Tallas disponibles -->
-    <div class="mb-4">
-        <label for="tallas" class="block text-gray-700 font-bold mb-2">Tallas Disponibles:</label>
-        <select id="tallas" name="tallas[]" multiple required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
-            <?php foreach ($availableTallas as $talla): ?>
-                <option value="<?= $talla['id'] ?>" <?= in_array($talla['id'], $productTallas) ? 'selected' : '' ?>><?= $talla['talla'] ?></option>
-            <?php endforeach; ?>
-        </select>
-    </div>
+            <!-- Imagen -->
+            <div class="mb-4">
+                <label for="imagen" class="block text-gray-700 font-bold mb-2">Cambiar imagen (opcional):</label>
+                <input type="file" id="imagen" name="imagen" accept="image/*" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                <img src="../<?= $producto['imagen'] ?>" alt="<?= $producto['nombre'] ?>" class="mt-4 w-48 h-48 object-cover mx-auto">
+            </div>
 
-    <!-- Botones de acción -->
-    <div class="flex items-center justify-between">
-        <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
-            Guardar cambios
-        </button>
-        <a href="/productos" class="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800">
-            Cancelar
-        </a>
+            <!-- Tallas disponibles -->
+            <div class="mb-4">
+                <label for="tallas" class="block text-white font-bold mb-2">Tallas Disponibles:</label>
+                <select id="tallas" name="tallas[]" multiple required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                <?php foreach ($availableTallas as $talla): ?>
+                    <option value="<?= $talla['id'] ?>" <?= in_array($talla['id'], $productTallas) ? 'selected' : '' ?>><?= $talla['talla'] ?></option>
+                <?php endforeach; ?>
+                </select>
+            </div>
+
+            <!-- Botones de acción -->
+            <div class="flex items-center justify-between">
+                <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                    Guardar cambios
+                </button>
+                <a href="Vendedordashboard" class="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800">
+                    Cancelar
+                </a>
+            </div>
+        </form>
     </div>
-</form>
+</div>
 
 
 </body>
