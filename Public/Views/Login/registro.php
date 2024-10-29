@@ -27,7 +27,7 @@
             <div class="hidden md:flex md:items-center md:w-auto w-full order-3 md:order-1" id="menu">
                 <nav>
                     <ul class="md:flex items-center justify-between text-base text-black pt-4 md:pt-0">
-                        <li><a class="inline-block no-underline hover:text-[#6F00FF] font-medium text-lg py-2 px-4 lg:-ml-2" href="../../Public/inicio">Inicio</a></li>
+                        <li><a class="inline-block no-underline hover:text-[#6F00FF] font-medium text-lg py-2 px-4 lg:-ml-2" href="../../Public/">Inicio</a></li>
                         <li><a class="inline-block no-underline hover:text-[#6F00FF] font-medium text-lg py-2 px-4 lg:-ml-2" href="../QuieneSomos/quienessomos">Quiénes Somos</a></li>
                         <li><a class="inline-block no-underline hover:text-[#9333ea] font-medium text-lg py-2 px-4 lg:-ml-2" href="../Catalogo/catalogo">Catalogo</a></li>
                     </ul>
@@ -76,7 +76,7 @@
 
             <?php if(isset($_GET['error'])): ?>
                 <!-- Muestra un mensaje de error si existe -->
-                <p class="text-red-500 font-bold"> <?php echo $_GET['error']; ?></p>
+                <p class="text-red-500 font-bold"><?php echo $_GET['error']; ?></p>
             <?php endif; ?>
     
             <div class="mb-3">

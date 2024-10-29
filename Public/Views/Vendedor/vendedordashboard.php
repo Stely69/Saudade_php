@@ -14,6 +14,7 @@
         require_once '../Controller/ProductController.php';
         checkRole('vendedor');
         $producto = new ProductController();
+        $getproducto = $producto->getProductAll();
     ?>
 
     <nav id="header" class="barra">
@@ -51,7 +52,7 @@
                         <?php if ($role === 'admin' ): ?>
                             <li><a class="inline-block no-underline font-medium text-black text-lg hover:text-[#6F00FF] px-4" href="Admin/admin">Admin Dashboard</a></li>
                         <?php elseif ($role === 'vendedor'): ?>
-                            <li><a class="inline-block no-underline font-medium text-black text-lg hover:text-[#6F00FF] px-4" href="../Vendedor/vendedordashboard">Vendedor Dashboard</a></li>
+                            <li><a class="inline-block no-underline font-medium text-black text-lg hover:text-[#6F00FF] px-4" href="../Vendedor/editor">Vendedor Dashboard</a></li>
                         <?php endif; ?>
 
                         </ul>
@@ -207,37 +208,64 @@
             <?php endif; ?>
 </div>
 
-<div id="productos" class="grid grid-cols-1 md:grid-cols-3 gap-5 bg-white md:pl-80 pt-20 md:px-40">
+
     <!-- Productos existentes y dinámicos -->
-   
+<div id="productos" class="grid grid-cols-1 md:grid-cols-3 gap-5 bg-white md:pl-80 pt-20 md:px-40">
+    <?php foreach ($getproducto as $productos): ?>
+        <div class="bg-white p-4 border rounded-lg shadow-lg">
+            <!-- Imagen del producto -->
+            <img src="../../uploads/<?= $productos['imagen']; ?>" alt="Imagen del producto" class="w-full h-60 object-cover mb-4 rounded-lg">
+            
+            <!-- Nombre del producto -->
+            <h3 class="text-xl font-semibold"><?= htmlspecialchars($productos['nombre']); ?></h3>
+            
+            <!-- Descripción -->
+            <p class="text-gray-600"><?= htmlspecialchars($productos['descripcion']); ?></p>
+            
+            <!-- Precio -->
+            <p class="text-lg font-bold">$<?= htmlspecialchars($productos['precio']); ?></p>
+            
+            <!-- Cantidad -->
+            <p class="text-gray-500">Cantidad: <?= htmlspecialchars($productos['cantidad']); ?></p>
+            
+            <!-- Botones de acción -->
+            <div class="flex space-x-5 mt-4">
+                <button class="bg-blue-500 text-white px-4 py-2 rounded editar" data-id="<?= $productos['id']; ?>">Editar</button>
+                <button class="bg-red-500 text-white px-4 py-2 rounded eliminar" data-id="<?= $productos['id']; ?>">Eliminar</button>
+            </div>
+        </div>
+    <?php endforeach; ?>
 </div>
+
+   
+
 
 <!-- Modal para editar producto -->
 <div id="editModal" class="hidden fixed inset-0 bg-gray-900 bg-opacity-50 flex items-center justify-center">
     <div class="bg-white p-6 rounded-lg shadow-lg w-full max-w-md">
         <h2 class="text-2xl font-semibold mb-4">Editar Producto</h2>
         
-        <form id="editForm">
+        <form id="editForm" action="EditorAction?id=<?php echo $productos['id']; ?>" method="post" >
             <input type="hidden" id="editProductoId" name="productoId">
             
             <div class="mb-4">
                 <label for="editNombre" class="block text-gray-700">Nombre del producto</label>
-                <input type="text" id="editNombre" name="nombre" class="w-full p-2 border rounded">
+                <input type="text" id="editNombre" name="nombre" value="<?= htmlspecialchars($productos['nombre']); ?>" class="w-full p-2 border rounded">
             </div>
 
             <div class="mb-4">
                 <label for="editDescripcion" class="block text-gray-700">Descripción</label>
-                <textarea id="editDescripcion" name="descripcion" class="w-full p-2 border rounded"></textarea>
+                <textarea id="editDescripcion" class="w-full p-2 border rounded" name="descripcion" > </textarea>
             </div>
 
             <div class="mb-4">
                 <label for="editPrecio" class="block text-gray-700">Precio</label>
-                <input type="number" id="editPrecio" name="precio" class="w-full p-2 border rounded">
+                <input type="number" id="editPrecio"  name="precio" class="w-full p-2 border rounded">
             </div>
 
             <div class="mb-4">
                 <label for="editCantidad" class="block text-gray-700">Cantidad</label>
-                <input type="number" id="editCantidad" name="cantidad" class="w-full p-2 border rounded">
+                <input type="number" id="editCantidad"  value="<?= htmlspecialchars($productos['cantidad']); ?>" name="cantidad" class="w-full p-2 border rounded">
             </div>
 
             <div class="flex justify-end">
@@ -256,11 +284,71 @@
 
         <div class="flex justify-end">
             <button type="button" id="closeDeleteModal" class="bg-gray-500 text-white px-4 py-2 rounded mr-2">Cancelar</button>
-            <button type="button" id="confirmDelete" class="bg-red-500 text-white px-4 py-2 rounded">Eliminar</button>
+            <a href="EliminarAction?id=<?php echo $productos['id']; ?>" class="bg-red-500 text-white px-4 py-2 rounded">Eliminar</a>
         </div>
     </div>
 </div>
 
+<script>
+// Obtener modales y botones del DOM
+const editModal = document.getElementById('editModal');
+const deleteModal = document.getElementById('deleteModal');
+
+// Botones para cerrar los modales
+const closeEditModalButton = document.getElementById('closeEditModal');
+const closeDeleteModalButton = document.getElementById('closeDeleteModal');
+
+// Botón de confirmación de eliminación
+const confirmDeleteButton = document.getElementById('confirmDelete');
+
+// Abrir el modal de edición
+document.querySelectorAll('.editar').forEach(button => {
+    button.addEventListener('click', event => {
+        const productoId = event.target.getAttribute('data-id');
+        const nombre = event.target.getAttribute('data-nombre');
+        const descripcion = event.target.getAttribute('data-descripcion');
+        const precio = event.target.getAttribute('data-precio');
+        const cantidad = event.target.getAttribute('data-cantidad');
+
+        // Rellenar los campos del modal con los datos del producto
+        document.getElementById('editProductoId').value = productoId;
+        document.getElementById('editNombre').value = nombre;
+        document.getElementById('editDescripcion').value = descripcion;
+        document.getElementById('editPrecio').value = precio;
+        document.getElementById('editCantidad').value = cantidad;
+
+        editModal.classList.remove('hidden');
+    });
+});
+
+// Abrir el modal de eliminación
+document.querySelectorAll('.eliminar').forEach(button => {
+    button.addEventListener('click', event => {
+        const productoId = event.target.getAttribute('data-id');
+        const productoName = event.target.getAttribute('data-nombre');
+
+        // Mostrar el nombre del producto en el modal de eliminación
+        document.getElementById('deleteProductoName').textContent = productoName;
+        deleteModal.classList.remove('hidden');
+
+        // Configurar confirmación de eliminación
+        confirmDeleteButton.onclick = () => {
+            // Aquí harías una solicitud para eliminar el producto
+            deleteModal.classList.add('hidden'); // Cerrar el modal después de eliminar
+        };
+    });
+});
+
+// Cerrar los modales
+closeEditModalButton.addEventListener('click', () => {
+    editModal.classList.add('hidden');
+});
+
+closeDeleteModalButton.addEventListener('click', () => {
+    deleteModal.classList.add('hidden');
+});
+
+</script>
 
 <script>
 
@@ -284,9 +372,6 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 </script>
-
-
-
 
 <script>
     function showAlert(type, message) {
@@ -320,7 +405,6 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 </script>
-<script src="../../Public/js/apieditor.js"></script>
-<!---->
+
 </body>
 </html>

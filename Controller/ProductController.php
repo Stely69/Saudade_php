@@ -20,14 +20,14 @@
         
             if (move_uploaded_file($tmpImagen, $rutaImagen)) {
                 if ($this->productModel->createProductWithTallas($name, $descripcion, $precio, $cantidad, $rutaImagen, $tallas)) {
-                    header('Location: ../Vendedor/editor?error=Hubo problemas para agregar el producto');
+                    header('Location: ../Vendedor/vendedordashboard?error=Hubo problemas para agregar el producto');
                     exit();
                 } else {
-                    header('Location: ../Vendedor/editor?exito=Se agrego con exito');
+                    header('Location: ../Vendedor/vendedordashboard?exito=Se agrego con exito');
                     exit();
                 }
             } else {
-                header('Location: ../Vendedor/editor?error=Error al subir la imagen');
+                header('Location: ../Vendedor/vendedordashboard?error=Error al subir la imagen');
                 exit();
             }
         }
@@ -40,45 +40,40 @@
             return $this->productModel->getProductById($id);
         }
         
-        public function updateProduct() {
-            // Obtener los datos del formulario
-            $producto_id = $_POST['producto_id'];
-            $nombre = $_POST['name_producto'];
-            $descripcion = $_POST['descripcion'];
-            $precio = $_POST['precio'];
-            $cantidad = $_POST['cantidad'];
-            $tallas = $_POST['tallas'];
-        
-            // Imagen (si fue subida una nueva)
-            if (!empty($_FILES['imagen']['name'])) {
-                $imagen = $this->uploadImage($_FILES['imagen']);
-            } else {
-                // Si no se subió una imagen, usar la actual
-                $producto = $this->getProductById($producto_id);
-                $imagen = $producto['imagen'];
-            }
+        public function updateProduct($producto_id, $nombre, $descripcion, $precio, $cantidad ) {
         
             // Actualizar el producto en la base de datos
-            $this->productModel->updateProduct($producto_id, $nombre, $descripcion, $precio, $cantidad, $imagen, $tallas);
-        
+            if($this->productModel->updateProduct($producto_id, $nombre, $descripcion, $precio, $cantidad,)){
+                header('Location: ../Vendedor/vendedordashboard?error=Hubo Problemas al Actualizar Correctamente');
+                exit();
+            }else{
+                header('Location: ../Vendedor/vendedordashboard?exito=Se Actualizo Correctamente');
+                exit();
+            }
             // Redirigir a la lista de productos
-            header('Location: /productos');
+           
         }
         
-        private function uploadImage($imageFile) {
-            // Lógica para subir la imagen
-            $target_dir = "uploads/";
-            $target_file = $target_dir . basename($imageFile["name"]);
-            move_uploaded_file($imageFile["tmp_name"], $target_file);
-            return $target_file;
+        public function getProductos(){
+            $producto = $this->productModel->getAllProducts();
+
+            if ($producto){
+                echo json_encode($producto);
+            }else{
+                echo json_encode([]);
+            }
+
         }
 
-        public function getTallasAvailable() {
-            $this->productModel->getAvailableTallas();
-        }
+        public function deleteProduct($productID) {
+            if($this->productModel->deleteProduct($productID)){
+                header('Location: ../Vendedor/vendedordashboard?error=Hubo Problemas al Eliminar');
+                exit();
+            }else {
+                header('Location: ../Vendedor/vendedordashboard?exito=Se Elimino Correctamente');
+                exit();
+            }
 
-        public function getTallasProductId($productId) {
-            $this->productModel->getProductTallas($productId);
         }
 
     }

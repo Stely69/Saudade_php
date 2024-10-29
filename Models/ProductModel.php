@@ -62,35 +62,16 @@
         }
 
         // Método para actualizar un producto y sus tallas
-        public function updateProduct($id, $nombre, $descripcion, $precio, $cantidad, $imagen, $tallas) {
-            // Consulta para actualizar los datos del producto
-            $query = "UPDATE productos SET nombre = :nombre, descripcion = :descripcion, precio = :precio, cantidad = :cantidad, imagen = :imagen WHERE id = :id";
-            $stmt = $this->conn->prepare($query); // Se prepara la consulta
-
-            // Se vinculan los valores con los parámetros
+        public function updateProduct($Id, $nombre, $descripcion, $precio, $cantidad) {
+            $query = "UPDATE productos SET nombre = :nombre, descripcion = :descripcion, precio = :precio, cantidad = :cantidad WHERE id = :productId";
+            $stmt = $this->conn->prepare($query);
             $stmt->bindParam(':nombre', $nombre);
             $stmt->bindParam(':descripcion', $descripcion);
             $stmt->bindParam(':precio', $precio);
             $stmt->bindParam(':cantidad', $cantidad);
-            $stmt->bindParam(':imagen', $imagen);
-            $stmt->bindParam(':id', $id);
-            $stmt->execute(); // Se ejecuta la actualización
-        
-            // Primero se eliminan las tallas existentes del producto
-            $queryDelete = "DELETE FROM producto_tallas WHERE producto_id = :producto_id";
-            $stmtDelete = $this->conn->prepare($queryDelete); // Se prepara la consulta de eliminación
-            $stmtDelete->bindParam(':producto_id', $id); // Se vincula el ID del producto
-            $stmtDelete->execute(); // Se ejecuta la eliminación
-        
-            // Después, se insertan las nuevas tallas proporcionadas
-            foreach ($tallas as $talla_id) {
-                // Consulta para insertar en la tabla de relación 'producto_tallas'
-                $queryInsert = "INSERT INTO producto_tallas (producto_id, talla_id) VALUES (:producto_id, :talla_id)";
-                $stmtInsert = $this->conn->prepare($queryInsert); // Se prepara la consulta de inserción
-                $stmtInsert->bindParam(':producto_id', $id); // Se vincula el ID del producto
-                $stmtInsert->bindParam(':talla_id', $talla_id); // Se vincula el ID de la talla
-                $stmtInsert->execute(); // Se ejecuta la inserción
-            }
+            $stmt->bindParam(':productId', $Id, PDO::PARAM_INT);
+            $stmt->execute();
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
         }
         public function getAvailableTallas() {
             $query = "SELECT * FROM tallas"; // Ajusta la consulta si es necesario
@@ -107,5 +88,19 @@
             $stmt->execute();
             return $stmt->fetchAll(PDO::FETCH_COLUMN); // Retorna solo los IDs de las tallas
         }
+
+        public function deleteProduct($productId) {
+                $queryDeleteRelations = "DELETE FROM producto_tallas WHERE producto_id = :productId";
+                $stmtRelations = $this->conn->prepare($queryDeleteRelations);
+                $stmtRelations->bindParam(':productId', $productId, PDO::PARAM_INT);
+                $stmtRelations->execute();
+
+                $queryDeleteProduct = "DELETE FROM productos WHERE id = :productId";
+                $stmtProduct = $this->conn->prepare($queryDeleteProduct);
+                $stmtProduct->bindParam(':productId', $productId, PDO::PARAM_INT);
+                $stmtProduct->execute();
+            
+        }
+
     }
 

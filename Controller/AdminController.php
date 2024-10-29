@@ -21,12 +21,12 @@
         }
 
         // Método para cargar una vista del editor del vendedor
-        public function editor() {
-            $this->cargarVista("Vendedor/editor"); // Carga la vista ubicada en "Vendedor/editor"
+        public function eliminar() {
+            $this->cargarVista("Vendedor/EliminarAction"); // Carga la vista ubicada en "Vendedor/editor"
         }
-        
-        public function Usuario(){
-            $this->cargarVista("Admin/usuarios");
+
+        public function editor() {
+            $this->cargarVista("Vendedor/EditorAction"); // Carga la vista ubicada en "Vendedor/editor"
         }
     }
 

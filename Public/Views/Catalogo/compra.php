@@ -50,7 +50,7 @@ if (isset($_GET['id'])) {
         <div class="hidden md:flex md:items-center md:w-auto w-full order-3 md:order-1" id="menu">
             <nav>
                 <ul class="md:flex items-center justify-between text-base text-black pt-4 md:pt-0">
-                    <li><a class="inline-block no-underline hover:text-[#6F00FF] font-medium text-lg py-2 px-4 lg:-ml-2" href="../../Public/inicio">Inicio</a></li>
+                    <li><a class="inline-block no-underline hover:text-[#6F00FF] font-medium text-lg py-2 px-4 lg:-ml-2" href="../../Public/">Inicio</a></li>
                     <li><a class="inline-block no-underline hover:text-[#6F00FF] font-medium text-lg py-2 px-4 lg:-ml-2" href="../QuieneSomos/quienessomos">Quiénes Somos</a></li>
                     <li><a class="inline-block no-underline hover:text-[#9333ea] font-medium text-lg py-2 px-4 lg:-ml-2" href="../Catalogo/catalogo">Catalogo</a></li>
                 </ul>
@@ -112,11 +112,7 @@ if (isset($_GET['id'])) {
                     <input type="number" id="quantity" class="block w-full border border-gray-300 rounded-md p-2" value="1">
                 </div>
                 <button id="add-to-cart" class="bg-black text-white w-full py-3 mt-5">AGREGAR AL CARRITO</button>
-                <a href="https://checkout.bold.co/payment/LNK_HP1U37UZ18" target="_blank">
-  <button id="buy-now" class="bg-white border border-black text-black w-full py-3 mt-2">
-    COMPRAR AHORA
-  </button>
-</a>
+                <button id="buy-now" class="bg-white border border-black text-black w-full py-3 mt-2">COMPRAR AHORA</button>
                 <button id="whatsapp-button" class="bg-[#70C05D] text-white w-full py-3 mt-2">PAGA POR WHATSAPP</button>
 
 

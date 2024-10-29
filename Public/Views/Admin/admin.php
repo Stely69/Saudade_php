@@ -11,64 +11,41 @@
          require_once '../Controller/CheckRole.php';
          checkRole('admin');
       ?>
+    <nav id="header" class="barra">
+        <div class="w-full flex items-center justify-between px-6 py-4 backdrop-blur-lg">
+            <label for="menu-toggle" class="cursor-pointer md:hidden block">
+                <svg class="fill-current text-blue-600" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+                    <title>menu</title>
+                    <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
+                </svg>
+            </label>
+            <input class="hidden" type="checkbox" id="menu-toggle">
 
-   <nav id="header" class="barra">
-         <div class="w-full flex items-center justify-between px-6 py-4 backdrop-blur-lg">
-               <label for="menu-toggle" class="cursor-pointer md:hidden block">
-                  <svg class="fill-current text-blue-600" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
-                     <title>menu</title>
-                     <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
-                  </svg>
-               </label>
-               <input class="hidden" type="checkbox" id="menu-toggle"> <!-- Checkbox para el menú móvil -->
+            <div class="hidden md:flex md:items-center md:w-auto w-full order-3 md:order-1" id="menu">
+                <nav>
+                    <ul class="md:flex items-center justify-between text-base text-black pt-4 md:pt-0">
+                        <a class="inline-block no-underline hover:text-purple font-medium text-lg py-2 px-4 lg:-ml-2" href="#"></a>
+                        <li><a class="inline-block no-underline hover:text-[#6F00FF] font-medium text-lg py-2 px-4 lg:-ml-2" href="../Views/inicioadmin.php">Inicio</a></li>
+                       
+                        
+                    </ul>
+                </nav>
+            </div>
 
-               <!-- Menú de navegación -->
-               <div class="hidden md:flex md:items-center md:w-auto w-full order-3 md:order-1" id="menu">
-                  <nav>
-                     <ul class="md:flex items-center justify-between text-base text-black pt-4 md:pt-0">
-                           <li><a class="inline-block no-underline hover:text-[#6F00FF] font-medium text-lg py-2 px-4 lg:-ml-2" href="../../Public/inicio">Inicio</a></li>
-                           <li><a class="inline-block no-underline hover:text-[#6F00FF] font-medium text-lg py-2 px-4 lg:-ml-2" href="../QuieneSomos/quienessomos">Quiénes Somos</a></li>
-                           <li><a class="inline-block no-underline hover:text-[#9333ea] font-medium text-lg py-2 px-4 lg:-ml-2" href="../Catalogo/catalogo">Catalogo</a></li>
-                           <?php // Iniciar sesión si aún no ha sido iniciada
-
-                                 include_once '../Models/RolesModel.php'; // Incluir modelo para manejo de roles
-
-                                 $role = null;
-                                 if (isset($_SESSION['role_id'])) { // Verificar si el rol está establecido en la sesión
-                                    $rolesModel = new RolesModel(); // Instanciar modelo de roles
-                                    $roleData = $rolesModel->getRoleById($_SESSION['role_id']); // Obtener datos del rol por ID
-                                    $role = $roleData['role_name']; // Asignar el nombre del rol a una variable
-                                 }
-                           ?>
-                           <?php if ($role === 'admin' ): ?>
-                              <li><a class="inline-block no-underline font-medium text-black text-lg hover:text-[#6F00FF] px-4" href="Admin/admin">Admin Dashboard</a></li>
-                           <?php elseif ($role === 'vendedor'): ?>
-                              <li><a class="inline-block no-underline font-medium text-black text-lg hover:text-[#6F00FF] px-4" href="Vendedor/vendedordashboard">Vendedor Dashboard</a></li>
-                            <?php endif; ?>
-                     </ul>
-                  </nav>
-               </div>
-
-               <!-- Contenido de navegación adicional -->
-               <div class="order-2 md:order-3 flex flex-wrap items-center justify-end mr-0 md:mr-4" id="nav-content">
-                  <div class="auth flex items-center w-full md:w-full">
-                     <button class=""><a style='font-size:24px;color:black' class='fas '>&#xf07a;</a></button> <!-- Icono de carrito -->
-
-                     <?php if (isset($_SESSION['username'])): ?>
-                           <!-- Mensaje de bienvenida si el usuario está autenticado -->
-                           <span class="inline-block no-underline font-medium text-black text-lg px-4">Hola, <?php echo $_SESSION['username']; ?>!</span>
-                           <a class="inline-block no-underline font-medium text-black text-lg hover:text-[#6F00FF] px-4" href="../Login/LogoutAction">Cerrar sesión</a>
-                     <?php else: ?>
-                           <!-- Enlaces de autenticación si el usuario no está autenticado -->
-                           <a class="inline-block font-medium no-underline text-black text-lg hover:text-[#6F00FF] px-4" href="inicio_sesion">Iniciar sesión</a>
-                           <a class="inline-block font-medium no-underline text-black text-lg hover:text-[#6F00FF]" href="registro">Registrarse</a>
-                     <?php endif; ?>
-                  </div>
-               </div>
-         </div>
-      </nav>
-
-
+            <div class="order-2 md:order-3 flex flex-wrap items-center justify-end mr-0 md:mr-4" id="nav-content">
+                <div class="auth flex items-center w-full md:w-full">
+                  
+                    
+                    <?php if (isset($_SESSION['username'])): ?>
+                        <span class="inline-block no-underline font-medium text-black text-lg px-4">Hola, <?php echo $_SESSION['username']; ?>!</span>
+                        <a class="inline-block no-underline font-medium text-black text-lg hover:text-[#6F00FF] px-4" href="../public/logout_action.php">Cerrar sesión</a>
+                    <?php else: ?>
+                   
+                    <?php endif; ?>
+                    
+                </div>
+            </div>
+        </div>
     <div class="w-full relative flex ct-docs-disable-sidebar-content overflow-x-hidden">
         <nav class="block py-4 px-6 top-0 bottom-0 w-64 bg-white shadow-xl left-0 absolute flex-row flex-nowrap md:z-10 z-9999 transition-all duration-300 ease-in-out transform md:translate-x-0 -translate-x-full">
            <button class="md:hidden flex items-center justify-center cursor-pointer text-blueGray-700 w-6 h-10 border-l-0 border-r border-t border-b border-solid border-blueGray-100 text-xl leading-none bg-white rounded-r border border-solid border-transparent absolute top-1/2 -right-24-px focus:outline-none z-9998"><i class="fas fa-ellipsis-v"></i></button>
@@ -78,7 +55,7 @@
                  <div class="md:flex-col md:min-w-full flex flex-col list-none">
                     <hr class="my-4 md:min-w-full">
                     <h6 class="md:min-w-full text-blueGray-500 text-xs uppercase font-bold block pt-1 pb-4 no-underline">Section 3</h6>
-                    <a href="usuarios" class="text-xs uppercase py-3 font-bold block text-blueGray-800 hover:text-blueGray-500"><i class="fas fa-newspaper mr-2 text-sm text-blueGray-400"></i>Usuario</a><a href="javascript:;" class="text-xs uppercase py-3 font-bold block text-blueGray-800 hover:text-blueGray-500"><i class="fas fa-user-circle mr-2 text-sm text-blueGray-400"></i>Page 2 for Section 3</a><a href="javascript:;" class="text-xs uppercase py-3 font-bold block text-blueGray-800 hover:text-blueGray-500"><i class="fas fa-paint-brush mr-2 text-sm text-blueGray-400"></i>Page 3 for Section 3</a>
+                    <a href="javascript:;" class="text-xs uppercase py-3 font-bold block text-blueGray-800 hover:text-blueGray-500"><i class="fas fa-newspaper mr-2 text-sm text-blueGray-400"></i>Page 1 for Section 3</a><a href="javascript:;" class="text-xs uppercase py-3 font-bold block text-blueGray-800 hover:text-blueGray-500"><i class="fas fa-user-circle mr-2 text-sm text-blueGray-400"></i>Page 2 for Section 3</a><a href="javascript:;" class="text-xs uppercase py-3 font-bold block text-blueGray-800 hover:text-blueGray-500"><i class="fas fa-paint-brush mr-2 text-sm text-blueGray-400"></i>Page 3 for Section 3</a>
                     <hr class="my-4 md:min-w-full">
                     <h6 class="md:min-w-full text-blueGray-500 text-xs uppercase font-bold block pt-1 pb-4 no-underline">Section 4</h6>
                     <a href="javascript:;" class="text-xs uppercase py-3 font-bold block text-blueGray-800 hover:text-blueGray-500"><i class="fab fa-angular mr-2 text-sm text-blueGray-400"></i>Page 1 for Section 4</a><a href="javascript:;" class="text-xs uppercase py-3 font-bold block text-blueGray-800 hover:text-blueGray-500"><i class="fab fa-react mr-2 text-sm text-blueGray-400"></i>Page 2 for Section 4</a><a href="javascript:;" class="text-xs uppercase py-3 font-bold block text-blueGray-800 hover:text-blueGray-500"><i class="fab fa-vuejs mr-2 text-sm text-blueGray-400"></i>Page 3 for Section 4</a>

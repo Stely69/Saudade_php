@@ -32,12 +32,13 @@
             }
 
             // Crear el usuario
-            
-            if($this->userModel->createuser($username,$email,$password,$role_id,$direccion_id)){
-                header('Location: ../inicio');
+            $hashedPassword = password_hash($password, PASSWORD_BCRYPT); // Hashear la contraseña
+            if ($this->userModel->createuser($username, $email, $hashedPassword, $role_id, $direccion_id)) {
+                header('Location: ../');
                 exit();
-            }else{
-                header('Location: ../Login/registro?error=Hubo un error al registrar el usuario.');
+            } else {
+                $_SESSION['error'] = 'Hubo un error al registrar el usuario.';
+                header('Location: ../Login/registro');
                 exit();
             }
         }
