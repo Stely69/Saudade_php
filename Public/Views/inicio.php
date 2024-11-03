@@ -145,15 +145,33 @@
 </style>
 
     <!-- Pop-up de bienvenida para el usuario no registrado -->
-    <div id="popup" class="fixed z-50 bg-slate-100 opacity-95 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2  shadow-lg font-comic-sans rounded-md p-24 text-center animate-popup drop-shadow-2xl " style="display: none; width: 500px; height: 550px;">
-        <img id="popup-image" src="../public/img/LOGO_SAUDADE.png" alt="Descripción de la imagen">
-        <h2 class="text-xl font-bold py-2">¡Te Damos la Bienvenida a Saudade!</h2>
-        <p class="py-2 text-lg font-normal">Obtén un descuento del 10% en tu primera compra iniciando sesión.</p>
-        <div class="flex justify-center align-center space-x-4 py-4">
-            <a href="Login/inicio_sesion" class=" bg-black text-white hover:text-[#6F00FF] hover:bg-gray-300 px-4 py-2 rounded-lg text-center px-4 font-medium text-lg">Iniciar sesión</a>
-            <button onclick="closePopup()" class="bg-gray-300 hover:bg-gray-400 text-black px-4 py-2 rounded-lg  font-medium text-lg">Cerrar</button>
-        </div>
+    <div id="popup" class="fixed z-50 bg-slate-100 opacity-95 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 shadow-lg font-comic-sans rounded-md p-24 text-center animate-popup drop-shadow-2xl" style="display: none; width: 500px; height: 550px;">
+    <img id="popup-image" src="../public/img/LOGO_SAUDADE.png" alt="Descripción de la imagen" class="transform scale-110 animate-flip-horizontal mx-auto">
+    <h2 class="text-xl font-bold py-2">¡Te Damos la Bienvenida a Saudade!</h2>
+    <p class="py-2 text-lg font-normal">Obtén un descuento del 10% en tu primera compra iniciando sesión.</p>
+    <div class="flex justify-center align-center space-x-4 py-4">
+        <a href="Login/inicio_sesion" class="bg-black text-white hover:text-[#6F00FF] hover:bg-gray-300 px-4 py-2 rounded-lg text-center px-4 font-medium text-lg">Iniciar sesión</a>
+        <button onclick="closePopup()" class="bg-gray-300 hover:bg-gray-400 text-black px-4 py-2 rounded-lg font-medium text-lg">Cerrar</button>
     </div>
+</div>
+
+<style>
+
+@keyframes flip-horizontal {
+    0% {
+        transform: rotateY(0deg);
+    }
+    100% {
+        transform: rotateY(360deg);
+    }
+}
+
+.animate-flip-horizontal {
+    animation: flip-horizontal 4s linear infinite; /* Ajuste de velocidad */
+}
+
+</style>
+
 
     <!-- Spotify Widget para agregar música -->
     <iframe class="luna" style="border-radius:12px" src="https://open.spotify.com/embed/track/7bywjHOc0wSjGGbj04XbVi?utm_source=generator&theme=0" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
@@ -194,9 +212,9 @@
 
 
   <!-- Slogan de la página -->
-<div style="text-align: center">
+  <div style="text-align: center">
     <!-- Logo de la marca Saudade -->
-    <img src="../public/Img/LOGO_SAUDADE.png" alt="Logo Saudade" class="sloganlogo">
+    <img src="../public/Img/LOGO_SAUDADE.png" alt="Logo Saudade" class="sloganlogo transform animate-flip-horizontal" style="width: 300px; height: 250px;">
     <!-- Slogan principal -->
     <h1 class="slogan"> A VIDA É MUITO CURTA PARA CONTINUAR USANDO ROUPAS CHATAS </h1>
     <!-- Subtítulo adicional -->
@@ -204,6 +222,26 @@
     <!-- Botón de llamada a la acción -->
     <a href="#" class="sloganbtn">Compra Ahora</a>
 </div>
+
+
+
+
+<style>
+  @keyframes flip-horizontal {
+    0% {
+        transform: rotateY(0deg);
+    }
+    100% {
+        transform: rotateY(360deg);
+    }
+}
+
+.animate-flip-horizontal {
+    animation: flip-horizontal 3s linear infinite; /* Ajuste de velocidad */
+}
+
+
+</style>
 
 <!-- Sección NEW MERCH -->
 <div class="text-center mb-8">
