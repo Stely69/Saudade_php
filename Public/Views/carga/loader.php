@@ -6,253 +6,69 @@ header("Refresh: 3; url=/inicio"); // Cambia "/inicio" por la ruta que necesites
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>SAUDAGE</title>
+  <title>SAUDADE</title>
   <link rel="stylesheet" href="../static/css/carga.css">
   <style>
-    /* Opcional: añadir una animación para el desvanecimiento */
-    .fade-out {
-      animation: fadeOut 1s forwards;
+    /* Animación de rotación horizontal */
+    @keyframes rotateHorizontal {
+      from {
+        transform: rotateY(0deg);
+      }
+      to {
+        transform: rotateY(360deg);
+      }
     }
 
-    @keyframes fadeOut {
-      from { opacity: 1; }
-      to { opacity: 0; }
+    /* Estilos de pantalla de carga */
+    body {
+      background-color: #000000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      overflow: hidden;
+      transition: opacity 1s ease-out;
+      opacity: 1;
+    }
+
+    /* Clase para aplicar el desvanecimiento al finalizar la carga */
+    body.fade-out {
+      opacity: 0;
+    }
+
+    /* Estilos del logo */
+    #logo {
+      width: 350px; /* Ajusta el tamaño del logo */
+      animation: rotateHorizontal 2s linear infinite;
+    }
+
+    /* Estilo del texto "SAUDADE" */
+    #logo-text {
+      color: #fff;
+      font-size: 1.2rem;
+      font-family: Arial, sans-serif;
+      margin-top: 10px;
+      text-align: center;
     }
   </style>
 </head>
 <body>
-  <section id="global">
-    <div id="top" class="mask">
-      <div class="plane"></div>
-    </div>
-    <div id="middle" class="mask">
-      <div class="plane"></div>
-    </div>
-    <div id="bottom" class="mask">
-      <div class="plane"></div>
-    </div>
-    <font size=""><p>SAUDADE</p></font>
-  </section>
-  
+  <!-- Logo y texto de Saudade -->
+  <div>
+    <img id="logo" src="../public/img/LOGO_SAUDADE.png" alt="Logo Saudade">
+  </div>
+
   <script>
-    setTimeout(function(){
-        // Añade la clase de desvanecimiento
+    setTimeout(function() {
+        // Aplica el desvanecimiento
         document.body.classList.add('fade-out');
 
-        // Espera a que termine la animación y redirige
+        // Redirige tras la animación de desvanecimiento
         setTimeout(function() {
             window.location.href = 'inicio'; // Cambia a la ruta que necesitas
-        }, 1000); // Espera 1 segundo para la animación
-    }, 2000); // Espera 2 segundos antes de iniciar la animación
-</script>
-
-
-
-  <style>
-    body {
-    background: #000000;
-}
-  
-#global {
-    width: 70px;
-    margin: auto;
-    margin-top: 500px;
-    position: relative;
-    cursor: pointer;
-    height: 60px;
-    justify-content: center;
-}
-  
-.mask {
-    position: absolute;
-    border-radius: 2px;
-    overflow: hidden;
-    -webkit-perspective: 1000;
-            perspective: 1000;
-    -webkit-backface-visibility: hidden;
-            backface-visibility: hidden;
-}
-  
-.plane {
-    background: #af69cd;
-    width: 400%;
-    height: 100%;
-    position: absolute;
-    -webkit-transform: translate3d(0px, 0, 0);
-            transform: translate3d(0px, 0, 0);
-    
-    z-index: 100;
-    -webkit-perspective: 1000;
-            perspective: 1000;
-    -webkit-backface-visibility: hidden;
-            backface-visibility: hidden;
-}
-  
-.animation {
-    -webkit-transition: all 0.3s ease;
-    transition: all 0.3s ease;
-}
-  
-#top .plane {
-    z-index: 2000;
-    -webkit-animation: trans1 1.3s ease-in infinite  0s backwards;
-            animation: trans1 1.3s ease-in infinite  0s backwards;
-}
-  
-#middle .plane {
-    -webkit-transform: translate3d(0px, 0, 0);
-    transform: translate3d(0px, 0, 0);
-    background: #af69cd;
-    -webkit-animation: trans2 1.3s linear infinite  0.3s  backwards;
-     animation: trans2 1.3s linear infinite  0.3s  backwards;
-}
-  
-#bottom .plane {
-    z-index: 2000;
-    -webkit-animation: trans3 1.3s ease-out infinite  0.7s backwards;
-    animation: trans3 1.3s ease-out infinite  0.7s backwards;
-}
-  
-#top {
-    width: 53px;
-    height: 20px;
-    left: 20px;
-    -webkit-transform: skew(-15deg, 0);
-            transform: skew(-15deg, 0);
-    z-index: 100;
-}
-  
-#middle {
-    width: 33px;
-    height: 20px;
-    left: 20px;
-    top: 15px;
-    -webkit-transform: skew(-15deg, 40deg);
-            transform: skew(-15deg, 40deg);
-}
-  
-#bottom {
-    width: 53px;
-    height: 20px;
-    top: 30px;
-    -webkit-transform: skew(-15deg, 0);
-            transform: skew(-15deg, 0);
-}
-  
-p {
-    color: #fff;
-    position: absolute;
-    left: -3px;
-    top: 45px;
-    font-family: Arial;
-    text-align: center;
-    font-size: 10px;
-}
-  
-@-webkit-keyframes trans1 {
-    from {
-      -webkit-transform: translate3d(53px, 0, 0);
-              transform: translate3d(53px, 0, 0);
-    }
-    to {
-      -webkit-transform: translate3d(-250px, 0, 0);
-              transform: translate3d(-250px, 0, 0);
-    }
-}
-  
-@keyframes trans1 {
-    from {
-      -webkit-transform: translate3d(53px, 0, 0);
-              transform: translate3d(53px, 0, 0);
-    }
-    to {
-      -webkit-transform: translate3d(-250px, 0, 0);
-              transform: translate3d(-250px, 0, 0);
-    }
-}
-@-webkit-keyframes trans2 {
-    from {
-      -webkit-transform: translate3d(-160px, 0, 0);
-              transform: translate3d(-160px, 0, 0);
-    }
-    to {
-      -webkit-transform: translate3d(53px, 0, 0);
-              transform: translate3d(53px, 0, 0);
-    }
-}
-@keyframes trans2 {
-    from {
-      -webkit-transform: translate3d(-160px, 0, 0);
-              transform: translate3d(-160px, 0, 0);
-    }
-    to {
-      -webkit-transform: translate3d(53px, 0, 0);
-              transform: translate3d(53px, 0, 0);
-    }
-}
-@-webkit-keyframes trans3 {
-    from {
-      -webkit-transform: translate3d(53px, 0, 0);
-              transform: translate3d(53px, 0, 0);
-    }
-    to {
-      -webkit-transform: translate3d(-220px, 0, 0);
-              transform: translate3d(-220px, 0, 0);
-    }
-}
-@keyframes trans3 {
-    from {
-      -webkit-transform: translate3d(53px, 0, 0);
-              transform: translate3d(53px, 0, 0);
-    }
-    to {
-      -webkit-transform: translate3d(-220px, 0, 0);
-              transform: translate3d(-220px, 0, 0);
-    }
-}
-@-webkit-keyframes animColor {
-    from {
-      background: red;
-    }
-    25% {
-      background: yellow;
-    }
-    50% {
-      background: green;
-    }
-    75% {
-      background: brown;
-    }
-    to {
-      background: blue;
-    }
-}
-@keyframes animColor {
-    from {
-      background: red;
-    }
-    25% {
-      background: yellow;
-    }
-    50% {
-      background: green;
-    }
-    75% {
-      background: brown;
-    }
-    to {
-      background: blue;
-    }
-}
-  
-body {
-    transition: opacity 1s ease-out;
-    opacity: 1;
-}
-  
-  body.fade-out {
-    opacity: 0;
-} 
-  </style>
+        }, 1000); // Tiempo de espera para completar la animación
+    }, 2000); // Tiempo antes de iniciar la animación de desvanecimiento
+  </script>
 </body>
 </html>
