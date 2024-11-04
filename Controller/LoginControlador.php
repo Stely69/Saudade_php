@@ -27,4 +27,8 @@
         public function registro() {
             $this->cargarVista("Login/registro");
         }
+
+        public function perfil(){
+            $this->cargarVista("Perfil/perfil");
+        }
     }

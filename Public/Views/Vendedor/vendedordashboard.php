@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" href="../img/LOGO_SAUDADE.png"  type="image/png">
     <title>Editor De Saudade</title>
 </head>
 <body>
@@ -18,7 +19,7 @@
     ?>
 
     <nav id="header" class="barra">
-            <div class="w-full flex items-center justify-between px-6 py-4 backdrop-blur-lg">
+            <div class="w-full flex items-center justify-between px-6 py-4 backdrop-blur-lg fixed ">
                 <!-- Icono de menú para dispositivos móviles -->
                 <label for="menu-toggle" class="cursor-pointer md:hidden block">
                     <svg class="fill-current text-blue-600" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
@@ -109,7 +110,7 @@
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" class="w-5 h-5 text-inherit">
                     <path fill-rule="evenodd" d="M18.685 19.097A9.723 9.723 0 0021.75 12c0-5.385-4.365-9.75-9.75-9.75S2.25 6.615 2.25 12a9.723 9.723 0 003.065 7.097A9.716 9.716 0 0012 21.75a9.716 9.716 0 006.685-2.653zm-12.54-1.285A7.486 7.486 0 0112 15a7.486 7.486 0 015.855 2.812A8.224 8.224 0 0112 20.25a8.224 8.224 0 01-5.855-2.438zM15.75 9a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" clip-rule="evenodd"></path>
                 </svg>
-                <p class="block antialiased font-sans text-base leading-relaxed text-inherit font-medium capitalize">Perfil</p>
+                <p class="block antialiased font-sans text-base leading-relaxed text-inherit font-medium capitalize">Notificaciones</p>
                 </button>
             </a>
             </li>
@@ -144,7 +145,7 @@
 
     <div class="pt-10 md:pl-80">
         <div class="">
-            <button id="agregarProductoBtn" class="bg-blue-200 p-4 rounded-2xl w-52 flex flex-row items-center justify-center space-x-2">
+            <button id="agregarProductoBtn" class="bg-blue-200 p-4 my-10 rounded-2xl w-52 flex flex-row items-center justify-center space-x-2">
                 <i style="font-size:24px" class="fa">&#xf196;</i>
                 <p>Agregar Producto</p>
             </button>
@@ -210,7 +211,7 @@
 
 
     <!-- Productos existentes y dinámicos -->
-<div id="productos" class="grid grid-cols-1 md:grid-cols-3 gap-5 bg-white md:pl-80 pt-20 md:px-40">
+<div id="productos" class="grid grid-cols-1 md:grid-cols-3 gap-5 bg-white md:pl-80 pt-6 md:px-40">
     <?php foreach ($getproducto as $productos): ?>
         <div class="bg-white p-4 border rounded-lg shadow-lg">
             <!-- Imagen del producto -->

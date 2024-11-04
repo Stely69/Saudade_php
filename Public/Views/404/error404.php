@@ -3,6 +3,7 @@
 <link rel="stylesheet" href="https://cdn.materialdesignicons.com/6.5.95/css/materialdesignicons.min.css">
 <!-- Carga Tailwind CSS desde CDN -->
 <script src="https://cdn.tailwindcss.com"></script>
+<link rel="icon" href="../img/LOGO_SAUDADE.png"  type="image/png">
 
 <!-- Contenedor principal de la página -->
 <div class="flex items-center justify-center min-h-screen bg-white py-48">

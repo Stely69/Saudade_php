@@ -42,4 +42,10 @@
                 exit();
             }
         }
+        // Controlador - UserController.php
+        public function getUserProfile($userId) {
+            $userModel = new UserModel();
+            return $userModel->getUserById($userId);
+        }
+        
     }

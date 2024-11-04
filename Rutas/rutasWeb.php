@@ -6,14 +6,9 @@
     use Controller\LoginControlador;
     use Controller\AdminController;
     use Libreria\Enrutador;
-    use Controller\CargaControlador;
 
     // Rutas para la página de inicio
-
-    Enrutador::get(url: "/", llamarFuncion: [CargaControlador::class, "loader"]);
-
-    Enrutador::get(url: "/inicio", llamarFuncion: [InicioControlador::class, "inicio"]); // Página principal
-
+    Enrutador::get("/", [InicioControlador::class, "inicio"]);
 
     // Rutas de Login
     Enrutador::get("/Login/inicio_sesion", [LoginControlador::class, "login"]); // Mostrar formulario de inicio de sesión
@@ -31,12 +26,13 @@
 
     // Rutas para el administrador
     Enrutador::get("/Admin/admin", [AdminController::class, "Admin"]); // Panel del administrador
-    Enrutador::get("/Admin/usuarios", [AdminController::class, "Usuario"]);
 
     // Rutas para el vendedor
-    Enrutador::get("/Vendedor/editor/", [AdminController::class, "editor"]); // Editor de productos para vendedores
+    Enrutador::get("/Vendedor/EliminarAction", [AdminController::class, "eliminar"]); // Editor de productos para vendedores
     Enrutador::get("/Vendedor/vendedordashboard", [AdminController::class, "Vendedor"]); // Panel del vendedor
     Enrutador::post("/Vendedor/VendedorAction", [AdminController::class, "vendedoraction"]); // Acción para manejar acciones del vendedor
+    Enrutador::post("/Vendedor/EditorAction", [AdminController::class, "editor"]); // Acción para manejar acciones del vendedor
 
+    Enrutador::get("/Perfil/perfil", [LoginControlador::class, "perfil"]); // Acción para cerrar sesión
     // Obtener y procesar la ruta solicitada
     Enrutador::obtenerRuta();

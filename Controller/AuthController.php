@@ -13,26 +13,33 @@
 
         // Método para iniciar sesión
         public function login($email, $password) {
-            // Se obtiene el usuario por su email usando el modelo
             $user = $this->userModel->getEmail($email);
-
-            // Se verifica que el usuario exista y que la contraseña proporcionada sea correcta
-            if ($user && password_verify($password, $user['password'])) {
-                session_start(); // Se inicia la sesión
-                
-                // Se guardan los datos del usuario en la sesión
-                $_SESSION['user_id'] = $user['id'];
-                $_SESSION['username'] = $user['username'];
-                $_SESSION['role_id'] = $user['role_id'];
-
-                // Redirige a la página principal después de iniciar sesión correctamente
-                header("Location: ../");
-                exit();
-            } else {
-                // Si el email o la contraseña son incorrectos, redirige a la página de inicio de sesión con un mensaje de error
-                header('Location: ../Login/inicio_sesion?error=Email o contraseña incorrectos');
+        
+            // Si el usuario no existe
+            if (!$user) {
+                // Redirigir al inicio de sesión con un mensaje de error específico para el email
+                header('Location: ../Login/inicio_sesion?error=Email no encontrado');
                 exit();
             }
+        
+            // Si el usuario existe pero la contraseña es incorrecta
+            if (!password_verify($password, $user['password'])) {
+                // Redirigir al inicio de sesión con un mensaje de error específico para la contraseña
+                header('Location: ../Login/inicio_sesion?error=Contraseña incorrecta');
+                exit();
+            }
+        
+            // Si el usuario y la contraseña son correctos
+            session_start(); // Iniciar sesión
+        
+            // Guardar los datos del usuario en la sesión
+            $_SESSION['user_id'] = $user['id'];
+            $_SESSION['username'] = $user['username'];
+            $_SESSION['role_id'] = $user['role_id'];
+        
+            // Redirigir a la página principal
+            header("Location: ../");
+            exit();
         }
 
         // Método para cerrar sesión

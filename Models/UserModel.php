@@ -35,5 +35,14 @@
             // Se ejecuta la consulta con los valores proporcionados, incluyendo el hash de la contraseña
             return $stmt->execute([$username, $email, password_hash($password, PASSWORD_BCRYPT), $role_id, $direccion_id]);
         }
+        public function getUserById($userId) {
+            $query = "SELECT id, username, email FROM usuarios WHERE id = :userId";
+            $stmt = $this->conn->prepare($query);
+            $stmt->bindParam(':userId', $userId, PDO::PARAM_INT);
+            $stmt->execute();
+            return $stmt->fetch(PDO::FETCH_ASSOC);
+        }
+        
+
     }
         

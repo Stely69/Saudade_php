@@ -1,108 +1,106 @@
+<!-- perfil.php -->
+<?php
+session_start();
+// Incluye el controlador y obtén los datos del usuario
+require_once '../Controller/UserController.php';
+$userController = new UserController();
+$user = $userController->getUserProfile($_SESSION['user_id']); // Supón que el ID del usuario está en la sesión
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Saudage Registro</title>
-    <link rel="stylesheet" href="../../Public/css/style.css"> <!-- Estilo CSS personalizado -->
-    <script src="https://cdn.tailwindcss.com"></script> <!-- Importa Tailwind CSS -->
-    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script> <!-- Font Awesome para íconos -->
+    <title>Perfil de Usuario</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="icon" href="../img/LOGO_SAUDADE.png"  type="image/png">
 </head>
-<body>
-    <?php
-        session_start(); // Inicia la sesión para acceder a las variables de sesión
-    ?>
-    
+<body class="bg-gray-100">
+
     <nav id="header" class="barra">
         <div class="w-full flex items-center justify-between px-6 py-4 backdrop-blur-lg">
-            <!-- Botón para menú móvil -->
+            
+            <!-- Ícono de menú para dispositivos móviles -->
             <label for="menu-toggle" class="cursor-pointer md:hidden block">
                 <svg class="fill-current text-blue-600" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
                     <title>menu</title>
                     <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
                 </svg>
             </label>
-            <input class="hidden" type="checkbox" id="menu-toggle"> <!-- Checkbox para controlar el menú móvil -->
+            <input class="hidden" type="checkbox" id="menu-toggle">
 
-            <div class="hidden md:flex md:items-center md:w-auto w-full order-3 md:order-1" id="menu">
+            <!-- Menú de navegación, oculto en móviles y visible en pantallas más grandes -->
+            <div id="menu" class="hidden fixed top-0 left-0 h-full w-3/4 bg-purple-600 shadow-lg z-50 md:relative md:flex md:bg-transparent md:shadow-none md:w-auto md:h-auto md:order-1">
                 <nav>
-                    <ul class="md:flex items-center justify-between text-base text-black pt-4 md:pt-0">
-                        <li><a class="inline-block no-underline hover:text-[#6F00FF] font-medium text-lg py-2 px-4 lg:-ml-2" href="../../Public/">Inicio</a></li>
+                    <ul class="flex flex-col md:flex-row md:items-center text-base text-white md:text-black pt-4 md:pt-0">
+                        <!-- Enlaces de navegación -->
+                        <li><a class="inline-block no-underline hover:text-[#6F00FF] font-medium text-lg py-2 px-4 lg:-ml-2" href="../">Inicio</a></li>
                         <li><a class="inline-block no-underline hover:text-[#6F00FF] font-medium text-lg py-2 px-4 lg:-ml-2" href="../QuieneSomos/quienessomos">Quiénes Somos</a></li>
-                        <li><a class="inline-block no-underline hover:text-[#9333ea] font-medium text-lg py-2 px-4 lg:-ml-2" href="../Catalogo/catalogo">Catalogo</a></li>
+                        <li><a class="inline-block no-underline hover:text-[#6F00FF] font-medium text-lg py-2 px-4 lg:-ml-2" href="../Catalogo/catalogo">Catalogo</a></li>
+
+                        <!-- PHP para manejar la sesión del usuario -->
+                        <?php
+                            // Iniciar sesión si aún no ha sido iniciada
+
+                            include_once '../Models/RolesModel.php'; // Incluir modelo para manejo de roles
+
+                            $role = null;
+                            if (isset($_SESSION['role_id'])) { // Verificar si el rol está establecido en la sesión
+                                $rolesModel = new RolesModel(); // Instanciar modelo de roles
+                                $roleData = $rolesModel->getRoleById($_SESSION['role_id']); // Obtener datos del rol por ID
+                                $role = $roleData['role_name']; // Asignar el nombre del rol a una variable
+                            }
+                        ?>
+
+                        <!-- Mostrar enlaces adicionales dependiendo del rol del usuario -->
+                        <?php if ($role === 'admin' ): ?>
+                            <li><a class="inline-block no-underline font-medium text-black text-lg hover:text-[#6F00FF] px-4" href="../Admin/admin">Admin Dashboard</a></li>
+                        <?php elseif ($role === 'vendedor'): ?>
+                            <li><a class="inline-block no-underline font-medium text-black text-lg hover:text-[#6F00FF] px-4" href="../Vendedor/vendedordashboard">Vendedor Dashboard</a></li>
+                        <?php endif; ?>
                     </ul>
                 </nav>
             </div>
 
+            <!-- Opciones de sesión y carrito de compras -->
             <div class="order-2 md:order-3 flex flex-wrap items-center justify-end mr-0 md:mr-4" id="nav-content">
                 <div class="auth flex items-center w-full md:w-full">
-                    <button class=""><a style='font-size:24px;color:black' class='fas '>&#xf07a;</a></button>
+                    <!-- Ícono de carrito de compras -->
+                    <button><a style='font-size:24px;color:black' class='fas'>&#xf07a;</a></button>
 
-                    <?php if (isset($_SESSION['username'])): ?>
-                        <!-- Mensaje de bienvenida si el usuario está autenticado -->
-                        <span class="inline-block no-underline font-medium text-black text-lg px-4">Hola, <?php echo $_SESSION['username']; ?>!</span>
-                        <a class="inline-block no-underline font-medium text-black text-lg hover:text-[#6F00FF] px-4" href="LogoutAction">Cerrar sesión</a>
+                    <!-- PHP para mostrar mensaje de bienvenida o opciones de inicio de sesión/registro -->
+                    <?php if (isset($_SESSION['user_id'])): ?>
+                        <a class="inline-block no-underline font-medium text-black text-lg px-4 hover:text-[#6F00FF]" href="">Hola, <?php echo $_SESSION['username']; ?>!</a>
+                        <a class="inline-block no-underline font-medium text-black text-lg hover:text-[#6F00FF] px-4" href="../Login/LogoutAction">Cerrar Sesión </a>
                     <?php else: ?>
-                        <!-- Enlaces para iniciar sesión o registrarse si no está autenticado -->
-                        <a class="inline-block font-medium no-underline text-black text-lg hover:text-[#6F00FF] px-4" href="inicio_sesion">Iniciar sesión</a>
-                        <a class="inline-block font-medium no-underline text-black text-lg hover:text-[#6F00FF]" href="registro">Registrarse</a>
+                        <a class="inline-block no-underline font-medium text-black text-lg hover:text-[#6F00FF] px-4" href="../Login/inicio_sesion">Iniciar Sesión</a>
+                        <a class="inline-block no-underline font-medium text-black text-lg hover:text-[#6F00FF] px-4" href="../Login/registro">Registrarse</a>
                     <?php endif; ?>
                 </div>
             </div>
         </div>
     </nav>
 
-    <!-- Imágenes de fondo (ángeles) -->
-    <img src="../Img/ANGEL SIN FONDO.png" class="angel1 transform -scale-x-100 absolute"> <!-- Imagen 1 -->
-    <img src="../Img/ANGEL SIN FONDO.png" class="angel2 transform -scale-x-200 absolute"> <!-- Imagen 2 -->
-
-    <!-- Sección de registro -->
-    <div class="container mx-auto max-w-lg p-10 rounded-lg drop-shadow-2xl my-20 bg-[#050016]">
-        <div class="text-center font-bold text-mg py-2 text-white mb-5">
-            <h1 class="text-2xl font-bold">Bienvenido a Saudade</h1> <!-- Título principal -->
+    <div class="flex justify-center items-center h-screen">
+        <div class="bg-white shadow-lg rounded-lg p-6 max-w-md w-full">
+            <h2 class="text-2xl font-bold text-center mb-4">Perfil de Usuario</h2>
+            <div class="flex flex-col items-center space-y-3">
+                <div class="text-lg">
+                    <span class="font-semibold">Nombre:</span> 
+                    <?= htmlspecialchars($user['username']); ?>
+                </div>
+                <div class="text-lg">
+                    <span class="font-semibold">Correo:</span> 
+                    <?= htmlspecialchars($user['email']); ?>
+                </div>
+            </div>
+            <div class="flex justify-center mt-6">
+                <a href="/editarPerfil" class="bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition">Editar Perfil</a>
+            </div>
         </div>
-
-        <!-- Formulario de registro -->
-        <form action="RegisterAction" method="post" class="flex flex-col" onsubmit="return validarFormulario()">
-            <div class="mb-3">
-                <label for="nombre" class="block font-bold text-mg py-1 text-white">Nombre Completo</label>
-                <input type="text" id="nombre" name="username" class="form-input w-full rounded-md border py-1 border-gray-300 focus:border-blue-500" required>
-            </div>
-    
-            <div class="mb-3">
-                <label for="email" class="block font-bold text-mg py-1 text-white">Correo Electrónico</label>
-                <input type="email" id="email" name="email" class="form-input w-full rounded-md border py-1 border-gray-300 focus:border-blue-500" required>
-            </div>
-
-            <?php if(isset($_GET['error'])): ?>
-                <!-- Muestra un mensaje de error si existe -->
-                <p class="text-red-500 font-bold"><?php echo $_GET['error']; ?></p>
-            <?php endif; ?>
-    
-            <div class="mb-3">
-                <label for="password" class="block font-bold text-mg py-1 text-white">Contraseña</label>
-                <input type="password" id="password" name="password" class="form-input w-full rounded-md py-1 border border-gray-300 focus:border-blue-500" required minlength="8">
-            </div>
-    
-            <div class="mb-3">
-                <label for="repetirPassword" class="block font-bold text-mg py-1 text-white">Repetir Contraseña</label>
-                <input type="password" id="repetirPassword" name="repetirPassword" class="form-input w-full py-1 rounded-md border border-gray-300 focus:border-blue-500" required minlength="8">
-            </div>
-
-            <div class="flex items-center py-1 justify-between mb-5">
-                <!-- Enlace para iniciar sesión si ya tienen cuenta -->
-                <a href="inicio_sesion" class="text-sm text-blue-500 hover:underline">¿Ya tienes una cuenta? Inicia sesión</a>
-            </div>
-    
-            <button type="submit" class="bg-blue-500 text-white font-bold py-2 px-4 rounded-md hover:bg-blue-600">Registrarse</button>
-            <!-- Botón de envío para registrar -->
-        </form>
     </div>
-    
-    <script src="../Public/js/validacionregistro.js"></script> <!-- Script para validaciones -->
-
-<!-- Pie de página -->
+</body>
 <footer>
 
   <svg viewBox="0 0 120 28">
@@ -409,5 +407,4 @@ svg {
     }
     createRain();
 </script>
-</body>
 </html>

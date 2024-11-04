@@ -30,6 +30,7 @@ if (isset($_GET['id'])) {
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="icon" href="../img/LOGO_SAUDADE.png"  type="image/png">
 
    
 </head>
@@ -55,6 +56,7 @@ if (isset($_GET['id'])) {
                     <li><a class="inline-block no-underline hover:text-[#9333ea] font-medium text-lg py-2 px-4 lg:-ml-2" href="../Catalogo/catalogo">Catalogo</a></li>
                 </ul>
             </nav>
+            
         </div>
         
         <!-- Botón del carrito -->

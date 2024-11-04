@@ -7,6 +7,7 @@
     <script src="https://cdn.tailwindcss.com"></script> <!-- Carga Tailwind CSS -->
     <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script> <!-- Carga Font Awesome para íconos -->
     <link rel="stylesheet" href="../../Public/css/style.css"> <!-- Enlace a la hoja de estilos personalizada -->
+    <link rel="icon" href="../img/LOGO_SAUDADE.png"  type="image/png">
 </head>
 <body>
     <?php

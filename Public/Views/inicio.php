@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="../public/css/whats.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="../public/css/whats2.css">
+    <link rel="icon" href="img/LOGO_SAUDADE.png"  type="image/png">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
 
@@ -77,7 +78,7 @@
 
                     <!-- PHP para mostrar mensaje de bienvenida o opciones de inicio de sesión/registro -->
                     <?php if (isset($_SESSION['user_id'])): ?>
-                        <span class="inline-block no-underline font-medium text-black text-lg px-4">Hola, <?php echo $_SESSION['username']; ?>!</span>
+                        <a class="inline-block no-underline font-medium text-black text-lg px-4 hover:text-[#6F00FF]" href="Perfil/perfil">Hola, <?php echo $_SESSION['username']; ?>!</a>
                         <a class="inline-block no-underline font-medium text-black text-lg hover:text-[#6F00FF] px-4" href="Login/LogoutAction">Cerrar Sesión </a>
                     <?php else: ?>
                         <a class="inline-block no-underline font-medium text-black text-lg hover:text-[#6F00FF] px-4" href="Login/inicio_sesion">Iniciar Sesión</a>
