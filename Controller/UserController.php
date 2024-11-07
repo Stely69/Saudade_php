@@ -26,19 +26,19 @@
 
             // Verificar si el usuario ya existe
             if ($this->userModel->usuarioExiste($email)) {
-                $_SESSION['error'] = 'El correo electrónico ya está en uso. Por favor, elige otro.';
-                header('Location: ../Login/registro');
+                header('Location: ../Login/registro?error=El correo electrónico ya está en uso. Por favor, elige otro.');
                 exit();
             }
 
             // Crear el usuario
-            $hashedPassword = password_hash($password, PASSWORD_BCRYPT); // Hashear la contraseña
-            if ($this->userModel->createuser($username, $email, $hashedPassword, $role_id, $direccion_id)) {
+
+            //$hashed_Password = password_hash($password, PASSWORD_BCRYPT);
+
+            if ($this->userModel->createuser($username, $email, $password, $role_id, $direccion_id)) {
                 header('Location: ../');
                 exit();
             } else {
-                $_SESSION['error'] = 'Hubo un error al registrar el usuario.';
-                header('Location: ../Login/registro');
+                header('Location: ../Login/registro?error=Hubo un error al registrar el usuario.');
                 exit();
             }
         }

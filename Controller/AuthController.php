@@ -24,8 +24,7 @@
         
             // Si el usuario existe pero la contraseña es incorrecta
             if (!password_verify($password, $user['password'])) {
-                // Redirigir al inicio de sesión con un mensaje de error específico para la contraseña
-                header('Location: ../Login/inicio_sesion?error=Contraseña incorrecta');
+                header('Location: ../Login/inicio_sesion?error=Contraseña Incorrecta');
                 exit();
             }
         
@@ -36,6 +35,12 @@
             $_SESSION['user_id'] = $user['id'];
             $_SESSION['username'] = $user['username'];
             $_SESSION['role_id'] = $user['role_id'];
+
+            if (isset($_SESSION['user_id'])) {
+                echo "Sesión iniciada con éxito.";
+            } else {
+                echo "Error al guardar datos en la sesión.";
+            }
         
             // Redirigir a la página principal
             header("Location: ../");
